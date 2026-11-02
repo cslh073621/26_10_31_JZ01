@@ -9,3 +9,13 @@
 - 文件：新增HANDOFF.md和DEV_LOG.md。文档UTF-8、换行及路径核验；无源码，未编译/板测，无ROM/RAM/HEX数据。
 - 工具问题：PowerShell初始管道编码损坏中文，提交前已以UTF-8重新写入并检查；Git所有权提示通过仅对指定仓库生效的命令级safe.directory处理。
 - Commit：见包含本记录的提交；message：docs: initialize JZ01 requirements and handoff。
+
+
+## 2026-11-02：用户参数确认及固定9V方案
+- 用户确认HS16P2811、16MHz/4T、反馈100k:10k、PWM7+3，要求以FanForge无刷固定电压为基础；明确6脚制冷与7脚升压导通是成熟常规功能，不应重复提问。
+- 决策：选择FanForge F824固定电压作为直接参考，不再使用泛化候选；沿用成熟函数布局和使能极性。
+- 只读核验：读取FanForge配置、芯片表、emitter/planner/models以及P2811手册p29-36。仅将参考分频置4后规划通过，T1理论400计数/0xFE70；2脚PA7/T3PWM3；10脚PC1/AIN5。
+- 目标换算：9V/(100k+10k)*10k=0.81818V；2V参考、4095量程、测量×2得到比较目标3350，不带入旧板200mV校准。
+- 发现：FanForge预置仍按档位升压，零步进JSON被模型拒绝；后续应在JZ01的Get_Fin_Val内最小改为固定9V，不修改公共生成器。T3PL计数口径与手册文字有差异，规划频率未作实测证明。
+- 文件：新增IMPLEMENTATION_PLAN.md完整事前对比表，尾部追加本记录与HANDOFF更新；无源码、寄存器变动，无编译或板测。
+- 按AGENTS.md第2条，硬件/寄存器实现待用户批准具体表格后进行。Commit：见包含本记录的提交。
