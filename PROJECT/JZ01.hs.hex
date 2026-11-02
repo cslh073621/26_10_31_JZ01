@@ -1,0 +1,2048 @@
+180A //[0000] 280A  goto 000Ah  
+0000 //[0001] 0000  nop  
+0000 //[0002] 0000  nop  
+0000 //[0003] 0000  nop  
+00FE //[0004] 00FE  movar 07Eh  
+0D03 //[0005] 0E03  swapr 003h,0  
+00F3 //[0006] 00F3  movar 073h  
+030A //[0007] 080A  movr 00Ah,0  
+00F4 //[0008] 00F4  movar 074h  
+1C4D //[0009] 2C4D  goto 044Dh  
+1E93 //[000A] 2E93  goto 0693h  
+01CB //[000B] 01CB  clrr 04Bh  
+01CC //[000C] 01CC  clrr 04Ch  
+0328 //[000D] 0828  movr 028h,0  
+00F6 //[000E] 00F6  movar 076h  
+0327 //[000F] 0827  movr 027h,0  
+00F5 //[0010] 00F5  movar 075h  
+320A //[0011] 300A  movia 00Ah  
+00F7 //[0012] 00F7  movar 077h  
+01F8 //[0013] 01F8  clrr 078h  
+15FB //[0014] 25FB  call 05FBh  
+0376 //[0015] 0876  movr 076h,0  
+00D1 //[0016] 00D1  movar 051h  
+0375 //[0017] 0875  movr 075h,0  
+00D0 //[0018] 00D0  movar 050h  
+01CD //[0019] 01CD  clrr 04Dh  
+01CE //[001A] 01CE  clrr 04Eh  
+01CF //[001B] 01CF  clrr 04Fh  
+0F51 //[001C] 0451  iorar 051h,0  
+2503 //[001D] 1903  btrsc 003h,2  
+18D1 //[001E] 28D1  goto 00D1h  
+0339 //[001F] 0839  movr 039h,0  
+2503 //[0020] 1903  btrsc 003h,2  
+1844 //[0021] 2844  goto 0044h  
+3228 //[0022] 3028  movia 028h  
+0A39 //[0023] 0239  subar 039h,0  
+2403 //[0024] 1803  btrsc 003h,0  
+1828 //[0025] 2828  goto 0028h  
+3210 //[0026] 3010  movia 010h  
+1833 //[0027] 2833  goto 0033h  
+3250 //[0028] 3050  movia 050h  
+0A39 //[0029] 0239  subar 039h,0  
+2403 //[002A] 1803  btrsc 003h,0  
+182E //[002B] 282E  goto 002Eh  
+3238 //[002C] 3038  movia 038h  
+1833 //[002D] 2833  goto 0033h  
+3278 //[002E] 3078  movia 078h  
+0A39 //[002F] 0239  subar 039h,0  
+2403 //[0030] 1803  btrsc 003h,0  
+1838 //[0031] 2838  goto 0038h  
+32CE //[0032] 30CE  movia 0CEh  
+05D0 //[0033] 07D0  addar 050h,1  
+2403 //[0034] 1803  btrsc 003h,0  
+08D1 //[0035] 0AD1  incr 051h,1  
+3201 //[0036] 3001  movia 001h  
+1843 //[0037] 2843  goto 0043h  
+32A0 //[0038] 30A0  movia 0A0h  
+0A39 //[0039] 0239  subar 039h,0  
+2403 //[003A] 1803  btrsc 003h,0  
+183E //[003B] 283E  goto 003Eh  
+323B //[003C] 303B  movia 03Bh  
+183F //[003D] 283F  goto 003Fh  
+32A8 //[003E] 30A8  movia 0A8h  
+05D0 //[003F] 07D0  addar 050h,1  
+2403 //[0040] 1803  btrsc 003h,0  
+08D1 //[0041] 0AD1  incr 051h,1  
+3202 //[0042] 3002  movia 002h  
+05D1 //[0043] 07D1  addar 051h,1  
+2287 //[0044] 1E87  btrss 007h,5  
+184C //[0045] 284C  goto 004Ch  
+323B //[0046] 303B  movia 03Bh  
+05D0 //[0047] 07D0  addar 050h,1  
+2403 //[0048] 1803  btrsc 003h,0  
+08D1 //[0049] 0AD1  incr 051h,1  
+3202 //[004A] 3002  movia 002h  
+05D1 //[004B] 07D1  addar 051h,1  
+3246 //[004C] 3046  movia 046h  
+0A51 //[004D] 0251  subar 051h,0  
+3251 //[004E] 3051  movia 051h  
+2503 //[004F] 1903  btrsc 003h,2  
+0A50 //[0050] 0250  subar 050h,0  
+2E83 //[0051] 1283  bcr 003h,5  
+2F03 //[0052] 1303  bcr 003h,6  
+2403 //[0053] 1803  btrsc 003h,0  
+1857 //[0054] 2857  goto 0057h  
+2B49 //[0055] 1749  bsr 049h,6  
+1858 //[0056] 2858  goto 0058h  
+2F49 //[0057] 1349  bcr 049h,6  
+323A //[0058] 303A  movia 03Ah  
+0A51 //[0059] 0251  subar 051h,0  
+3299 //[005A] 3099  movia 099h  
+2503 //[005B] 1903  btrsc 003h,2  
+0A50 //[005C] 0250  subar 050h,0  
+2403 //[005D] 1803  btrsc 003h,0  
+1862 //[005E] 2862  goto 0062h  
+01B9 //[005F] 01B9  clrr 039h  
+2E87 //[0060] 1287  bcr 007h,5  
+01B7 //[0061] 01B7  clrr 037h  
+3252 //[0062] 3052  movia 052h  
+0A51 //[0063] 0251  subar 051h,0  
+3299 //[0064] 3099  movia 099h  
+2503 //[0065] 1903  btrsc 003h,2  
+0A50 //[0066] 0250  subar 050h,0  
+2003 //[0067] 1C03  btrss 003h,0  
+186C //[0068] 286C  goto 006Ch  
+3264 //[0069] 3064  movia 064h  
+00CF //[006A] 00CF  movar 04Fh  
+18C9 //[006B] 28C9  goto 00C9h  
+324E //[006C] 304E  movia 04Eh  
+0A51 //[006D] 0251  subar 051h,0  
+329A //[006E] 309A  movia 09Ah  
+2503 //[006F] 1903  btrsc 003h,2  
+0A50 //[0070] 0250  subar 050h,0  
+2003 //[0071] 1C03  btrss 003h,0  
+187B //[0072] 287B  goto 007Bh  
+329A //[0073] 309A  movia 09Ah  
+00CB //[0074] 00CB  movar 04Bh  
+324E //[0075] 304E  movia 04Eh  
+00CC //[0076] 00CC  movar 04Ch  
+3250 //[0077] 3050  movia 050h  
+00CF //[0078] 00CF  movar 04Fh  
+3234 //[0079] 3034  movia 034h  
+18A6 //[007A] 28A6  goto 00A6h  
+324B //[007B] 304B  movia 04Bh  
+0A51 //[007C] 0251  subar 051h,0  
+32B8 //[007D] 30B8  movia 0B8h  
+2503 //[007E] 1903  btrsc 003h,2  
+0A50 //[007F] 0250  subar 050h,0  
+2003 //[0080] 1C03  btrss 003h,0  
+188A //[0081] 288A  goto 008Ah  
+32B8 //[0082] 30B8  movia 0B8h  
+00CB //[0083] 00CB  movar 04Bh  
+324B //[0084] 304B  movia 04Bh  
+00CC //[0085] 00CC  movar 04Ch  
+3232 //[0086] 3032  movia 032h  
+00CF //[0087] 00CF  movar 04Fh  
+3219 //[0088] 3019  movia 019h  
+18A6 //[0089] 28A6  goto 00A6h  
+3249 //[008A] 3049  movia 049h  
+0A51 //[008B] 0251  subar 051h,0  
+3299 //[008C] 3099  movia 099h  
+2503 //[008D] 1903  btrsc 003h,2  
+0A50 //[008E] 0250  subar 050h,0  
+2003 //[008F] 1C03  btrss 003h,0  
+1899 //[0090] 2899  goto 0099h  
+3299 //[0091] 3099  movia 099h  
+00CB //[0092] 00CB  movar 04Bh  
+3249 //[0093] 3049  movia 049h  
+00CC //[0094] 00CC  movar 04Ch  
+320A //[0095] 300A  movia 00Ah  
+00CF //[0096] 00CF  movar 04Fh  
+320E //[0097] 300E  movia 00Eh  
+18A6 //[0098] 28A6  goto 00A6h  
+3246 //[0099] 3046  movia 046h  
+0A51 //[009A] 0251  subar 051h,0  
+3200 //[009B] 3000  movia 000h  
+2503 //[009C] 1903  btrsc 003h,2  
+0A50 //[009D] 0250  subar 050h,0  
+2003 //[009E] 1C03  btrss 003h,0  
+18A9 //[009F] 28A9  goto 00A9h  
+3246 //[00A0] 3046  movia 046h  
+01CB //[00A1] 01CB  clrr 04Bh  
+00CC //[00A2] 00CC  movar 04Ch  
+3205 //[00A3] 3005  movia 005h  
+00CF //[00A4] 00CF  movar 04Fh  
+32B9 //[00A5] 30B9  movia 0B9h  
+00CD //[00A6] 00CD  movar 04Dh  
+01CE //[00A7] 01CE  clrr 04Eh  
+18C9 //[00A8] 28C9  goto 00C9h  
+323C //[00A9] 303C  movia 03Ch  
+0A51 //[00AA] 0251  subar 051h,0  
+3200 //[00AB] 3000  movia 000h  
+2503 //[00AC] 1903  btrsc 003h,2  
+0A50 //[00AD] 0250  subar 050h,0  
+2003 //[00AE] 1C03  btrss 003h,0  
+18C9 //[00AF] 28C9  goto 00C9h  
+323C //[00B0] 303C  movia 03Ch  
+01CB //[00B1] 01CB  clrr 04Bh  
+00CC //[00B2] 00CC  movar 04Ch  
+3280 //[00B3] 3080  movia 080h  
+01CF //[00B4] 01CF  clrr 04Fh  
+08CF //[00B5] 0ACF  incr 04Fh,1  
+00CD //[00B6] 00CD  movar 04Dh  
+3202 //[00B7] 3002  movia 002h  
+00CE //[00B8] 00CE  movar 04Eh  
+18C9 //[00B9] 28C9  goto 00C9h  
+3264 //[00BA] 3064  movia 064h  
+0A4F //[00BB] 024F  subar 04Fh,0  
+2403 //[00BC] 1803  btrsc 003h,0  
+18D1 //[00BD] 28D1  goto 00D1h  
+034E //[00BE] 084E  movr 04Eh,0  
+0F4D //[00BF] 044D  iorar 04Dh,0  
+2503 //[00C0] 1903  btrsc 003h,2  
+18D1 //[00C1] 28D1  goto 00D1h  
+034D //[00C2] 084D  movr 04Dh,0  
+05CB //[00C3] 07CB  addar 04Bh,1  
+2403 //[00C4] 1803  btrsc 003h,0  
+08CC //[00C5] 0ACC  incr 04Ch,1  
+034E //[00C6] 084E  movr 04Eh,0  
+05CC //[00C7] 07CC  addar 04Ch,1  
+08CF //[00C8] 0ACF  incr 04Fh,1  
+0351 //[00C9] 0851  movr 051h,0  
+0A4C //[00CA] 024C  subar 04Ch,0  
+2103 //[00CB] 1D03  btrss 003h,2  
+18CF //[00CC] 28CF  goto 00CFh  
+0350 //[00CD] 0850  movr 050h,0  
+0A4B //[00CE] 024B  subar 04Bh,0  
+2003 //[00CF] 1C03  btrss 003h,0  
+18BA //[00D0] 28BA  goto 00BAh  
+0354 //[00D1] 0854  movr 054h,0  
+2503 //[00D2] 1903  btrsc 003h,2  
+18D8 //[00D3] 28D8  goto 00D8h  
+034F //[00D4] 084F  movr 04Fh,0  
+00B7 //[00D5] 00B7  movar 037h  
+034F //[00D6] 084F  movr 04Fh,0  
+007C //[00D7] 0008  return  
+22C9 //[00D8] 1EC9  btrss 049h,5  
+18F4 //[00D9] 28F4  goto 00F4h  
+21C9 //[00DA] 1DC9  btrss 049h,3  
+18E7 //[00DB] 28E7  goto 00E7h  
+3201 //[00DC] 3001  movia 001h  
+1563 //[00DD] 2563  call 0563h  
+21F0 //[00DE] 1DF0  btrss 070h,3  
+1908 //[00DF] 2908  goto 0108h  
+3264 //[00E0] 3064  movia 064h  
+2DF0 //[00E1] 11F0  bcr 070h,3  
+0A37 //[00E2] 0237  subar 037h,0  
+2403 //[00E3] 1803  btrsc 003h,0  
+1908 //[00E4] 2908  goto 0108h  
+08B7 //[00E5] 0AB7  incr 037h,1  
+1908 //[00E6] 2908  goto 0108h  
+2249 //[00E7] 1E49  btrss 049h,4  
+1908 //[00E8] 2908  goto 0108h  
+3200 //[00E9] 3000  movia 000h  
+1563 //[00EA] 2563  call 0563h  
+2170 //[00EB] 1D70  btrss 070h,2  
+1908 //[00EC] 2908  goto 0108h  
+2D70 //[00ED] 1170  bcr 070h,2  
+0337 //[00EE] 0837  movr 037h,0  
+0A4F //[00EF] 024F  subar 04Fh,0  
+2003 //[00F0] 1C03  btrss 003h,0  
+1908 //[00F1] 2908  goto 0108h  
+3263 //[00F2] 3063  movia 063h  
+18E2 //[00F3] 28E2  goto 00E2h  
+0337 //[00F4] 0837  movr 037h,0  
+0A4F //[00F5] 024F  subar 04Fh,0  
+2403 //[00F6] 1803  btrsc 003h,0  
+1908 //[00F7] 2908  goto 0108h  
+2349 //[00F8] 1F49  btrss 049h,6  
+1900 //[00F9] 2900  goto 0100h  
+3203 //[00FA] 3003  movia 003h  
+1563 //[00FB] 2563  call 0563h  
+2172 //[00FC] 1D72  btrss 072h,2  
+1908 //[00FD] 2908  goto 0108h  
+2D72 //[00FE] 1172  bcr 072h,2  
+1905 //[00FF] 2905  goto 0105h  
+3202 //[0100] 3002  movia 002h  
+1563 //[0101] 2563  call 0563h  
+2270 //[0102] 1E70  btrss 070h,4  
+1908 //[0103] 2908  goto 0108h  
+2E70 //[0104] 1270  bcr 070h,4  
+0337 //[0105] 0837  movr 037h,0  
+2103 //[0106] 1D03  btrss 003h,2  
+06B7 //[0107] 03B7  decr 037h,1  
+034F //[0108] 084F  movr 04Fh,0  
+007C //[0109] 0008  return  
+2E83 //[010A] 1283  bcr 003h,5  
+2F03 //[010B] 1303  bcr 003h,6  
+03AF //[010C] 08AF  movr 02Fh,1  
+2103 //[010D] 1D03  btrss 003h,2  
+1927 //[010E] 2927  goto 0127h  
+0352 //[010F] 0852  movr 052h,0  
+3402 //[0110] 3A02  xoria 002h  
+2103 //[0111] 1D03  btrss 003h,2  
+1916 //[0112] 2916  goto 0116h  
+329C //[0113] 309C  movia 09Ch  
+11D7 //[0114] 21D7  call 01D7h  
+1927 //[0115] 2927  goto 0127h  
+03D2 //[0116] 08D2  movr 052h,1  
+2103 //[0117] 1D03  btrss 003h,2  
+191D //[0118] 291D  goto 011Dh  
+3295 //[0119] 3095  movia 095h  
+11D7 //[011A] 21D7  call 01D7h  
+08D2 //[011B] 0AD2  incr 052h,1  
+1927 //[011C] 2927  goto 0127h  
+0752 //[011D] 0B52  decrsz 052h,0  
+1927 //[011E] 2927  goto 0127h  
+329D //[011F] 309D  movia 09Dh  
+009B //[0120] 009B  movar 01Bh  
+3203 //[0121] 3003  movia 003h  
+009F //[0122] 009F  movar 01Fh  
+3240 //[0123] 3040  movia 040h  
+009D //[0124] 009D  movar 01Dh  
+3202 //[0125] 3002  movia 002h  
+00D2 //[0126] 00D2  movar 052h  
+2B1B //[0127] 171B  bsr 01Bh,6  
+3232 //[0128] 3032  movia 032h  
+00CE //[0129] 00CE  movar 04Eh  
+269B //[012A] 1A9B  btrsc 01Bh,5  
+195C //[012B] 295C  goto 015Ch  
+0000 //[012C] 0000  nop  
+0000 //[012D] 0000  nop  
+0000 //[012E] 0000  nop  
+0000 //[012F] 0000  nop  
+2E83 //[0130] 1283  bcr 003h,5  
+2F03 //[0131] 1303  bcr 003h,6  
+07CE //[0132] 0BCE  decrsz 04Eh,1  
+192A //[0133] 292A  goto 012Ah  
+2F1B //[0134] 131B  bcr 01Bh,6  
+01AF //[0135] 01AF  clrr 02Fh  
+01A3 //[0136] 01A3  clrr 023h  
+01A4 //[0137] 01A4  clrr 024h  
+01A9 //[0138] 01A9  clrr 029h  
+01AA //[0139] 01AA  clrr 02Ah  
+2C49 //[013A] 1049  bcr 049h,0  
+01C5 //[013B] 01C5  clrr 045h  
+2207 //[013C] 1E07  btrss 007h,4  
+1959 //[013D] 2959  goto 0159h  
+2B03 //[013E] 1703  bsr 003h,6  
+2099 //[013F] 1C99  btrss 019h,1  
+1959 //[0140] 2959  goto 0159h  
+2F03 //[0141] 1303  bcr 003h,6  
+03D4 //[0142] 08D4  movr 054h,1  
+2103 //[0143] 1D03  btrss 003h,2  
+1959 //[0144] 2959  goto 0159h  
+3203 //[0145] 3003  movia 003h  
+0A34 //[0146] 0234  subar 034h,0  
+2403 //[0147] 1803  btrsc 003h,0  
+194A //[0148] 294A  goto 014Ah  
+08B4 //[0149] 0AB4  incr 034h,1  
+3203 //[014A] 3003  movia 003h  
+0A34 //[014B] 0234  subar 034h,0  
+2003 //[014C] 1C03  btrss 003h,0  
+007C //[014D] 0008  return  
+2AF0 //[014E] 16F0  bsr 070h,5  
+01B9 //[014F] 01B9  clrr 039h  
+2E87 //[0150] 1287  bcr 007h,5  
+01B3 //[0151] 01B3  clrr 033h  
+01B2 //[0152] 01B2  clrr 032h  
+2B03 //[0153] 1703  bsr 003h,6  
+2C99 //[0154] 1099  bcr 019h,1  
+2F90 //[0155] 1390  bcr 010h,7  
+019E //[0156] 019E  clrr 01Eh  
+019F //[0157] 019F  clrr 01Fh  
+007C //[0158] 0008  return  
+2F03 //[0159] 1303  bcr 003h,6  
+01B4 //[015A] 01B4  clrr 034h  
+007C //[015B] 0008  return  
+01B4 //[015C] 01B4  clrr 034h  
+031C //[015D] 081C  movr 01Ch,0  
+00CF //[015E] 00CF  movar 04Fh  
+32F0 //[015F] 30F0  movia 0F0h  
+01D0 //[0160] 01D0  clrr 050h  
+0DCF //[0161] 0ECF  swapr 04Fh,1  
+0DD0 //[0162] 0ED0  swapr 050h,1  
+04D0 //[0163] 05D0  andar 050h,1  
+034F //[0164] 084F  movr 04Fh,0  
+3A0F //[0165] 390F  andia 00Fh  
+0FD0 //[0166] 04D0  iorar 050h,1  
+32F0 //[0167] 30F0  movia 0F0h  
+04CF //[0168] 05CF  andar 04Fh,1  
+031D //[0169] 081D  movr 01Dh,0  
+3A0F //[016A] 390F  andia 00Fh  
+0FCF //[016B] 04CF  iorar 04Fh,1  
+3205 //[016C] 3005  movia 005h  
+08AF //[016D] 0AAF  incr 02Fh,1  
+0A2F //[016E] 022F  subar 02Fh,0  
+2003 //[016F] 1C03  btrss 003h,0  
+1991 //[0170] 2991  goto 0191h  
+034F //[0171] 084F  movr 04Fh,0  
+05A3 //[0172] 07A3  addar 023h,1  
+2403 //[0173] 1803  btrsc 003h,0  
+08A4 //[0174] 0AA4  incr 024h,1  
+0350 //[0175] 0850  movr 050h,0  
+05A4 //[0176] 07A4  addar 024h,1  
+032F //[0177] 082F  movr 02Fh,0  
+3A07 //[0178] 3907  andia 007h  
+3404 //[0179] 3A04  xoria 004h  
+2103 //[017A] 1D03  btrss 003h,2  
+1991 //[017B] 2991  goto 0191h  
+0324 //[017C] 0824  movr 024h,0  
+00FA //[017D] 00FA  movar 07Ah  
+0323 //[017E] 0823  movr 023h,0  
+00F9 //[017F] 00F9  movar 079h  
+2C03 //[0180] 1003  bcr 003h,0  
+0EFA //[0181] 0CFA  rrr 07Ah,1  
+0EF9 //[0182] 0CF9  rrr 079h,1  
+2C03 //[0183] 1003  bcr 003h,0  
+0EFA //[0184] 0CFA  rrr 07Ah,1  
+0EF9 //[0185] 0CF9  rrr 079h,1  
+2C03 //[0186] 1003  bcr 003h,0  
+0EFA //[0187] 0CFA  rrr 07Ah,1  
+0EF9 //[0188] 0CF9  rrr 079h,1  
+0379 //[0189] 0879  movr 079h,0  
+05A9 //[018A] 07A9  addar 029h,1  
+2403 //[018B] 1803  btrsc 003h,0  
+08AA //[018C] 0AAA  incr 02Ah,1  
+037A //[018D] 087A  movr 07Ah,0  
+05AA //[018E] 07AA  addar 02Ah,1  
+01A3 //[018F] 01A3  clrr 023h  
+01A4 //[0190] 01A4  clrr 024h  
+3264 //[0191] 3064  movia 064h  
+0A2F //[0192] 022F  subar 02Fh,0  
+2003 //[0193] 1C03  btrss 003h,0  
+007C //[0194] 0008  return  
+320C //[0195] 300C  movia 00Ch  
+01AF //[0196] 01AF  clrr 02Fh  
+00F5 //[0197] 00F5  movar 075h  
+01F6 //[0198] 01F6  clrr 076h  
+032A //[0199] 082A  movr 02Ah,0  
+00F8 //[019A] 00F8  movar 078h  
+0329 //[019B] 0829  movr 029h,0  
+00F7 //[019C] 00F7  movar 077h  
+1539 //[019D] 2539  call 0539h  
+0376 //[019E] 0876  movr 076h,0  
+00A4 //[019F] 00A4  movar 024h  
+0375 //[01A0] 0875  movr 075h,0  
+00A3 //[01A1] 00A3  movar 023h  
+01A9 //[01A2] 01A9  clrr 029h  
+01AA //[01A3] 01AA  clrr 02Ah  
+03D2 //[01A4] 08D2  movr 052h,1  
+2103 //[01A5] 1D03  btrss 003h,2  
+19C3 //[01A6] 29C3  goto 01C3h  
+08B0 //[01A7] 0AB0  incr 030h,1  
+05A5 //[01A8] 07A5  addar 025h,1  
+2403 //[01A9] 1803  btrsc 003h,0  
+08A6 //[01AA] 0AA6  incr 026h,1  
+0324 //[01AB] 0824  movr 024h,0  
+05A6 //[01AC] 07A6  addar 026h,1  
+3210 //[01AD] 3010  movia 010h  
+0A30 //[01AE] 0230  subar 030h,0  
+2003 //[01AF] 1C03  btrss 003h,0  
+19D4 //[01B0] 29D4  goto 01D4h  
+01B0 //[01B1] 01B0  clrr 030h  
+0326 //[01B2] 0826  movr 026h,0  
+00A8 //[01B3] 00A8  movar 028h  
+0325 //[01B4] 0825  movr 025h,0  
+00A7 //[01B5] 00A7  movar 027h  
+320F //[01B6] 300F  movia 00Fh  
+0DA7 //[01B7] 0EA7  swapr 027h,1  
+0DA8 //[01B8] 0EA8  swapr 028h,1  
+04A7 //[01B9] 05A7  andar 027h,1  
+0328 //[01BA] 0828  movr 028h,0  
+3AF0 //[01BB] 39F0  andia 0F0h  
+0FA7 //[01BC] 04A7  iorar 027h,1  
+320F //[01BD] 300F  movia 00Fh  
+04A8 //[01BE] 05A8  andar 028h,1  
+01A5 //[01BF] 01A5  clrr 025h  
+01A6 //[01C0] 01A6  clrr 026h  
+2949 //[01C1] 1549  bsr 049h,2  
+19D4 //[01C2] 29D4  goto 01D4h  
+0752 //[01C3] 0B52  decrsz 052h,0  
+19CB //[01C4] 29CB  goto 01CBh  
+0324 //[01C5] 0824  movr 024h,0  
+00AC //[01C6] 00AC  movar 02Ch  
+0323 //[01C7] 0823  movr 023h,0  
+00AB //[01C8] 00AB  movar 02Bh  
+2849 //[01C9] 1449  bsr 049h,0  
+19D4 //[01CA] 29D4  goto 01D4h  
+0352 //[01CB] 0852  movr 052h,0  
+3402 //[01CC] 3A02  xoria 002h  
+2103 //[01CD] 1D03  btrss 003h,2  
+19D4 //[01CE] 29D4  goto 01D4h  
+0324 //[01CF] 0824  movr 024h,0  
+00AE //[01D0] 00AE  movar 02Eh  
+0323 //[01D1] 0823  movr 023h,0  
+00AD //[01D2] 00AD  movar 02Dh  
+28C9 //[01D3] 14C9  bsr 049h,1  
+01A3 //[01D4] 01A3  clrr 023h  
+01A4 //[01D5] 01A4  clrr 024h  
+007C //[01D6] 0008  return  
+009B //[01D7] 009B  movar 01Bh  
+019F //[01D8] 019F  clrr 01Fh  
+3240 //[01D9] 3040  movia 040h  
+009D //[01DA] 009D  movar 01Dh  
+01D2 //[01DB] 01D2  clrr 052h  
+007C //[01DC] 0008  return  
+15E1 //[01DD] 25E1  call 05E1h  
+32C8 //[01DE] 30C8  movia 0C8h  
+01B9 //[01DF] 01B9  clrr 039h  
+01B7 //[01E0] 01B7  clrr 037h  
+01BD //[01E1] 01BD  clrr 03Dh  
+01C0 //[01E2] 01C0  clrr 040h  
+01C6 //[01E3] 01C6  clrr 046h  
+2EF0 //[01E4] 12F0  bcr 070h,5  
+2FC9 //[01E5] 13C9  bcr 049h,7  
+2C4A //[01E6] 104A  bcr 04Ah,0  
+2E87 //[01E7] 1287  bcr 007h,5  
+2C70 //[01E8] 1070  bcr 070h,0  
+287B //[01E9] 147B  bsr 07Bh,0  
+28FB //[01EA] 14FB  bsr 07Bh,1  
+297B //[01EB] 157B  bsr 07Bh,2  
+00D4 //[01EC] 00D4  movar 054h  
+32FF //[01ED] 30FF  movia 0FFh  
+00A0 //[01EE] 00A0  movar 020h  
+00A1 //[01EF] 00A1  movar 021h  
+00A2 //[01F0] 00A2  movar 022h  
+2E83 //[01F1] 1283  bcr 003h,5  
+2F03 //[01F2] 1303  bcr 003h,6  
+03D4 //[01F3] 08D4  movr 054h,1  
+2503 //[01F4] 1903  btrsc 003h,2  
+1A0B //[01F5] 2A0B  goto 020Bh  
+14D1 //[01F6] 24D1  call 04D1h  
+20F0 //[01F7] 1CF0  btrss 070h,1  
+19FC //[01F8] 29FC  goto 01FCh  
+2CF0 //[01F9] 10F0  bcr 070h,1  
+110A //[01FA] 210A  call 010Ah  
+0002 //[01FB] 0064  clrwdt  
+22F2 //[01FC] 1EF2  btrss 072h,5  
+19F1 //[01FD] 29F1  goto 01F1h  
+2EF2 //[01FE] 12F2  bcr 072h,5  
+2E83 //[01FF] 1283  bcr 003h,5  
+2F03 //[0200] 1303  bcr 003h,6  
+06D4 //[0201] 03D4  decr 054h,1  
+2149 //[0202] 1D49  btrss 049h,2  
+1A07 //[0203] 2A07  goto 0207h  
+2D49 //[0204] 1149  bcr 049h,2  
+100B //[0205] 200B  call 000Bh  
+00B7 //[0206] 00B7  movar 037h  
+0754 //[0207] 0B54  decrsz 054h,0  
+19F1 //[0208] 29F1  goto 01F1h  
+162B //[0209] 262B  call 062Bh  
+19F1 //[020A] 29F1  goto 01F1h  
+15E1 //[020B] 25E1  call 05E1h  
+3214 //[020C] 3014  movia 014h  
+01A0 //[020D] 01A0  clrr 020h  
+01A1 //[020E] 01A1  clrr 021h  
+01A2 //[020F] 01A2  clrr 022h  
+01B9 //[0210] 01B9  clrr 039h  
+2E87 //[0211] 1287  bcr 007h,5  
+2FC9 //[0212] 13C9  bcr 049h,7  
+01C0 //[0213] 01C0  clrr 040h  
+00C6 //[0214] 00C6  movar 046h  
+13FC //[0215] 23FC  call 03FCh  
+1490 //[0216] 2490  call 0490h  
+20F0 //[0217] 1CF0  btrss 070h,1  
+1A1C //[0218] 2A1C  goto 021Ch  
+2CF0 //[0219] 10F0  bcr 070h,1  
+0002 //[021A] 0064  clrwdt  
+110A //[021B] 210A  call 010Ah  
+14D1 //[021C] 24D1  call 04D1h  
+22F2 //[021D] 1EF2  btrss 072h,5  
+1A5C //[021E] 2A5C  goto 025Ch  
+2EF2 //[021F] 12F2  bcr 072h,5  
+2E83 //[0220] 1283  bcr 003h,5  
+2F03 //[0221] 1303  bcr 003h,6  
+20C9 //[0222] 1CC9  btrss 049h,1  
+1A4F //[0223] 2A4F  goto 024Fh  
+3209 //[0224] 3009  movia 009h  
+2CC9 //[0225] 10C9  bcr 049h,1  
+287B //[0226] 147B  bsr 07Bh,0  
+28FB //[0227] 14FB  bsr 07Bh,1  
+297B //[0228] 157B  bsr 07Bh,2  
+0A2E //[0229] 022E  subar 02Eh,0  
+32E2 //[022A] 30E2  movia 0E2h  
+2503 //[022B] 1903  btrsc 003h,2  
+0A2D //[022C] 022D  subar 02Dh,0  
+2003 //[022D] 1C03  btrss 003h,0  
+1A38 //[022E] 2A38  goto 0238h  
+320B //[022F] 300B  movia 00Bh  
+0A2E //[0230] 022E  subar 02Eh,0  
+3273 //[0231] 3073  movia 073h  
+2503 //[0232] 1903  btrsc 003h,2  
+0A2D //[0233] 022D  subar 02Dh,0  
+2403 //[0234] 1803  btrsc 003h,0  
+1A38 //[0235] 2A38  goto 0238h  
+2C7B //[0236] 107B  bcr 07Bh,0  
+1A4F //[0237] 2A4F  goto 024Fh  
+3200 //[0238] 3000  movia 000h  
+0A2E //[0239] 022E  subar 02Eh,0  
+3265 //[023A] 3065  movia 065h  
+2503 //[023B] 1903  btrsc 003h,2  
+0A2D //[023C] 022D  subar 02Dh,0  
+2403 //[023D] 1803  btrsc 003h,0  
+1A41 //[023E] 2A41  goto 0241h  
+2CFB //[023F] 10FB  bcr 07Bh,1  
+1A4F //[0240] 2A4F  goto 024Fh  
+3205 //[0241] 3005  movia 005h  
+0A2E //[0242] 022E  subar 02Eh,0  
+32B2 //[0243] 30B2  movia 0B2h  
+2503 //[0244] 1903  btrsc 003h,2  
+0A2D //[0245] 022D  subar 02Dh,0  
+2003 //[0246] 1C03  btrss 003h,0  
+1A4F //[0247] 2A4F  goto 024Fh  
+3207 //[0248] 3007  movia 007h  
+0A2E //[0249] 022E  subar 02Eh,0  
+3243 //[024A] 3043  movia 043h  
+2503 //[024B] 1903  btrsc 003h,2  
+0A2D //[024C] 022D  subar 02Dh,0  
+2003 //[024D] 1C03  btrss 003h,0  
+2D7B //[024E] 117B  bcr 07Bh,2  
+1311 //[024F] 2311  call 0311h  
+16C6 //[0250] 26C6  call 06C6h  
+2149 //[0251] 1D49  btrss 049h,2  
+1A55 //[0252] 2A55  goto 0255h  
+2D49 //[0253] 1149  bcr 049h,2  
+100B //[0254] 200B  call 000Bh  
+1654 //[0255] 2654  call 0654h  
+13FC //[0256] 23FC  call 03FCh  
+0346 //[0257] 0846  movr 046h,0  
+2103 //[0258] 1D03  btrss 003h,2  
+06C6 //[0259] 03C6  decr 046h,1  
+1286 //[025A] 2286  call 0286h  
+1490 //[025B] 2490  call 0490h  
+2272 //[025C] 1E72  btrss 072h,4  
+1A17 //[025D] 2A17  goto 0217h  
+2E72 //[025E] 1272  bcr 072h,4  
+2E83 //[025F] 1283  bcr 003h,5  
+2F03 //[0260] 1303  bcr 003h,6  
+03BD //[0261] 08BD  movr 03Dh,1  
+2103 //[0262] 1D03  btrss 003h,2  
+1A17 //[0263] 2A17  goto 0217h  
+03B9 //[0264] 08B9  movr 039h,1  
+2503 //[0265] 1903  btrsc 003h,2  
+26C9 //[0266] 1AC9  btrsc 049h,5  
+1A17 //[0267] 2A17  goto 0217h  
+247B //[0268] 187B  btrsc 07Bh,0  
+20FB //[0269] 1CFB  btrss 07Bh,1  
+1A17 //[026A] 2A17  goto 0217h  
+257B //[026B] 197B  btrsc 07Bh,2  
+2770 //[026C] 1B70  btrsc 070h,6  
+1A17 //[026D] 2A17  goto 0217h  
+2171 //[026E] 1D71  btrss 071h,2  
+2771 //[026F] 1B71  btrsc 071h,6  
+1A17 //[0270] 2A17  goto 0217h  
+20F1 //[0271] 1CF1  btrss 071h,1  
+26F1 //[0272] 1AF1  btrsc 071h,5  
+1A17 //[0273] 2A17  goto 0217h  
+20F2 //[0274] 1CF2  btrss 072h,1  
+27F0 //[0275] 1BF0  btrsc 070h,7  
+1A17 //[0276] 2A17  goto 0217h  
+21F1 //[0277] 1DF1  btrss 071h,3  
+27F1 //[0278] 1BF1  btrsc 071h,7  
+1A17 //[0279] 2A17  goto 0217h  
+03C6 //[027A] 08C6  movr 046h,1  
+2103 //[027B] 1D03  btrss 003h,2  
+1A17 //[027C] 2A17  goto 0217h  
+2B03 //[027D] 1703  bsr 003h,6  
+2099 //[027E] 1C99  btrss 019h,1  
+2790 //[027F] 1B90  btrsc 010h,7  
+1A17 //[0280] 2A17  goto 0217h  
+2F03 //[0281] 1303  bcr 003h,6  
+2607 //[0282] 1A07  btrsc 007h,4  
+1A17 //[0283] 2A17  goto 0217h  
+138F //[0284] 238F  call 038Fh  
+1A17 //[0285] 2A17  goto 0217h  
+0339 //[0286] 0839  movr 039h,0  
+2103 //[0287] 1D03  btrss 003h,2  
+26F0 //[0288] 1AF0  btrsc 070h,5  
+1A8B //[0289] 2A8B  goto 028Bh  
+1A9F //[028A] 2A9F  goto 029Fh  
+01C5 //[028B] 01C5  clrr 045h  
+01B4 //[028C] 01B4  clrr 034h  
+2C49 //[028D] 1049  bcr 049h,0  
+01B3 //[028E] 01B3  clrr 033h  
+2B03 //[028F] 1703  bsr 003h,6  
+2499 //[0290] 1899  btrsc 019h,1  
+1A94 //[0291] 2A94  goto 0294h  
+2390 //[0292] 1F90  btrss 010h,7  
+1A9B //[0293] 2A9B  goto 029Bh  
+2C99 //[0294] 1099  bcr 019h,1  
+2F90 //[0295] 1390  bcr 010h,7  
+019E //[0296] 019E  clrr 01Eh  
+019F //[0297] 019F  clrr 01Fh  
+2F03 //[0298] 1303  bcr 003h,6  
+01B2 //[0299] 01B2  clrr 032h  
+007C //[029A] 0008  return  
+2F03 //[029B] 1303  bcr 003h,6  
+01B2 //[029C] 01B2  clrr 032h  
+2E07 //[029D] 1207  bcr 007h,4  
+007C //[029E] 0008  return  
+2607 //[029F] 1A07  btrsc 007h,4  
+1AA8 //[02A0] 2AA8  goto 02A8h  
+01C5 //[02A1] 01C5  clrr 045h  
+01B4 //[02A2] 01B4  clrr 034h  
+2C49 //[02A3] 1049  bcr 049h,0  
+01B3 //[02A4] 01B3  clrr 033h  
+01B2 //[02A5] 01B2  clrr 032h  
+2A07 //[02A6] 1607  bsr 007h,4  
+007C //[02A7] 0008  return  
+2B03 //[02A8] 1703  bsr 003h,6  
+2099 //[02A9] 1C99  btrss 019h,1  
+1AAD //[02AA] 2AAD  goto 02ADh  
+2790 //[02AB] 1B90  btrsc 010h,7  
+1AB7 //[02AC] 2AB7  goto 02B7h  
+2F03 //[02AD] 1303  bcr 003h,6  
+01B2 //[02AE] 01B2  clrr 032h  
+08B2 //[02AF] 0AB2  incr 032h,1  
+0332 //[02B0] 0832  movr 032h,0  
+2B03 //[02B1] 1703  bsr 003h,6  
+009E //[02B2] 009E  movar 01Eh  
+019F //[02B3] 019F  clrr 01Fh  
+2899 //[02B4] 1499  bsr 019h,1  
+2B90 //[02B5] 1790  bsr 010h,7  
+007C //[02B6] 0008  return  
+2F03 //[02B7] 1303  bcr 003h,6  
+2049 //[02B8] 1C49  btrss 049h,0  
+007C //[02B9] 0008  return  
+3207 //[02BA] 3007  movia 007h  
+2C49 //[02BB] 1049  bcr 049h,0  
+0A2C //[02BC] 022C  subar 02Ch,0  
+3246 //[02BD] 3046  movia 046h  
+2503 //[02BE] 1903  btrsc 003h,2  
+0A2B //[02BF] 022B  subar 02Bh,0  
+2003 //[02C0] 1C03  btrss 003h,0  
+1AD5 //[02C1] 2AD5  goto 02D5h  
+0345 //[02C2] 0845  movr 045h,0  
+34FF //[02C3] 3AFF  xoria 0FFh  
+2503 //[02C4] 1903  btrsc 003h,2  
+1AC7 //[02C5] 2AC7  goto 02C7h  
+08C5 //[02C6] 0AC5  incr 045h,1  
+320D //[02C7] 300D  movia 00Dh  
+0A45 //[02C8] 0245  subar 045h,0  
+2003 //[02C9] 1C03  btrss 003h,0  
+1AD6 //[02CA] 2AD6  goto 02D6h  
+2AF0 //[02CB] 16F0  bsr 070h,5  
+01B9 //[02CC] 01B9  clrr 039h  
+01B3 //[02CD] 01B3  clrr 033h  
+01B2 //[02CE] 01B2  clrr 032h  
+2B03 //[02CF] 1703  bsr 003h,6  
+2C99 //[02D0] 1099  bcr 019h,1  
+2F90 //[02D1] 1390  bcr 010h,7  
+019E //[02D2] 019E  clrr 01Eh  
+019F //[02D3] 019F  clrr 01Fh  
+007C //[02D4] 0008  return  
+01C5 //[02D5] 01C5  clrr 045h  
+032C //[02D6] 082C  movr 02Ch,0  
+00CE //[02D7] 00CE  movar 04Eh  
+032B //[02D8] 082B  movr 02Bh,0  
+00CD //[02D9] 00CD  movar 04Dh  
+2C03 //[02DA] 1003  bcr 003h,0  
+0CCD //[02DB] 0DCD  rlr 04Dh,1  
+0CCE //[02DC] 0DCE  rlr 04Eh,1  
+034E //[02DD] 084E  movr 04Eh,0  
+00F6 //[02DE] 00F6  movar 076h  
+034D //[02DF] 084D  movr 04Dh,0  
+00F5 //[02E0] 00F5  movar 075h  
+150E //[02E1] 250E  call 050Eh  
+00CF //[02E2] 00CF  movar 04Fh  
+3402 //[02E3] 3A02  xoria 002h  
+2103 //[02E4] 1D03  btrss 003h,2  
+1AEC //[02E5] 2AEC  goto 02ECh  
+322B //[02E6] 302B  movia 02Bh  
+0A32 //[02E7] 0232  subar 032h,0  
+2403 //[02E8] 1803  btrsc 003h,0  
+1B0A //[02E9] 2B0A  goto 030Ah  
+08B2 //[02EA] 0AB2  incr 032h,1  
+1B0A //[02EB] 2B0A  goto 030Ah  
+074F //[02EC] 0B4F  decrsz 04Fh,0  
+1AF6 //[02ED] 2AF6  goto 02F6h  
+3207 //[02EE] 3007  movia 007h  
+0A33 //[02EF] 0233  subar 033h,0  
+2403 //[02F0] 1803  btrsc 003h,0  
+1AF4 //[02F1] 2AF4  goto 02F4h  
+08B3 //[02F2] 0AB3  incr 033h,1  
+1B0A //[02F3] 2B0A  goto 030Ah  
+01B3 //[02F4] 01B3  clrr 033h  
+1AE6 //[02F5] 2AE6  goto 02E6h  
+03CF //[02F6] 08CF  movr 04Fh,1  
+2103 //[02F7] 1D03  btrss 003h,2  
+1AFF //[02F8] 2AFF  goto 02FFh  
+3202 //[02F9] 3002  movia 002h  
+0A32 //[02FA] 0232  subar 032h,0  
+2003 //[02FB] 1C03  btrss 003h,0  
+1B0A //[02FC] 2B0A  goto 030Ah  
+06B2 //[02FD] 03B2  decr 032h,1  
+1B0A //[02FE] 2B0A  goto 030Ah  
+0333 //[02FF] 0833  movr 033h,0  
+2503 //[0300] 1903  btrsc 003h,2  
+1B04 //[0301] 2B04  goto 0304h  
+06B3 //[0302] 03B3  decr 033h,1  
+1B0A //[0303] 2B0A  goto 030Ah  
+3207 //[0304] 3007  movia 007h  
+00B3 //[0305] 00B3  movar 033h  
+3202 //[0306] 3002  movia 002h  
+0A32 //[0307] 0232  subar 032h,0  
+2403 //[0308] 1803  btrsc 003h,0  
+1AFD //[0309] 2AFD  goto 02FDh  
+322C //[030A] 302C  movia 02Ch  
+0A32 //[030B] 0232  subar 032h,0  
+2003 //[030C] 1C03  btrss 003h,0  
+007C //[030D] 0008  return  
+322B //[030E] 302B  movia 02Bh  
+00B2 //[030F] 00B2  movar 032h  
+007C //[0310] 0008  return  
+247B //[0311] 187B  btrsc 07Bh,0  
+2770 //[0312] 1B70  btrsc 070h,6  
+1B15 //[0313] 2B15  goto 0315h  
+01BA //[0314] 01BA  clrr 03Ah  
+2770 //[0315] 1B70  btrsc 070h,6  
+1B20 //[0316] 2B20  goto 0320h  
+247B //[0317] 187B  btrsc 07Bh,0  
+1B3B //[0318] 2B3B  goto 033Bh  
+3203 //[0319] 3003  movia 003h  
+08BA //[031A] 0ABA  incr 03Ah,1  
+0A3A //[031B] 023A  subar 03Ah,0  
+2003 //[031C] 1C03  btrss 003h,0  
+1B3B //[031D] 2B3B  goto 033Bh  
+2B70 //[031E] 1770  bsr 070h,6  
+1B3A //[031F] 2B3A  goto 033Ah  
+32FA //[0320] 30FA  movia 0FAh  
+0A3A //[0321] 023A  subar 03Ah,0  
+2003 //[0322] 1C03  btrss 003h,0  
+08BA //[0323] 0ABA  incr 03Ah,1  
+247B //[0324] 187B  btrsc 07Bh,0  
+1B35 //[0325] 2B35  goto 0335h  
+2471 //[0326] 1871  btrsc 071h,0  
+1B2C //[0327] 2B2C  goto 032Ch  
+323D //[0328] 303D  movia 03Dh  
+0A3A //[0329] 023A  subar 03Ah,0  
+2403 //[032A] 1803  btrsc 003h,0  
+1B32 //[032B] 2B32  goto 0332h  
+2071 //[032C] 1C71  btrss 071h,0  
+1B3B //[032D] 2B3B  goto 033Bh  
+3207 //[032E] 3007  movia 007h  
+0A3A //[032F] 023A  subar 03Ah,0  
+2003 //[0330] 1C03  btrss 003h,0  
+1B3B //[0331] 2B3B  goto 033Bh  
+2BF0 //[0332] 17F0  bsr 070h,7  
+2871 //[0333] 1471  bsr 071h,0  
+1B3A //[0334] 2B3A  goto 033Ah  
+2471 //[0335] 1871  btrsc 071h,0  
+1B38 //[0336] 2B38  goto 0338h  
+28F1 //[0337] 14F1  bsr 071h,1  
+2F70 //[0338] 1370  bcr 070h,6  
+2C71 //[0339] 1071  bcr 071h,0  
+01BA //[033A] 01BA  clrr 03Ah  
+24FB //[033B] 18FB  btrsc 07Bh,1  
+2571 //[033C] 1971  btrsc 071h,2  
+1B3F //[033D] 2B3F  goto 033Fh  
+01BB //[033E] 01BB  clrr 03Bh  
+2571 //[033F] 1971  btrsc 071h,2  
+1B4A //[0340] 2B4A  goto 034Ah  
+24FB //[0341] 18FB  btrsc 07Bh,1  
+1B65 //[0342] 2B65  goto 0365h  
+3203 //[0343] 3003  movia 003h  
+08BB //[0344] 0ABB  incr 03Bh,1  
+0A3B //[0345] 023B  subar 03Bh,0  
+2003 //[0346] 1C03  btrss 003h,0  
+1B65 //[0347] 2B65  goto 0365h  
+2971 //[0348] 1571  bsr 071h,2  
+1B64 //[0349] 2B64  goto 0364h  
+32FA //[034A] 30FA  movia 0FAh  
+0A3B //[034B] 023B  subar 03Bh,0  
+2003 //[034C] 1C03  btrss 003h,0  
+08BB //[034D] 0ABB  incr 03Bh,1  
+24FB //[034E] 18FB  btrsc 07Bh,1  
+1B5F //[034F] 2B5F  goto 035Fh  
+2671 //[0350] 1A71  btrsc 071h,4  
+1B56 //[0351] 2B56  goto 0356h  
+323D //[0352] 303D  movia 03Dh  
+0A3B //[0353] 023B  subar 03Bh,0  
+2403 //[0354] 1803  btrsc 003h,0  
+1B5C //[0355] 2B5C  goto 035Ch  
+2271 //[0356] 1E71  btrss 071h,4  
+1B65 //[0357] 2B65  goto 0365h  
+3207 //[0358] 3007  movia 007h  
+0A3B //[0359] 023B  subar 03Bh,0  
+2003 //[035A] 1C03  btrss 003h,0  
+1B65 //[035B] 2B65  goto 0365h  
+29F1 //[035C] 15F1  bsr 071h,3  
+2A71 //[035D] 1671  bsr 071h,4  
+1B64 //[035E] 2B64  goto 0364h  
+2671 //[035F] 1A71  btrsc 071h,4  
+1B62 //[0360] 2B62  goto 0362h  
+2AF1 //[0361] 16F1  bsr 071h,5  
+2D71 //[0362] 1171  bcr 071h,2  
+2E71 //[0363] 1271  bcr 071h,4  
+01BB //[0364] 01BB  clrr 03Bh  
+257B //[0365] 197B  btrsc 07Bh,2  
+2771 //[0366] 1B71  btrsc 071h,6  
+1B69 //[0367] 2B69  goto 0369h  
+01BC //[0368] 01BC  clrr 03Ch  
+2771 //[0369] 1B71  btrsc 071h,6  
+1B75 //[036A] 2B75  goto 0375h  
+257B //[036B] 197B  btrsc 07Bh,2  
+007C //[036C] 0008  return  
+3203 //[036D] 3003  movia 003h  
+08BC //[036E] 0ABC  incr 03Ch,1  
+0A3C //[036F] 023C  subar 03Ch,0  
+2003 //[0370] 1C03  btrss 003h,0  
+007C //[0371] 0008  return  
+2B71 //[0372] 1771  bsr 071h,6  
+01BC //[0373] 01BC  clrr 03Ch  
+007C //[0374] 0008  return  
+32FA //[0375] 30FA  movia 0FAh  
+0A3C //[0376] 023C  subar 03Ch,0  
+2003 //[0377] 1C03  btrss 003h,0  
+08BC //[0378] 0ABC  incr 03Ch,1  
+257B //[0379] 197B  btrsc 07Bh,2  
+1B8A //[037A] 2B8A  goto 038Ah  
+2472 //[037B] 1872  btrsc 072h,0  
+1B81 //[037C] 2B81  goto 0381h  
+323D //[037D] 303D  movia 03Dh  
+0A3C //[037E] 023C  subar 03Ch,0  
+2403 //[037F] 1803  btrsc 003h,0  
+1B87 //[0380] 2B87  goto 0387h  
+2072 //[0381] 1C72  btrss 072h,0  
+007C //[0382] 0008  return  
+3207 //[0383] 3007  movia 007h  
+0A3C //[0384] 023C  subar 03Ch,0  
+2003 //[0385] 1C03  btrss 003h,0  
+007C //[0386] 0008  return  
+2BF1 //[0387] 17F1  bsr 071h,7  
+2872 //[0388] 1472  bsr 072h,0  
+1B73 //[0389] 2B73  goto 0373h  
+2072 //[038A] 1C72  btrss 072h,0  
+28F2 //[038B] 14F2  bsr 072h,1  
+2F71 //[038C] 1371  bcr 071h,6  
+2C72 //[038D] 1072  bcr 072h,0  
+1B73 //[038E] 2B73  goto 0373h  
+2B03 //[038F] 1703  bsr 003h,6  
+2C99 //[0390] 1099  bcr 019h,1  
+019E //[0391] 019E  clrr 01Eh  
+019F //[0392] 019F  clrr 01Fh  
+2F90 //[0393] 1390  bcr 010h,7  
+2F03 //[0394] 1303  bcr 003h,6  
+2F85 //[0395] 1385  bcr 005h,7  
+2D87 //[0396] 1187  bcr 007h,3  
+2E07 //[0397] 1207  bcr 007h,4  
+2E87 //[0398] 1287  bcr 007h,5  
+169F //[0399] 269F  call 069Fh  
+018B //[039A] 018B  clrr 00Bh  
+3202 //[039B] 3002  movia 002h  
+2F70 //[039C] 1370  bcr 070h,6  
+2CF1 //[039D] 10F1  bcr 071h,1  
+2FF0 //[039E] 13F0  bcr 070h,7  
+2C71 //[039F] 1071  bcr 071h,0  
+2D71 //[03A0] 1171  bcr 071h,2  
+2EF1 //[03A1] 12F1  bcr 071h,5  
+2DF1 //[03A2] 11F1  bcr 071h,3  
+2E71 //[03A3] 1271  bcr 071h,4  
+2F71 //[03A4] 1371  bcr 071h,6  
+2CF2 //[03A5] 10F2  bcr 072h,1  
+2FF1 //[03A6] 13F1  bcr 071h,7  
+2C72 //[03A7] 1072  bcr 072h,0  
+01BC //[03A8] 01BC  clrr 03Ch  
+01BA //[03A9] 01BA  clrr 03Ah  
+01BB //[03AA] 01BB  clrr 03Bh  
+287B //[03AB] 147B  bsr 07Bh,0  
+28FB //[03AC] 14FB  bsr 07Bh,1  
+297B //[03AD] 157B  bsr 07Bh,2  
+01C0 //[03AE] 01C0  clrr 040h  
+01A0 //[03AF] 01A0  clrr 020h  
+01A1 //[03B0] 01A1  clrr 021h  
+01A2 //[03B1] 01A2  clrr 022h  
+2DF2 //[03B2] 11F2  bcr 072h,3  
+01BF //[03B3] 01BF  clrr 03Fh  
+01A3 //[03B4] 01A3  clrr 023h  
+01A4 //[03B5] 01A4  clrr 024h  
+01AF //[03B6] 01AF  clrr 02Fh  
+2CF0 //[03B7] 10F0  bcr 070h,1  
+01A9 //[03B8] 01A9  clrr 029h  
+01AA //[03B9] 01AA  clrr 02Ah  
+00D2 //[03BA] 00D2  movar 052h  
+32FF //[03BB] 30FF  movia 0FFh  
+01A7 //[03BC] 01A7  clrr 027h  
+01A8 //[03BD] 01A8  clrr 028h  
+01A5 //[03BE] 01A5  clrr 025h  
+01A6 //[03BF] 01A6  clrr 026h  
+01B0 //[03C0] 01B0  clrr 030h  
+2D49 //[03C1] 1149  bcr 049h,2  
+01AB //[03C2] 01AB  clrr 02Bh  
+01AC //[03C3] 01AC  clrr 02Ch  
+2C49 //[03C4] 1049  bcr 049h,0  
+01AD //[03C5] 01AD  clrr 02Dh  
+01AE //[03C6] 01AE  clrr 02Eh  
+2CC9 //[03C7] 10C9  bcr 049h,1  
+01C5 //[03C8] 01C5  clrr 045h  
+01B4 //[03C9] 01B4  clrr 034h  
+01B3 //[03CA] 01B3  clrr 033h  
+01B1 //[03CB] 01B1  clrr 031h  
+01B2 //[03CC] 01B2  clrr 032h  
+01C1 //[03CD] 01C1  clrr 041h  
+00D3 //[03CE] 00D3  movar 053h  
+0185 //[03CF] 0185  clrr 005h  
+0187 //[03D0] 0187  clrr 007h  
+327F //[03D1] 307F  movia 07Fh  
+2A83 //[03D2] 1683  bsr 003h,5  
+0085 //[03D3] 0085  movar 005h  
+3207 //[03D4] 3007  movia 007h  
+0087 //[03D5] 0087  movar 007h  
+32CF //[03D6] 30CF  movia 0CFh  
+0092 //[03D7] 0092  movar 012h  
+32FF //[03D8] 30FF  movia 0FFh  
+0093 //[03D9] 0093  movar 013h  
+2E83 //[03DA] 1283  bcr 003h,5  
+0092 //[03DB] 0092  movar 012h  
+0093 //[03DC] 0093  movar 013h  
+019B //[03DD] 019B  clrr 01Bh  
+3270 //[03DE] 3070  movia 070h  
+2A83 //[03DF] 1683  bsr 003h,5  
+2C0C //[03E0] 100C  bcr 00Ch,0  
+2C1B //[03E1] 101B  bcr 01Bh,0  
+008F //[03E2] 008F  movar 00Fh  
+2E83 //[03E3] 1283  bcr 003h,5  
+0305 //[03E4] 0805  movr 005h,0  
+2C0B //[03E5] 100B  bcr 00Bh,0  
+298B //[03E6] 158B  bsr 00Bh,3  
+2B8B //[03E7] 178B  bsr 00Bh,7  
+2A83 //[03E8] 1683  bsr 003h,5  
+2F8E //[03E9] 138E  bcr 00Eh,7  
+2994 //[03EA] 1594  bsr 014h,3  
+0002 //[03EB] 0064  clrwdt  
+0006 //[03EC] 0063  sleep  
+0000 //[03ED] 0000  nop  
+0002 //[03EE] 0064  clrwdt  
+2A83 //[03EF] 1683  bsr 003h,5  
+2F03 //[03F0] 1303  bcr 003h,6  
+2B8E //[03F1] 178E  bsr 00Eh,7  
+2D94 //[03F2] 1194  bcr 014h,3  
+2D8B //[03F3] 118B  bcr 00Bh,3  
+018F //[03F4] 018F  clrr 00Fh  
+2E83 //[03F5] 1283  bcr 003h,5  
+0305 //[03F6] 0805  movr 005h,0  
+2C0B //[03F7] 100B  bcr 00Bh,0  
+15E1 //[03F8] 25E1  call 05E1h  
+3214 //[03F9] 3014  movia 014h  
+00C6 //[03FA] 00C6  movar 046h  
+007C //[03FB] 0008  return  
+2E49 //[03FC] 1249  bcr 049h,4  
+2DC9 //[03FD] 11C9  bcr 049h,3  
+2EC9 //[03FE] 12C9  bcr 049h,5  
+2685 //[03FF] 1A85  btrsc 005h,5  
+1C03 //[0400] 2C03  goto 0403h  
+2A49 //[0401] 1649  bsr 049h,4  
+1C06 //[0402] 2C06  goto 0406h  
+2605 //[0403] 1A05  btrsc 005h,4  
+1C07 //[0404] 2C07  goto 0407h  
+29C9 //[0405] 15C9  bsr 049h,3  
+2AC9 //[0406] 16C9  bsr 049h,5  
+22C9 //[0407] 1EC9  btrss 049h,5  
+1C10 //[0408] 2C10  goto 0410h  
+32C8 //[0409] 30C8  movia 0C8h  
+2E87 //[040A] 1287  bcr 007h,5  
+0A39 //[040B] 0239  subar 039h,0  
+2003 //[040C] 1C03  btrss 003h,0  
+1C10 //[040D] 2C10  goto 0410h  
+32C7 //[040E] 30C7  movia 0C7h  
+00B9 //[040F] 00B9  movar 039h  
+26F0 //[0410] 1AF0  btrsc 070h,5  
+1C16 //[0411] 2C16  goto 0416h  
+03B7 //[0412] 08B7  movr 037h,1  
+2503 //[0413] 1903  btrsc 003h,2  
+26C9 //[0414] 1AC9  btrsc 049h,5  
+1C18 //[0415] 2C18  goto 0418h  
+01B9 //[0416] 01B9  clrr 039h  
+2E87 //[0417] 1287  bcr 007h,5  
+2070 //[0418] 1C70  btrss 070h,0  
+1C1D //[0419] 2C1D  goto 041Dh  
+03B9 //[041A] 08B9  movr 039h,1  
+2103 //[041B] 1D03  btrss 003h,2  
+1C1E //[041C] 2C1E  goto 041Eh  
+2E87 //[041D] 1287  bcr 007h,5  
+3200 //[041E] 3000  movia 000h  
+26C9 //[041F] 1AC9  btrsc 049h,5  
+3201 //[0420] 3001  movia 001h  
+0B48 //[0421] 0648  xorar 048h,0  
+2503 //[0422] 1903  btrsc 003h,2  
+1C35 //[0423] 2C35  goto 0435h  
+2DF2 //[0424] 11F2  bcr 072h,3  
+01BF //[0425] 01BF  clrr 03Fh  
+01C0 //[0426] 01C0  clrr 040h  
+26C9 //[0427] 1AC9  btrsc 049h,5  
+1C2F //[0428] 2C2F  goto 042Fh  
+3200 //[0429] 3000  movia 000h  
+03B9 //[042A] 08B9  movr 039h,1  
+2103 //[042B] 1D03  btrss 003h,2  
+3201 //[042C] 3001  movia 001h  
+00F7 //[042D] 00F7  movar 077h  
+1C30 //[042E] 2C30  goto 0430h  
+01F7 //[042F] 01F7  clrr 077h  
+01F8 //[0430] 01F8  clrr 078h  
+2FC9 //[0431] 13C9  bcr 049h,7  
+2477 //[0432] 1877  btrsc 077h,0  
+2BC9 //[0433] 17C9  bsr 049h,7  
+1C44 //[0434] 2C44  goto 0444h  
+0339 //[0435] 0839  movr 039h,0  
+2503 //[0436] 1903  btrsc 003h,2  
+1C3E //[0437] 2C3E  goto 043Eh  
+0339 //[0438] 0839  movr 039h,0  
+0B47 //[0439] 0647  xorar 047h,0  
+2503 //[043A] 1903  btrsc 003h,2  
+1C3E //[043B] 2C3E  goto 043Eh  
+1677 //[043C] 2677  call 0677h  
+1C44 //[043D] 2C44  goto 0444h  
+03B9 //[043E] 08B9  movr 039h,1  
+2503 //[043F] 1903  btrsc 003h,2  
+26C9 //[0440] 1AC9  btrsc 049h,5  
+1C44 //[0441] 2C44  goto 0444h  
+2FC9 //[0442] 13C9  bcr 049h,7  
+01C0 //[0443] 01C0  clrr 040h  
+2E83 //[0444] 1283  bcr 003h,5  
+2F03 //[0445] 1303  bcr 003h,6  
+0339 //[0446] 0839  movr 039h,0  
+00C7 //[0447] 00C7  movar 047h  
+3200 //[0448] 3000  movia 000h  
+26C9 //[0449] 1AC9  btrsc 049h,5  
+3201 //[044A] 3001  movia 001h  
+00C8 //[044B] 00C8  movar 048h  
+007C //[044C] 0008  return  
+2E83 //[044D] 1283  bcr 003h,5  
+2F03 //[044E] 1303  bcr 003h,6  
+200B //[044F] 1C0B  btrss 00Bh,0  
+1C55 //[0450] 2C55  goto 0455h  
+0305 //[0451] 0805  movr 005h,0  
+2C0B //[0452] 100B  bcr 00Bh,0  
+2E83 //[0453] 1283  bcr 003h,5  
+2F03 //[0454] 1303  bcr 003h,6  
+200C //[0455] 1C0C  btrss 00Ch,0  
+1C89 //[0456] 2C89  goto 0489h  
+32FE //[0457] 30FE  movia 0FEh  
+2C0C //[0458] 100C  bcr 00Ch,0  
+2A83 //[0459] 1683  bsr 003h,5  
+009C //[045A] 009C  movar 01Ch  
+3270 //[045B] 3070  movia 070h  
+009D //[045C] 009D  movar 01Dh  
+28F0 //[045D] 14F0  bsr 070h,1  
+2E83 //[045E] 1283  bcr 003h,5  
+2B03 //[045F] 1703  bsr 003h,6  
+2499 //[0460] 1899  btrsc 019h,1  
+2390 //[0461] 1F90  btrss 010h,7  
+1C74 //[0462] 2C74  goto 0474h  
+3207 //[0463] 3007  movia 007h  
+2F03 //[0464] 1303  bcr 003h,6  
+0A31 //[0465] 0231  subar 031h,0  
+2403 //[0466] 1803  btrsc 003h,0  
+1C6A //[0467] 2C6A  goto 046Ah  
+08B1 //[0468] 0AB1  incr 031h,1  
+1C6B //[0469] 2C6B  goto 046Bh  
+01B1 //[046A] 01B1  clrr 031h  
+0333 //[046B] 0833  movr 033h,0  
+0A31 //[046C] 0231  subar 031h,0  
+2403 //[046D] 1803  btrsc 003h,0  
+1C71 //[046E] 2C71  goto 0471h  
+0832 //[046F] 0A32  incr 032h,0  
+1C72 //[0470] 2C72  goto 0472h  
+0332 //[0471] 0832  movr 032h,0  
+2B03 //[0472] 1703  bsr 003h,6  
+009E //[0473] 009E  movar 01Eh  
+320A //[0474] 300A  movia 00Ah  
+2F03 //[0475] 1303  bcr 003h,6  
+08C1 //[0476] 0AC1  incr 041h,1  
+0A41 //[0477] 0241  subar 041h,0  
+2003 //[0478] 1C03  btrss 003h,0  
+1C89 //[0479] 2C89  goto 0489h  
+01C1 //[047A] 01C1  clrr 041h  
+2B72 //[047B] 1772  bsr 072h,6  
+08C3 //[047C] 0AC3  incr 043h,1  
+03B9 //[047D] 08B9  movr 039h,1  
+2503 //[047E] 1903  btrsc 003h,2  
+26C9 //[047F] 1AC9  btrsc 049h,5  
+1C86 //[0480] 2C86  goto 0486h  
+03BD //[0481] 08BD  movr 03Dh,1  
+2503 //[0482] 1903  btrsc 003h,2  
+0354 //[0483] 0854  movr 054h,0  
+2503 //[0484] 1903  btrsc 003h,2  
+1C88 //[0485] 2C88  goto 0488h  
+16C4 //[0486] 26C4  call 06C4h  
+1C89 //[0487] 2C89  goto 0489h  
+16AA //[0488] 26AA  call 06AAh  
+0374 //[0489] 0874  movr 074h,0  
+008A //[048A] 008A  movar 00Ah  
+0D73 //[048B] 0E73  swapr 073h,0  
+0083 //[048C] 0083  movar 003h  
+0DFE //[048D] 0EFE  swapr 07Eh,1  
+0D7E //[048E] 0E7E  swapr 07Eh,0  
+007E //[048F] 0009  retfie  
+2F03 //[0490] 1303  bcr 003h,6  
+23C9 //[0491] 1FC9  btrss 049h,7  
+1C97 //[0492] 2C97  goto 0497h  
+0339 //[0493] 0839  movr 039h,0  
+00CE //[0494] 00CE  movar 04Eh  
+01CD //[0495] 01CD  clrr 04Dh  
+1C9B //[0496] 2C9B  goto 049Bh  
+0337 //[0497] 0837  movr 037h,0  
+00CE //[0498] 00CE  movar 04Eh  
+3204 //[0499] 3004  movia 004h  
+00CD //[049A] 00CD  movar 04Dh  
+2470 //[049B] 1870  btrsc 070h,0  
+2287 //[049C] 1E87  btrss 007h,5  
+1C9F //[049D] 2C9F  goto 049Fh  
+29CD //[049E] 15CD  bsr 04Dh,3  
+3264 //[049F] 3064  movia 064h  
+0A4E //[04A0] 024E  subar 04Eh,0  
+2003 //[04A1] 1C03  btrss 003h,0  
+1CA7 //[04A2] 2CA7  goto 04A7h  
+3203 //[04A3] 3003  movia 003h  
+0FCD //[04A4] 04CD  iorar 04Dh,1  
+3264 //[04A5] 3064  movia 064h  
+0ACE //[04A6] 02CE  subar 04Eh,1  
+320A //[04A7] 300A  movia 00Ah  
+00F5 //[04A8] 00F5  movar 075h  
+034E //[04A9] 084E  movr 04Eh,0  
+15C6 //[04AA] 25C6  call 05C6h  
+3801 //[04AB] 3E01  addia 001h  
+0084 //[04AC] 0084  movar 004h  
+1666 //[04AD] 2666  call 0666h  
+00CB //[04AE] 00CB  movar 04Bh  
+320A //[04AF] 300A  movia 00Ah  
+00F5 //[04B0] 00F5  movar 075h  
+034E //[04B1] 084E  movr 04Eh,0  
+15AA //[04B2] 25AA  call 05AAh  
+3801 //[04B3] 3E01  addia 001h  
+0084 //[04B4] 0084  movar 004h  
+1666 //[04B5] 2666  call 0666h  
+00CC //[04B6] 00CC  movar 04Ch  
+27C9 //[04B7] 1BC9  btrsc 049h,7  
+1CC8 //[04B8] 2CC8  goto 04C8h  
+2749 //[04B9] 1B49  btrsc 049h,6  
+26C9 //[04BA] 1AC9  btrsc 049h,5  
+1CC0 //[04BB] 2CC0  goto 04C0h  
+204A //[04BC] 1C4A  btrss 04Ah,0  
+1CC0 //[04BD] 2CC0  goto 04C0h  
+01CB //[04BE] 01CB  clrr 04Bh  
+01CC //[04BF] 01CC  clrr 04Ch  
+22C9 //[04C0] 1EC9  btrss 049h,5  
+1CC8 //[04C1] 2CC8  goto 04C8h  
+3264 //[04C2] 3064  movia 064h  
+0A37 //[04C3] 0237  subar 037h,0  
+2003 //[04C4] 1C03  btrss 003h,0  
+204A //[04C5] 1C4A  btrss 04Ah,0  
+1CC8 //[04C6] 2CC8  goto 04C8h  
+01CC //[04C7] 01CC  clrr 04Ch  
+2F8B //[04C8] 138B  bcr 00Bh,7  
+034D //[04C9] 084D  movr 04Dh,0  
+00A0 //[04CA] 00A0  movar 020h  
+034B //[04CB] 084B  movr 04Bh,0  
+00A1 //[04CC] 00A1  movar 021h  
+034C //[04CD] 084C  movr 04Ch,0  
+00A2 //[04CE] 00A2  movar 022h  
+2B8B //[04CF] 178B  bsr 00Bh,7  
+007C //[04D0] 0008  return  
+2372 //[04D1] 1F72  btrss 072h,6  
+007C //[04D2] 0008  return  
+320A //[04D3] 300A  movia 00Ah  
+2F72 //[04D4] 1372  bcr 072h,6  
+2E83 //[04D5] 1283  bcr 003h,5  
+2F03 //[04D6] 1303  bcr 003h,6  
+0A43 //[04D7] 0243  subar 043h,0  
+2003 //[04D8] 1C03  btrss 003h,0  
+1CDE //[04D9] 2CDE  goto 04DEh  
+01C3 //[04DA] 01C3  clrr 043h  
+2AF2 //[04DB] 16F2  bsr 072h,5  
+08C2 //[04DC] 0AC2  incr 042h,1  
+08C4 //[04DD] 0AC4  incr 044h,1  
+320A //[04DE] 300A  movia 00Ah  
+0A42 //[04DF] 0242  subar 042h,0  
+2003 //[04E0] 1C03  btrss 003h,0  
+1CE4 //[04E1] 2CE4  goto 04E4h  
+01C2 //[04E2] 01C2  clrr 042h  
+2A72 //[04E3] 1672  bsr 072h,4  
+3232 //[04E4] 3032  movia 032h  
+0A44 //[04E5] 0244  subar 044h,0  
+2003 //[04E6] 1C03  btrss 003h,0  
+1CEF //[04E7] 2CEF  goto 04EFh  
+01C4 //[04E8] 01C4  clrr 044h  
+2BF2 //[04E9] 17F2  bsr 072h,7  
+08BF //[04EA] 0ABF  incr 03Fh,1  
+08BE //[04EB] 0ABE  incr 03Eh,1  
+08B8 //[04EC] 0AB8  incr 038h,1  
+08B6 //[04ED] 0AB6  incr 036h,1  
+08B5 //[04EE] 0AB5  incr 035h,1  
+3206 //[04EF] 3006  movia 006h  
+0A3F //[04F0] 023F  subar 03Fh,0  
+2003 //[04F1] 1C03  btrss 003h,0  
+1CF5 //[04F2] 2CF5  goto 04F5h  
+01BF //[04F3] 01BF  clrr 03Fh  
+29F2 //[04F4] 15F2  bsr 072h,3  
+320A //[04F5] 300A  movia 00Ah  
+0A3E //[04F6] 023E  subar 03Eh,0  
+2003 //[04F7] 1C03  btrss 003h,0  
+1CFB //[04F8] 2CFB  goto 04FBh  
+01BE //[04F9] 01BE  clrr 03Eh  
+2972 //[04FA] 1572  bsr 072h,2  
+3228 //[04FB] 3028  movia 028h  
+0A38 //[04FC] 0238  subar 038h,0  
+2003 //[04FD] 1C03  btrss 003h,0  
+1D01 //[04FE] 2D01  goto 0501h  
+01B8 //[04FF] 01B8  clrr 038h  
+2A70 //[0500] 1670  bsr 070h,4  
+3232 //[0501] 3032  movia 032h  
+0A36 //[0502] 0236  subar 036h,0  
+2003 //[0503] 1C03  btrss 003h,0  
+1D07 //[0504] 2D07  goto 0507h  
+01B6 //[0505] 01B6  clrr 036h  
+29F0 //[0506] 15F0  bsr 070h,3  
+32B4 //[0507] 30B4  movia 0B4h  
+0A35 //[0508] 0235  subar 035h,0  
+2003 //[0509] 1C03  btrss 003h,0  
+007C //[050A] 0008  return  
+01B5 //[050B] 01B5  clrr 035h  
+2970 //[050C] 1570  bsr 070h,2  
+007C //[050D] 0008  return  
+320D //[050E] 300D  movia 00Dh  
+0A76 //[050F] 0276  subar 076h,0  
+3216 //[0510] 3016  movia 016h  
+2503 //[0511] 1903  btrsc 003h,2  
+0A75 //[0512] 0275  subar 075h,0  
+2403 //[0513] 1803  btrsc 003h,0  
+1D29 //[0514] 2D29  goto 0529h  
+3216 //[0515] 3016  movia 016h  
+00F7 //[0516] 00F7  movar 077h  
+320D //[0517] 300D  movia 00Dh  
+00F8 //[0518] 00F8  movar 078h  
+0375 //[0519] 0875  movr 075h,0  
+0A77 //[051A] 0277  subar 077h,0  
+00F9 //[051B] 00F9  movar 079h  
+0376 //[051C] 0876  movr 076h,0  
+2003 //[051D] 1C03  btrss 003h,0  
+0876 //[051E] 0A76  incr 076h,0  
+0A78 //[051F] 0278  subar 078h,0  
+00FA //[0520] 00FA  movar 07Ah  
+3200 //[0521] 3000  movia 000h  
+0A7A //[0522] 027A  subar 07Ah,0  
+32B5 //[0523] 30B5  movia 0B5h  
+2503 //[0524] 1903  btrsc 003h,2  
+0A79 //[0525] 0279  subar 079h,0  
+2403 //[0526] 1803  btrsc 003h,0  
+3C02 //[0527] 3402  retia 002h  
+3C01 //[0528] 3401  retia 001h  
+0375 //[0529] 0875  movr 075h,0  
+38EA //[052A] 3EEA  addia 0EAh  
+00F7 //[052B] 00F7  movar 077h  
+0376 //[052C] 0876  movr 076h,0  
+2403 //[052D] 1803  btrsc 003h,0  
+3801 //[052E] 3E01  addia 001h  
+38F2 //[052F] 3EF2  addia 0F2h  
+00F8 //[0530] 00F8  movar 078h  
+3200 //[0531] 3000  movia 000h  
+0A78 //[0532] 0278  subar 078h,0  
+32B5 //[0533] 30B5  movia 0B5h  
+2503 //[0534] 1903  btrsc 003h,2  
+0A77 //[0535] 0277  subar 077h,0  
+2403 //[0536] 1803  btrsc 003h,0  
+3C00 //[0537] 3400  retia 000h  
+3C03 //[0538] 3403  retia 003h  
+01CB //[0539] 01CB  clrr 04Bh  
+01CC //[053A] 01CC  clrr 04Ch  
+0376 //[053B] 0876  movr 076h,0  
+0F75 //[053C] 0475  iorar 075h,0  
+2503 //[053D] 1903  btrsc 003h,2  
+1D5E //[053E] 2D5E  goto 055Eh  
+01CD //[053F] 01CD  clrr 04Dh  
+08CD //[0540] 0ACD  incr 04Dh,1  
+27F6 //[0541] 1BF6  btrsc 076h,7  
+1D47 //[0542] 2D47  goto 0547h  
+2C03 //[0543] 1003  bcr 003h,0  
+0CF5 //[0544] 0DF5  rlr 075h,1  
+0CF6 //[0545] 0DF6  rlr 076h,1  
+1D40 //[0546] 2D40  goto 0540h  
+2C03 //[0547] 1003  bcr 003h,0  
+0CCB //[0548] 0DCB  rlr 04Bh,1  
+0CCC //[0549] 0DCC  rlr 04Ch,1  
+0376 //[054A] 0876  movr 076h,0  
+0A78 //[054B] 0278  subar 078h,0  
+2103 //[054C] 1D03  btrss 003h,2  
+1D50 //[054D] 2D50  goto 0550h  
+0375 //[054E] 0875  movr 075h,0  
+0A77 //[054F] 0277  subar 077h,0  
+2003 //[0550] 1C03  btrss 003h,0  
+1D5A //[0551] 2D5A  goto 055Ah  
+0375 //[0552] 0875  movr 075h,0  
+0AF7 //[0553] 02F7  subar 077h,1  
+0376 //[0554] 0876  movr 076h,0  
+2003 //[0555] 1C03  btrss 003h,0  
+06F8 //[0556] 03F8  decr 078h,1  
+0AF8 //[0557] 02F8  subar 078h,1  
+284B //[0558] 144B  bsr 04Bh,0  
+2C03 //[0559] 1003  bcr 003h,0  
+0EF6 //[055A] 0CF6  rrr 076h,1  
+0EF5 //[055B] 0CF5  rrr 075h,1  
+07CD //[055C] 0BCD  decrsz 04Dh,1  
+1D47 //[055D] 2D47  goto 0547h  
+034C //[055E] 084C  movr 04Ch,0  
+00F6 //[055F] 00F6  movar 076h  
+034B //[0560] 084B  movr 04Bh,0  
+00F5 //[0561] 00F5  movar 075h  
+007C //[0562] 0008  return  
+00F5 //[0563] 00F5  movar 075h  
+0B53 //[0564] 0653  xorar 053h,0  
+2503 //[0565] 1903  btrsc 003h,2  
+1D71 //[0566] 2D71  goto 0571h  
+2D70 //[0567] 1170  bcr 070h,2  
+01B5 //[0568] 01B5  clrr 035h  
+2DF0 //[0569] 11F0  bcr 070h,3  
+01B6 //[056A] 01B6  clrr 036h  
+2E70 //[056B] 1270  bcr 070h,4  
+01B8 //[056C] 01B8  clrr 038h  
+2D72 //[056D] 1172  bcr 072h,2  
+01BE //[056E] 01BE  clrr 03Eh  
+0375 //[056F] 0875  movr 075h,0  
+00D3 //[0570] 00D3  movar 053h  
+0375 //[0571] 0875  movr 075h,0  
+2503 //[0572] 1903  btrsc 003h,2  
+1D76 //[0573] 2D76  goto 0576h  
+2D70 //[0574] 1170  bcr 070h,2  
+01B5 //[0575] 01B5  clrr 035h  
+0675 //[0576] 0375  decr 075h,0  
+2503 //[0577] 1903  btrsc 003h,2  
+1D7B //[0578] 2D7B  goto 057Bh  
+2DF0 //[0579] 11F0  bcr 070h,3  
+01B6 //[057A] 01B6  clrr 036h  
+0375 //[057B] 0875  movr 075h,0  
+3402 //[057C] 3A02  xoria 002h  
+2503 //[057D] 1903  btrsc 003h,2  
+1D81 //[057E] 2D81  goto 0581h  
+2E70 //[057F] 1270  bcr 070h,4  
+01B8 //[0580] 01B8  clrr 038h  
+0375 //[0581] 0875  movr 075h,0  
+3403 //[0582] 3A03  xoria 003h  
+2503 //[0583] 1903  btrsc 003h,2  
+007C //[0584] 0008  return  
+2D72 //[0585] 1172  bcr 072h,2  
+01BE //[0586] 01BE  clrr 03Eh  
+007C //[0587] 0008  return  
+329C //[0588] 309C  movia 09Ch  
+009B //[0589] 009B  movar 01Bh  
+019F //[058A] 019F  clrr 01Fh  
+3240 //[058B] 3040  movia 040h  
+009D //[058C] 009D  movar 01Dh  
+3202 //[058D] 3002  movia 002h  
+01A3 //[058E] 01A3  clrr 023h  
+01A4 //[058F] 01A4  clrr 024h  
+01AF //[0590] 01AF  clrr 02Fh  
+2CF0 //[0591] 10F0  bcr 070h,1  
+01A9 //[0592] 01A9  clrr 029h  
+01AA //[0593] 01AA  clrr 02Ah  
+00D2 //[0594] 00D2  movar 052h  
+32FF //[0595] 30FF  movia 0FFh  
+01A7 //[0596] 01A7  clrr 027h  
+01A8 //[0597] 01A8  clrr 028h  
+01A5 //[0598] 01A5  clrr 025h  
+01A6 //[0599] 01A6  clrr 026h  
+01B0 //[059A] 01B0  clrr 030h  
+2D49 //[059B] 1149  bcr 049h,2  
+01AB //[059C] 01AB  clrr 02Bh  
+01AC //[059D] 01AC  clrr 02Ch  
+2C49 //[059E] 1049  bcr 049h,0  
+01AD //[059F] 01AD  clrr 02Dh  
+01AE //[05A0] 01AE  clrr 02Eh  
+2CC9 //[05A1] 10C9  bcr 049h,1  
+01C5 //[05A2] 01C5  clrr 045h  
+01B4 //[05A3] 01B4  clrr 034h  
+01B3 //[05A4] 01B3  clrr 033h  
+01B1 //[05A5] 01B1  clrr 031h  
+01B2 //[05A6] 01B2  clrr 032h  
+01C1 //[05A7] 01C1  clrr 041h  
+00D3 //[05A8] 00D3  movar 053h  
+007C //[05A9] 0008  return  
+00F7 //[05AA] 00F7  movar 077h  
+3208 //[05AB] 3008  movia 008h  
+00F8 //[05AC] 00F8  movar 078h  
+01F9 //[05AD] 01F9  clrr 079h  
+0377 //[05AE] 0877  movr 077h,0  
+00F6 //[05AF] 00F6  movar 076h  
+3207 //[05B0] 3007  movia 007h  
+2C03 //[05B1] 1003  bcr 003h,0  
+0EF6 //[05B2] 0CF6  rrr 076h,1  
+38FF //[05B3] 3EFF  addia 0FFh  
+2C03 //[05B4] 1003  bcr 003h,0  
+2103 //[05B5] 1D03  btrss 003h,2  
+1DB2 //[05B6] 2DB2  goto 05B2h  
+0C79 //[05B7] 0D79  rlr 079h,0  
+0F76 //[05B8] 0476  iorar 076h,0  
+00F9 //[05B9] 00F9  movar 079h  
+2C03 //[05BA] 1003  bcr 003h,0  
+0CF7 //[05BB] 0DF7  rlr 077h,1  
+0375 //[05BC] 0875  movr 075h,0  
+0A79 //[05BD] 0279  subar 079h,0  
+2003 //[05BE] 1C03  btrss 003h,0  
+1DC2 //[05BF] 2DC2  goto 05C2h  
+0375 //[05C0] 0875  movr 075h,0  
+0AF9 //[05C1] 02F9  subar 079h,1  
+07F8 //[05C2] 0BF8  decrsz 078h,1  
+1DAE //[05C3] 2DAE  goto 05AEh  
+0379 //[05C4] 0879  movr 079h,0  
+007C //[05C5] 0008  return  
+00F6 //[05C6] 00F6  movar 076h  
+01F8 //[05C7] 01F8  clrr 078h  
+0375 //[05C8] 0875  movr 075h,0  
+2503 //[05C9] 1903  btrsc 003h,2  
+1DDF //[05CA] 2DDF  goto 05DFh  
+01F7 //[05CB] 01F7  clrr 077h  
+08F7 //[05CC] 0AF7  incr 077h,1  
+27F5 //[05CD] 1BF5  btrsc 075h,7  
+1DD2 //[05CE] 2DD2  goto 05D2h  
+2C03 //[05CF] 1003  bcr 003h,0  
+0CF5 //[05D0] 0DF5  rlr 075h,1  
+1DCC //[05D1] 2DCC  goto 05CCh  
+2C03 //[05D2] 1003  bcr 003h,0  
+0CF8 //[05D3] 0DF8  rlr 078h,1  
+0375 //[05D4] 0875  movr 075h,0  
+0A76 //[05D5] 0276  subar 076h,0  
+2003 //[05D6] 1C03  btrss 003h,0  
+1DDC //[05D7] 2DDC  goto 05DCh  
+0375 //[05D8] 0875  movr 075h,0  
+0AF6 //[05D9] 02F6  subar 076h,1  
+2878 //[05DA] 1478  bsr 078h,0  
+2C03 //[05DB] 1003  bcr 003h,0  
+0EF5 //[05DC] 0CF5  rrr 075h,1  
+07F7 //[05DD] 0BF7  decrsz 077h,1  
+1DD2 //[05DE] 2DD2  goto 05D2h  
+0378 //[05DF] 0878  movr 078h,0  
+007C //[05E0] 0008  return  
+2A83 //[05E1] 1683  bsr 003h,5  
+0181 //[05E2] 0181  clrr 001h  
+0194 //[05E3] 0194  clrr 014h  
+018B //[05E4] 018B  clrr 00Bh  
+2B8E //[05E5] 178E  bsr 00Eh,7  
+018C //[05E6] 018C  clrr 00Ch  
+2E83 //[05E7] 1283  bcr 003h,5  
+018C //[05E8] 018C  clrr 00Ch  
+2A83 //[05E9] 1683  bsr 003h,5  
+018D //[05EA] 018D  clrr 00Dh  
+2E83 //[05EB] 1283  bcr 003h,5  
+018D //[05EC] 018D  clrr 00Dh  
+1614 //[05ED] 2614  call 0614h  
+1588 //[05EE] 2588  call 0588h  
+1685 //[05EF] 2685  call 0685h  
+1641 //[05F0] 2641  call 0641h  
+2C99 //[05F1] 1099  bcr 019h,1  
+019E //[05F2] 019E  clrr 01Eh  
+019F //[05F3] 019F  clrr 01Fh  
+2F90 //[05F4] 1390  bcr 010h,7  
+2F03 //[05F5] 1303  bcr 003h,6  
+2F85 //[05F6] 1385  bcr 005h,7  
+2D87 //[05F7] 1187  bcr 007h,3  
+2E07 //[05F8] 1207  bcr 007h,4  
+2E87 //[05F9] 1287  bcr 007h,5  
+1E9F //[05FA] 2E9F  goto 069Fh  
+01F9 //[05FB] 01F9  clrr 079h  
+01FA //[05FC] 01FA  clrr 07Ah  
+2075 //[05FD] 1C75  btrss 075h,0  
+1E05 //[05FE] 2E05  goto 0605h  
+0377 //[05FF] 0877  movr 077h,0  
+05F9 //[0600] 07F9  addar 079h,1  
+2403 //[0601] 1803  btrsc 003h,0  
+08FA //[0602] 0AFA  incr 07Ah,1  
+0378 //[0603] 0878  movr 078h,0  
+05FA //[0604] 07FA  addar 07Ah,1  
+2C03 //[0605] 1003  bcr 003h,0  
+0CF7 //[0606] 0DF7  rlr 077h,1  
+0CF8 //[0607] 0DF8  rlr 078h,1  
+2C03 //[0608] 1003  bcr 003h,0  
+0EF6 //[0609] 0CF6  rrr 076h,1  
+0EF5 //[060A] 0CF5  rrr 075h,1  
+0376 //[060B] 0876  movr 076h,0  
+0F75 //[060C] 0475  iorar 075h,0  
+2103 //[060D] 1D03  btrss 003h,2  
+1DFD //[060E] 2DFD  goto 05FDh  
+037A //[060F] 087A  movr 07Ah,0  
+00F6 //[0610] 00F6  movar 076h  
+0379 //[0611] 0879  movr 079h,0  
+00F5 //[0612] 00F5  movar 075h  
+007C //[0613] 0008  return  
+0185 //[0614] 0185  clrr 005h  
+0187 //[0615] 0187  clrr 007h  
+327F //[0616] 307F  movia 07Fh  
+2A83 //[0617] 1683  bsr 003h,5  
+0085 //[0618] 0085  movar 005h  
+3207 //[0619] 3007  movia 007h  
+0087 //[061A] 0087  movar 007h  
+32CF //[061B] 30CF  movia 0CFh  
+0092 //[061C] 0092  movar 012h  
+32FF //[061D] 30FF  movia 0FFh  
+0093 //[061E] 0093  movar 013h  
+2E83 //[061F] 1283  bcr 003h,5  
+0092 //[0620] 0092  movar 012h  
+0093 //[0621] 0093  movar 013h  
+3220 //[0622] 3020  movia 020h  
+2F85 //[0623] 1385  bcr 005h,7  
+2D87 //[0624] 1187  bcr 007h,3  
+2E07 //[0625] 1207  bcr 007h,4  
+2E87 //[0626] 1287  bcr 007h,5  
+009A //[0627] 009A  movar 01Ah  
+3240 //[0628] 3040  movia 040h  
+0099 //[0629] 0099  movar 019h  
+007C //[062A] 0008  return  
+2E87 //[062B] 1287  bcr 007h,5  
+2A83 //[062C] 1683  bsr 003h,5  
+2A87 //[062D] 1687  bsr 007h,5  
+2E83 //[062E] 1283  bcr 003h,5  
+2E92 //[062F] 1292  bcr 012h,5  
+0000 //[0630] 0000  nop  
+0000 //[0631] 0000  nop  
+0000 //[0632] 0000  nop  
+0000 //[0633] 0000  nop  
+2870 //[0634] 1470  bsr 070h,0  
+2E83 //[0635] 1283  bcr 003h,5  
+2F03 //[0636] 1303  bcr 003h,6  
+2687 //[0637] 1A87  btrsc 007h,5  
+2C70 //[0638] 1070  bcr 070h,0  
+2E83 //[0639] 1283  bcr 003h,5  
+2F03 //[063A] 1303  bcr 003h,6  
+2A92 //[063B] 1692  bsr 012h,5  
+2A83 //[063C] 1683  bsr 003h,5  
+2E87 //[063D] 1287  bcr 007h,5  
+2E83 //[063E] 1283  bcr 003h,5  
+2E87 //[063F] 1287  bcr 007h,5  
+007C //[0640] 0008  return  
+2E83 //[0641] 1283  bcr 003h,5  
+2B03 //[0642] 1703  bsr 003h,6  
+0190 //[0643] 0190  clrr 010h  
+0199 //[0644] 0199  clrr 019h  
+3217 //[0645] 3017  movia 017h  
+0091 //[0646] 0091  movar 011h  
+323F //[0647] 303F  movia 03Fh  
+0094 //[0648] 0094  movar 014h  
+0195 //[0649] 0195  clrr 015h  
+32C0 //[064A] 30C0  movia 0C0h  
+2A83 //[064B] 1683  bsr 003h,5  
+008C //[064C] 008C  movar 00Ch  
+0189 //[064D] 0189  clrr 009h  
+2E83 //[064E] 1283  bcr 003h,5  
+019E //[064F] 019E  clrr 01Eh  
+019F //[0650] 019F  clrr 01Fh  
+2C99 //[0651] 1099  bcr 019h,1  
+2F90 //[0652] 1390  bcr 010h,7  
+007C //[0653] 0008  return  
+23F2 //[0654] 1FF2  btrss 072h,7  
+1E5C //[0655] 2E5C  goto 065Ch  
+3201 //[0656] 3001  movia 001h  
+2FF2 //[0657] 13F2  bcr 072h,7  
+0BCA //[0658] 06CA  xorar 04Ah,1  
+033D //[0659] 083D  movr 03Dh,0  
+2103 //[065A] 1D03  btrss 003h,2  
+06BD //[065B] 03BD  decr 03Dh,1  
+21F2 //[065C] 1DF2  btrss 072h,3  
+007C //[065D] 0008  return  
+2DF2 //[065E] 11F2  bcr 072h,3  
+0340 //[065F] 0840  movr 040h,0  
+2503 //[0660] 1903  btrsc 003h,2  
+007C //[0661] 0008  return  
+3280 //[0662] 3080  movia 080h  
+06C0 //[0663] 03C0  decr 040h,1  
+0BC9 //[0664] 06C9  xorar 049h,1  
+007C //[0665] 0008  return  
+3206 //[0666] 3006  movia 006h  
+008A //[0667] 008A  movar 00Ah  
+0304 //[0668] 0804  movr 004h,0  
+0884 //[0669] 0A84  incr 004h,1  
+0582 //[066A] 0782  addar 002h,1  
+3C00 //[066B] 3400  retia 000h  
+3C3F //[066C] 343F  retia 03Fh  
+3C06 //[066D] 3406  retia 006h  
+3C5B //[066E] 345B  retia 05Bh  
+3C4F //[066F] 344F  retia 04Fh  
+3C66 //[0670] 3466  retia 066h  
+3C6D //[0671] 346D  retia 06Dh  
+3C7D //[0672] 347D  retia 07Dh  
+3C07 //[0673] 3407  retia 007h  
+3C7F //[0674] 347F  retia 07Fh  
+3C6F //[0675] 346F  retia 06Fh  
+3C00 //[0676] 3400  retia 000h  
+2BC9 //[0677] 17C9  bsr 049h,7  
+26C9 //[0678] 1AC9  btrsc 049h,5  
+1E7D //[0679] 2E7D  goto 067Dh  
+3202 //[067A] 3002  movia 002h  
+00F5 //[067B] 00F5  movar 075h  
+1E7F //[067C] 2E7F  goto 067Fh  
+01F5 //[067D] 01F5  clrr 075h  
+08F5 //[067E] 0AF5  incr 075h,1  
+01F6 //[067F] 01F6  clrr 076h  
+0375 //[0680] 0875  movr 075h,0  
+00C0 //[0681] 00C0  movar 040h  
+2DF2 //[0682] 11F2  bcr 072h,3  
+01BF //[0683] 01BF  clrr 03Fh  
+007C //[0684] 0008  return  
+3201 //[0685] 3001  movia 001h  
+2A83 //[0686] 1683  bsr 003h,5  
+009B //[0687] 009B  movar 01Bh  
+32FE //[0688] 30FE  movia 0FEh  
+009C //[0689] 009C  movar 01Ch  
+3270 //[068A] 3070  movia 070h  
+009D //[068B] 009D  movar 01Dh  
+2E83 //[068C] 1283  bcr 003h,5  
+2C0C //[068D] 100C  bcr 00Ch,0  
+2A83 //[068E] 1683  bsr 003h,5  
+280C //[068F] 140C  bsr 00Ch,0  
+2B0B //[0690] 170B  bsr 00Bh,6  
+2B8B //[0691] 178B  bsr 00Bh,7  
+007C //[0692] 0008  return  
+3220 //[0693] 3020  movia 020h  
+01F0 //[0694] 01F0  clrr 070h  
+01F1 //[0695] 01F1  clrr 071h  
+01F2 //[0696] 01F2  clrr 072h  
+01C9 //[0697] 01C9  clrr 049h  
+01CA //[0698] 01CA  clrr 04Ah  
+2F83 //[0699] 1383  bcr 003h,7  
+0084 //[069A] 0084  movar 004h  
+3249 //[069B] 3049  movia 049h  
+16B5 //[069C] 26B5  call 06B5h  
+0183 //[069D] 0183  clrr 003h  
+19DD //[069E] 29DD  goto 01DDh  
+320F //[069F] 300F  movia 00Fh  
+2A83 //[06A0] 1683  bsr 003h,5  
+0F85 //[06A1] 0485  iorar 005h,1  
+3205 //[06A2] 3005  movia 005h  
+0F87 //[06A3] 0487  iorar 007h,1  
+32F0 //[06A4] 30F0  movia 0F0h  
+2E83 //[06A5] 1283  bcr 003h,5  
+0485 //[06A6] 0585  andar 005h,1  
+32FA //[06A7] 30FA  movia 0FAh  
+0487 //[06A8] 0587  andar 007h,1  
+007C //[06A9] 0008  return  
+320F //[06AA] 300F  movia 00Fh  
+2A83 //[06AB] 1683  bsr 003h,5  
+0F85 //[06AC] 0485  iorar 005h,1  
+3205 //[06AD] 3005  movia 005h  
+0F87 //[06AE] 0487  iorar 007h,1  
+32F0 //[06AF] 30F0  movia 0F0h  
+2E83 //[06B0] 1283  bcr 003h,5  
+0485 //[06B1] 0585  andar 005h,1  
+32FA //[06B2] 30FA  movia 0FAh  
+0487 //[06B3] 0587  andar 007h,1  
+007C //[06B4] 0008  return  
+0002 //[06B5] 0064  clrwdt  
+0180 //[06B6] 0180  clrr 000h  
+0884 //[06B7] 0A84  incr 004h,1  
+0B04 //[06B8] 0604  xorar 004h,0  
+2503 //[06B9] 1903  btrsc 003h,2  
+3C00 //[06BA] 3400  retia 000h  
+0B04 //[06BB] 0604  xorar 004h,0  
+1EB6 //[06BC] 2EB6  goto 06B6h  
+2CF1 //[06BD] 10F1  bcr 071h,1  
+2FF0 //[06BE] 13F0  bcr 070h,7  
+2EF1 //[06BF] 12F1  bcr 071h,5  
+2DF1 //[06C0] 11F1  bcr 071h,3  
+2CF2 //[06C1] 10F2  bcr 072h,1  
+2FF1 //[06C2] 13F1  bcr 071h,7  
+007C //[06C3] 0008  return  
+16AA //[06C4] 26AA  call 06AAh  
+007C //[06C5] 0008  return  
+1EBD //[06C6] 2EBD  goto 06BDh  
+0000 //[06C7] 0000  nop  
+0000 //[06C8] 0000  nop  
+0000 //[06C9] 0000  nop  
+0000 //[06CA] 0000  nop  
+0000 //[06CB] 0000  nop  
+0000 //[06CC] 0000  nop  
+0000 //[06CD] 0000  nop  
+0000 //[06CE] 0000  nop  
+0000 //[06CF] 0000  nop  
+0000 //[06D0] 0000  nop  
+0000 //[06D1] 0000  nop  
+0000 //[06D2] 0000  nop  
+0000 //[06D3] 0000  nop  
+0000 //[06D4] 0000  nop  
+0000 //[06D5] 0000  nop  
+0000 //[06D6] 0000  nop  
+0000 //[06D7] 0000  nop  
+0000 //[06D8] 0000  nop  
+0000 //[06D9] 0000  nop  
+0000 //[06DA] 0000  nop  
+0000 //[06DB] 0000  nop  
+0000 //[06DC] 0000  nop  
+0000 //[06DD] 0000  nop  
+0000 //[06DE] 0000  nop  
+0000 //[06DF] 0000  nop  
+0000 //[06E0] 0000  nop  
+0000 //[06E1] 0000  nop  
+0000 //[06E2] 0000  nop  
+0000 //[06E3] 0000  nop  
+0000 //[06E4] 0000  nop  
+0000 //[06E5] 0000  nop  
+0000 //[06E6] 0000  nop  
+0000 //[06E7] 0000  nop  
+0000 //[06E8] 0000  nop  
+0000 //[06E9] 0000  nop  
+0000 //[06EA] 0000  nop  
+0000 //[06EB] 0000  nop  
+0000 //[06EC] 0000  nop  
+0000 //[06ED] 0000  nop  
+0000 //[06EE] 0000  nop  
+0000 //[06EF] 0000  nop  
+0000 //[06F0] 0000  nop  
+0000 //[06F1] 0000  nop  
+0000 //[06F2] 0000  nop  
+0000 //[06F3] 0000  nop  
+0000 //[06F4] 0000  nop  
+0000 //[06F5] 0000  nop  
+0000 //[06F6] 0000  nop  
+0000 //[06F7] 0000  nop  
+0000 //[06F8] 0000  nop  
+0000 //[06F9] 0000  nop  
+0000 //[06FA] 0000  nop  
+0000 //[06FB] 0000  nop  
+0000 //[06FC] 0000  nop  
+0000 //[06FD] 0000  nop  
+0000 //[06FE] 0000  nop  
+0000 //[06FF] 0000  nop  
+0000 //[0700] 0000  nop  
+0000 //[0701] 0000  nop  
+0000 //[0702] 0000  nop  
+0000 //[0703] 0000  nop  
+0000 //[0704] 0000  nop  
+0000 //[0705] 0000  nop  
+0000 //[0706] 0000  nop  
+0000 //[0707] 0000  nop  
+0000 //[0708] 0000  nop  
+0000 //[0709] 0000  nop  
+0000 //[070A] 0000  nop  
+0000 //[070B] 0000  nop  
+0000 //[070C] 0000  nop  
+0000 //[070D] 0000  nop  
+0000 //[070E] 0000  nop  
+0000 //[070F] 0000  nop  
+0000 //[0710] 0000  nop  
+0000 //[0711] 0000  nop  
+0000 //[0712] 0000  nop  
+0000 //[0713] 0000  nop  
+0000 //[0714] 0000  nop  
+0000 //[0715] 0000  nop  
+0000 //[0716] 0000  nop  
+0000 //[0717] 0000  nop  
+0000 //[0718] 0000  nop  
+0000 //[0719] 0000  nop  
+0000 //[071A] 0000  nop  
+0000 //[071B] 0000  nop  
+0000 //[071C] 0000  nop  
+0000 //[071D] 0000  nop  
+0000 //[071E] 0000  nop  
+0000 //[071F] 0000  nop  
+0000 //[0720] 0000  nop  
+0000 //[0721] 0000  nop  
+0000 //[0722] 0000  nop  
+0000 //[0723] 0000  nop  
+0000 //[0724] 0000  nop  
+0000 //[0725] 0000  nop  
+0000 //[0726] 0000  nop  
+0000 //[0727] 0000  nop  
+0000 //[0728] 0000  nop  
+0000 //[0729] 0000  nop  
+0000 //[072A] 0000  nop  
+0000 //[072B] 0000  nop  
+0000 //[072C] 0000  nop  
+0000 //[072D] 0000  nop  
+0000 //[072E] 0000  nop  
+0000 //[072F] 0000  nop  
+0000 //[0730] 0000  nop  
+0000 //[0731] 0000  nop  
+0000 //[0732] 0000  nop  
+0000 //[0733] 0000  nop  
+0000 //[0734] 0000  nop  
+0000 //[0735] 0000  nop  
+0000 //[0736] 0000  nop  
+0000 //[0737] 0000  nop  
+0000 //[0738] 0000  nop  
+0000 //[0739] 0000  nop  
+0000 //[073A] 0000  nop  
+0000 //[073B] 0000  nop  
+0000 //[073C] 0000  nop  
+0000 //[073D] 0000  nop  
+0000 //[073E] 0000  nop  
+0000 //[073F] 0000  nop  
+0000 //[0740] 0000  nop  
+0000 //[0741] 0000  nop  
+0000 //[0742] 0000  nop  
+0000 //[0743] 0000  nop  
+0000 //[0744] 0000  nop  
+0000 //[0745] 0000  nop  
+0000 //[0746] 0000  nop  
+0000 //[0747] 0000  nop  
+0000 //[0748] 0000  nop  
+0000 //[0749] 0000  nop  
+0000 //[074A] 0000  nop  
+0000 //[074B] 0000  nop  
+0000 //[074C] 0000  nop  
+0000 //[074D] 0000  nop  
+0000 //[074E] 0000  nop  
+0000 //[074F] 0000  nop  
+0000 //[0750] 0000  nop  
+0000 //[0751] 0000  nop  
+0000 //[0752] 0000  nop  
+0000 //[0753] 0000  nop  
+0000 //[0754] 0000  nop  
+0000 //[0755] 0000  nop  
+0000 //[0756] 0000  nop  
+0000 //[0757] 0000  nop  
+0000 //[0758] 0000  nop  
+0000 //[0759] 0000  nop  
+0000 //[075A] 0000  nop  
+0000 //[075B] 0000  nop  
+0000 //[075C] 0000  nop  
+0000 //[075D] 0000  nop  
+0000 //[075E] 0000  nop  
+0000 //[075F] 0000  nop  
+0000 //[0760] 0000  nop  
+0000 //[0761] 0000  nop  
+0000 //[0762] 0000  nop  
+0000 //[0763] 0000  nop  
+0000 //[0764] 0000  nop  
+0000 //[0765] 0000  nop  
+0000 //[0766] 0000  nop  
+0000 //[0767] 0000  nop  
+0000 //[0768] 0000  nop  
+0000 //[0769] 0000  nop  
+0000 //[076A] 0000  nop  
+0000 //[076B] 0000  nop  
+0000 //[076C] 0000  nop  
+0000 //[076D] 0000  nop  
+0000 //[076E] 0000  nop  
+0000 //[076F] 0000  nop  
+0000 //[0770] 0000  nop  
+0000 //[0771] 0000  nop  
+0000 //[0772] 0000  nop  
+0000 //[0773] 0000  nop  
+0000 //[0774] 0000  nop  
+0000 //[0775] 0000  nop  
+0000 //[0776] 0000  nop  
+0000 //[0777] 0000  nop  
+0000 //[0778] 0000  nop  
+0000 //[0779] 0000  nop  
+0000 //[077A] 0000  nop  
+0000 //[077B] 0000  nop  
+0000 //[077C] 0000  nop  
+0000 //[077D] 0000  nop  
+0000 //[077E] 0000  nop  
+0000 //[077F] 0000  nop  
+0000 //[0780] 0000  nop  
+0000 //[0781] 0000  nop  
+0000 //[0782] 0000  nop  
+0000 //[0783] 0000  nop  
+0000 //[0784] 0000  nop  
+0000 //[0785] 0000  nop  
+0000 //[0786] 0000  nop  
+0000 //[0787] 0000  nop  
+0000 //[0788] 0000  nop  
+0000 //[0789] 0000  nop  
+0000 //[078A] 0000  nop  
+0000 //[078B] 0000  nop  
+0000 //[078C] 0000  nop  
+0000 //[078D] 0000  nop  
+0000 //[078E] 0000  nop  
+0000 //[078F] 0000  nop  
+0000 //[0790] 0000  nop  
+0000 //[0791] 0000  nop  
+0000 //[0792] 0000  nop  
+0000 //[0793] 0000  nop  
+0000 //[0794] 0000  nop  
+0000 //[0795] 0000  nop  
+0000 //[0796] 0000  nop  
+0000 //[0797] 0000  nop  
+0000 //[0798] 0000  nop  
+0000 //[0799] 0000  nop  
+0000 //[079A] 0000  nop  
+0000 //[079B] 0000  nop  
+0000 //[079C] 0000  nop  
+0000 //[079D] 0000  nop  
+0000 //[079E] 0000  nop  
+0000 //[079F] 0000  nop  
+0000 //[07A0] 0000  nop  
+0000 //[07A1] 0000  nop  
+0000 //[07A2] 0000  nop  
+0000 //[07A3] 0000  nop  
+0000 //[07A4] 0000  nop  
+0000 //[07A5] 0000  nop  
+0000 //[07A6] 0000  nop  
+0000 //[07A7] 0000  nop  
+0000 //[07A8] 0000  nop  
+0000 //[07A9] 0000  nop  
+0000 //[07AA] 0000  nop  
+0000 //[07AB] 0000  nop  
+0000 //[07AC] 0000  nop  
+0000 //[07AD] 0000  nop  
+0000 //[07AE] 0000  nop  
+0000 //[07AF] 0000  nop  
+0000 //[07B0] 0000  nop  
+0000 //[07B1] 0000  nop  
+0000 //[07B2] 0000  nop  
+0000 //[07B3] 0000  nop  
+0000 //[07B4] 0000  nop  
+0000 //[07B5] 0000  nop  
+0000 //[07B6] 0000  nop  
+0000 //[07B7] 0000  nop  
+0000 //[07B8] 0000  nop  
+0000 //[07B9] 0000  nop  
+0000 //[07BA] 0000  nop  
+0000 //[07BB] 0000  nop  
+0000 //[07BC] 0000  nop  
+0000 //[07BD] 0000  nop  
+0000 //[07BE] 0000  nop  
+0000 //[07BF] 0000  nop  
+0000 //[07C0] 0000  nop  
+0000 //[07C1] 0000  nop  
+0000 //[07C2] 0000  nop  
+0000 //[07C3] 0000  nop  
+0000 //[07C4] 0000  nop  
+0000 //[07C5] 0000  nop  
+0000 //[07C6] 0000  nop  
+0000 //[07C7] 0000  nop  
+0000 //[07C8] 0000  nop  
+0000 //[07C9] 0000  nop  
+0000 //[07CA] 0000  nop  
+0000 //[07CB] 0000  nop  
+0000 //[07CC] 0000  nop  
+0000 //[07CD] 0000  nop  
+0000 //[07CE] 0000  nop  
+0000 //[07CF] 0000  nop  
+0000 //[07D0] 0000  nop  
+0000 //[07D1] 0000  nop  
+0000 //[07D2] 0000  nop  
+0000 //[07D3] 0000  nop  
+0000 //[07D4] 0000  nop  
+0000 //[07D5] 0000  nop  
+0000 //[07D6] 0000  nop  
+0000 //[07D7] 0000  nop  
+0000 //[07D8] 0000  nop  
+0000 //[07D9] 0000  nop  
+0000 //[07DA] 0000  nop  
+0000 //[07DB] 0000  nop  
+0000 //[07DC] 0000  nop  
+0000 //[07DD] 0000  nop  
+0000 //[07DE] 0000  nop  
+0000 //[07DF] 0000  nop  
+0000 //[07E0] 0000  nop  
+0000 //[07E1] 0000  nop  
+0000 //[07E2] 0000  nop  
+0000 //[07E3] 0000  nop  
+0000 //[07E4] 0000  nop  
+0000 //[07E5] 0000  nop  
+0000 //[07E6] 0000  nop  
+0000 //[07E7] 0000  nop  
+0000 //[07E8] 0000  nop  
+0000 //[07E9] 0000  nop  
+0000 //[07EA] 0000  nop  
+0000 //[07EB] 0000  nop  
+0000 //[07EC] 0000  nop  
+0000 //[07ED] 0000  nop  
+0000 //[07EE] 0000  nop  
+0000 //[07EF] 0000  nop  
+0000 //[07F0] 0000  nop  
+0000 //[07F1] 0000  nop  
+0000 //[07F2] 0000  nop  
+0000 //[07F3] 0000  nop  
+0000 //[07F4] 0000  nop  
+0000 //[07F5] 0000  nop  
+0000 //[07F6] 0000  nop  
+0000 //[07F7] 0000  nop  
+0000 //[07F8] 0000  nop  
+0000 //[07F9] 0000  nop  
+0000 //[07FA] 0000  nop  
+0000 //[07FB] 0000  nop  
+0000 //[07FC] 0000  nop  
+0000 //[07FD] 0000  nop  
+0000 //[07FE] 0000  nop  
+0000 //[07FF] 0000  nop  

@@ -1,0 +1,2 @@
+PROJECT/*.hs.hex -text -diff
+PROJECT/*.ccs -text -diff

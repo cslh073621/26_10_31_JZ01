@@ -1,6 +1,7 @@
-#ifndef HS2811_F824_FIXED_VOLTAGE_7_3_REGRESSION_MAIN_H
-#define HS2811_F824_FIXED_VOLTAGE_7_3_REGRESSION_MAIN_H
+#ifndef JZ01_MAIN_H
+#define JZ01_MAIN_H
 
 #include "hs16p2811.h"
+#define _NOP() asm("nop")
 
 #endif

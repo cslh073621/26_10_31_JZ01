@@ -1,0 +1,14 @@
+__pycache__/
+PROJECT/*.as
+PROJECT/*.lst
+PROJECT/*.map
+PROJECT/*.obj
+PROJECT/*.rlf
+PROJECT/*.sdb
+PROJECT/*.sym
+PROJECT/*.p1
+PROJECT/*.pre
+PROJECT/*.d
+PROJECT/*.cof
+PROJECT/*.hxl
+PROJECT/funclist

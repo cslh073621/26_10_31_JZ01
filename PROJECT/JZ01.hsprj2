@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<project>
+  <chip>HS16P2811</chip>
+  <ver>1.1</ver>
+  <ide-ver>2.1.16</ide-ver>
+  <config-values count="20">0b10 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 </config-values>
+  <type>ccs</type>
+  <clean-ram>false</clean-ram>
+  <OPT>all</OPT>
+  <output-dir>
+  </output-dir>
+  <folder>
+    <file>\main.c</file>
+    <file>\main.h</file>
+  </folder>
+  <properies />
+  <record />
+  <compile-config>Compatible</compile-config>
+  <stack>8</stack>
+  <limit_value>0</limit_value>
+  <limit_value_enable>false</limit_value_enable>
+  <vendor_enable>false</vendor_enable>
+</project>

@@ -3,8 +3,8 @@
   "source_commit": "f2d2c76e370e329b295ba5b03a8f3d7d9855e490",
   "source_example": "examples/hs2811_f824_fixed_voltage_7_3_regression",
   "copied_baseline_commit": "c177a9a",
-  "notes": "Only firmware main.c/main.h retained; source formatting only, no JZ01 functional adaptation yet. Original baseline remains recoverable in commit c177a9a.",
-  "sha256": {
+  "notes": "Original copied firmware hashes are retained for provenance. Current adapted source and HEX hashes are in build_result.json. Original baseline remains in commit c177a9a.",
+  "copied_baseline_sha256": {
     "PROJECT/main.c": "051638ef8d451eccdf9d05794bf7729029c4e5149e2404fb285c43a2724461c8",
     "PROJECT/main.h": "3217c2f55ec79edaf9bcb459fc8cacae41bac8bd321f07eb51a87ece094cbe05"
   }
