@@ -68,3 +68,11 @@ Commit：见包含本记录的提交。
 - 本阶段为可检索的复制基线；参考2T、随档位电压与旧板保护/显示参数尚未适配JZ01，不可作为JZ01成品烧录。未编译/板测，无新ROM/RAM或HEX结果。
 - 后续修改以PROJECT/main.c、main.h为起点，禁止脱离该副本另写框架；原始对照保留在FanForge及PROJECT/*.in。
 - 清单：BASELINE_MANIFEST.json；Commit：见包含本记录的提交。
+
+
+## 2026-11-02：纠正复制范围
+- 用户指出不应复制整个FanForge。正确意图是仅复制其中的无刷固定电压固件，作为JZ01修改基线并保持编程风格。
+- 已移除误复制的FanForge/整个生成器副本以及PROJECT/中的.in对照、参考生成报告、验收清单和资源计划；仅保留PROJECT/main.c、main.h，压缩BASELINE_MANIFEST.json为简短来源与源码SHA256记录。
+- PROJECT/main.c、main.h与清理前逐字节一致；无函数、寄存器、时序或行为改动。原始复制记录仍可通过c177a9a追溯。
+- README及本交接/开发记录已同步。未进行编译/板测，未新增HEX或ROM/RAM结论。
+- Commit：见包含本记录的提交。

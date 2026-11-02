@@ -42,3 +42,7 @@
 
 ## 执行顺序补充（2026-11-02）
 用户要求先复制FanForge，再修改。现已落地FanForge/完整跟踪文件快照及PROJECT/固定电压源码副本。后续方案修改以PROJECT/main.c、main.h为基础，保留原函数结构和风格；本次复制不表示已完成JZ01硬件适配。
+
+
+## 复制范围纠正（2026-11-02）
+仅保留PROJECT/main.c、main.h作为FanForge无刷固定电压固件基线；已移除整个生成器副本及多余生成报告。来源见BASELINE_MANIFEST.json，后续直接修改这两个源码文件。
