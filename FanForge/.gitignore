@@ -1,0 +1,7 @@
+*.tmp
+*.bak
+__pycache__/
+*.pyc
+build/
+dist/
+.venv-build/

@@ -1,0 +1,127 @@
+framework:
+  id: hs2811_fan_core
+  version: 0.31.2
+  chip_family: HS16P2811
+  flag_storage: native_bit
+  deterministic: true
+  template_selection_exposed: false
+  feature_presence_policy: enabled_feature_defaults_to_self_test_detection
+  charging_interface_policy: module_selects_pins_bias_wake_and_state_table
+  display_mapping_policy: module_maps_logical_segments_to_directed_pin_pairs
+  display_behavior_policy: generated_time_resources_feed_existing_show_mode_contract
+  display_state_icon_policy: fan_mode_and_atomizer_mode_drive_mapped_icons
+  generated_output_policy: refuse_managed_artifact_overwrite_without_force
+  unknown_configuration_policy: reject_unknown_modules_parameters_and_unused_pins
+  public_configuration_contract: capabilities_reuses_parser_field_sets
+  ad_key_event_policy: delayed_single_second_release_double_and_long_cancels_pending
+  digital_key_event_policy: legacy_fixed_by_default_configurable_one_to_four
+  multi_pwm_policy: planner_assigns_timer_channel_route_and_rejects_shared_period_conflicts
+  atomizer_policy: mature_fixed_duty_wh_deal_on_planned_pwm_resource
+  brushed_motor_policy: fan_on_is_the_pwm_output_without_brushless_boost_resources
+  acceptance_policy: generated_contract_plus_explicit_compiler_and_bench_gates
+  capability_catalog_policy: public_machine_readable_fixed_core_contract
+  port_change_flag_policy: read_porta_before_every_paif_clear
+
+source_sections:
+  - file_header
+  - compiler_pragmas
+  - includes
+  - basic_types
+  - pin_definitions
+  - display_direction_macros
+  - parameter_definitions
+  - flags
+  - global_state
+  - function_declarations
+  - interrupt
+  - gpio_init
+  - adc_init
+  - timer_init
+  - pwm_init
+  - system_init
+  - adc_sample
+  - time_flag_deal
+  - display_state_change
+  - mode_change
+  - show_mode_deal
+  - input_check
+  - input_deal
+  - display_close
+  - display_scan
+  - fan_target_compare
+  - fan_deal
+  - battery_time_cleanup
+  - battery_deal
+  - optional_feature_detection
+  - sleep
+  - main
+
+function_order:
+  - myIsr
+  - GPIO_Init
+  - ADC_Init
+  - timer1_init
+  - pwm_init
+  - Init_System
+  - ADC_Sample
+  - time_flag_deal
+  - mode_change_show
+  - mode_change
+  - show_mode_deal
+  - KEY_CHECK
+  - Key_Clear
+  - show_mode_change
+  - KEY_deal
+  - smg_close
+  - smg_188_scan
+  - Get_Fin_Val
+  - AD_fan_deal
+  - clean_other_time
+  - v_bat_deal
+  - file_sleep_mode
+  - main
+
+optional_functions:
+  - detect_youshua_wushua
+  - detect_optional_features
+
+main_scheduler:
+  power_on:
+    - Init_System
+    - self_test_loop
+    - post_self_test_restore
+  self_test_loop:
+    - time_flag_deal
+    - adc_sample_and_watchdog
+    - self_test_tick
+  normal_loop:
+    - adc_sample_and_watchdog
+    - time_flag_deal
+    - input_event_processing
+    - display_state_processing
+    - mode_state_normalization
+    - output_state_processing
+    - sleep_eligibility_check
+
+ownership:
+  interrupt: time_base_and_required_high_frequency_io_or_encoder_edge_only
+  ADC_Sample: sampling_filtering_and_result_dispatch_only
+  KEY_CHECK: debounce_timing_and_event_generation_only
+  KEY_deal: consume_input_events_and_change_requested_state
+  mode_change: normalize_shared_state_and_apply_common_consequences
+  show_mode_deal: build_display_buffer_from_stable_state
+  Get_Fin_Val: optional_mature_fixed_voltage_target_compare
+  AD_fan_deal: motor_hardware_start_run_stop_and_protection
+  v_bat_deal: battery_mapping_compensation_and_timed_chase
+  detect_youshua_wushua: optional_mature_self_test_motor_probe
+  detect_optional_features: optional_cooling_and_light_self_test_probe
+  file_sleep_mode: final_output_shutdown_wake_config_and_restore
+
+generator_rules:
+  preserve_section_order: true
+  preserve_function_order: true
+  require_native_bit_flags: true
+  allow_free_form_function_generation: false
+  allow_project_to_choose_template: false
+  unsupported_combination_action: fail
+  output_style: mature_single_main_c

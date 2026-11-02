@@ -1,0 +1,43 @@
+name: Build Windows EXE
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: |
+            requirements-desktop.txt
+            requirements-build.txt
+
+      - name: Install build dependency
+        run: python -m pip install -r requirements-build.txt
+
+      - name: Run tests
+        run: python -m unittest discover -s tests -v
+
+      - name: Build FanForge.exe
+        run: python -m PyInstaller --noconfirm --clean FanForgeGUI.spec
+
+      - name: Upload Windows application
+        uses: actions/upload-artifact@v4
+        with:
+          name: FanForge-Windows
+          path: dist/FanForge.exe
+          if-no-files-found: error

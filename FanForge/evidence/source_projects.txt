@@ -1,0 +1,23 @@
+# Current readable HS2811 fan sources used for core extraction.
+# Historical projects are evidence only. They are not selectable templates.
+
+H:\WorkSpace\HS\26_03_05_A079\PROJECT\main.c
+H:\WorkSpace\HS\26_03_12_HSF368\PROJECT\main.c
+H:\WorkSpace\HS\26_03_26_1031_COLD\PROJECT\main.c
+H:\WorkSpace\HS\26_03_27_1034\PROJECT\main.c
+H:\WorkSpace\HS\26_03_30_1025\PROJECT\KEY_WUSHUA\main.c
+H:\WorkSpace\HS\26_04_03_N68Y\PROJECT\main.c
+H:\WorkSpace\HS\26_04_08_jf138(K801)\PROJECT\main.c
+H:\WorkSpace\HS\26_04_23_M66\project\main.c
+H:\WorkSpace\HS\26_05_18_F167\PROJECT\main.c
+H:\WorkSpace\HS\26_06_05_N620\PROJECT_贴片电容\main.c
+H:\WorkSpace\HS\26_07_08_Y30\PROJECT\main.c
+H:\WorkSpace\HS\26_07_28_K827\PROJECT\main.c
+
+# Current files excluded because their plaintext function structure could not
+# be parsed. Do not replace them with another copy without user confirmation.
+# H:\WorkSpace\HS\26_03_10_TJL607y\PROJECT\main.c
+# H:\WorkSpace\HS\26_07_10_F11\PROJECT\main.c
+# H:\WorkSpace\HS\26_07_21_F824\project\main.c
+# H:\WorkSpace\HS\26_07_06_S056\PROJECT\main.c
+# H:\WorkSpace\HS\26_04_20_AR29\PROJECT\main.c

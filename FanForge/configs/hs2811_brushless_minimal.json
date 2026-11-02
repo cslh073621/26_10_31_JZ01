@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "project": {
+    "name": "HS2811_BRUSHLESS_MINIMAL",
+    "self_test_ms": 2000
+  },
+  "mcu": {
+    "model": "HS16P2811",
+    "package": "SOP16",
+    "oscillator_hz": 16000000,
+    "system_divider": 2
+  },
+  "timebase": {
+    "interrupt_us": 1000,
+    "t1_prescaler": "auto"
+  },
+  "pins": {
+    "PWM_FAN": 2,
+    "FAN_ON": 7,
+    "AD_FAN": 10
+  },
+  "features": {
+    "motor": {
+      "kind": "brushless_fixed_duty",
+      "pwm_frequency_hz": 250000,
+      "pwm_clock_source": "fosc",
+      "pwm_prescaler": "auto",
+      "run_duty_percent": 50
+    },
+    "fan_voltage_protection": {
+      "enabled": true,
+      "adc_reference": "2v",
+      "adc_clock": "fcpu",
+      "discard_samples": 2,
+      "average_samples": 8,
+      "overvoltage_limit": {
+        "voltage_mv": 16000,
+        "divider_high_ohm": 100000,
+        "divider_low_ohm": 10000,
+        "adc_reference": "2v"
+      },
+      "consecutive_confirmations": 13
+    }
+  }
+}

@@ -19,3 +19,13 @@
 - 发现：FanForge预置仍按档位升压，零步进JSON被模型拒绝；后续应在JZ01的Get_Fin_Val内最小改为固定9V，不修改公共生成器。T3PL计数口径与手册文字有差异，规划频率未作实测证明。
 - 文件：新增IMPLEMENTATION_PLAN.md完整事前对比表，尾部追加本记录与HANDOFF更新；无源码、寄存器变动，无编译或板测。
 - 按AGENTS.md第2条，硬件/寄存器实现待用户批准具体表格后进行。Commit：见包含本记录的提交。
+
+
+## 2026-11-02：先复制FanForge，再修改（用户明确要求）
+- 用户纠正工作顺序：必须先将FanForge复制到JZ01文件夹，再在副本上修改，以保证编程风格一致。
+- 已复制FanForge全部275个Git跟踪文件到FanForge/，源提交f2d2c76e370e329b295ba5b03a8f3d7d9855e490；排除.git和未跟踪构建/缓存。全部逐字节SHA256核验。
+- 已从副本的examples/hs2811_f824_fixed_voltage_7_3_regression复制源码与报告到PROJECT/；保留原始.in，提供main.c/main.h可编辑源码，后者仅收拢多空行并保持标准CRLF，非空白内容不变。
+- 源码格式核验：[{"file": "main.c", "source_lines": 1405, "copied_lines": 1403, "non_whitespace_identical": true}, {"file": "main.h", "source_lines": 6, "copied_lines": 6, "non_whitespace_identical": true}]。未更改函数、寄存器、引脚复用、时序或产品行为。
+- 本阶段为可检索的复制基线；参考2T、随档位电压与旧板保护/显示参数尚未适配JZ01，不可作为JZ01成品烧录。未编译/板测，无新ROM/RAM或HEX结果。
+- 后续修改以PROJECT/main.c、main.h为起点，禁止脱离该副本另写框架；原始对照保留在FanForge及PROJECT/*.in。
+- 清单：BASELINE_MANIFEST.json；Commit：见包含本记录的提交。

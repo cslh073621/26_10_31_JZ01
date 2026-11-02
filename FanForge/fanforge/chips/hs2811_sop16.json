@@ -1,0 +1,171 @@
+{
+  "model": "HS16P2811",
+  "package": "SOP16",
+  "pins": {
+    "1": {"kind": "power", "name": "VDD"},
+    "2": {
+      "kind": "gpio",
+      "name": "PA7",
+      "port": "A",
+      "bit": 7,
+      "adc_channel": 14,
+      "adc_register": "ADPCON1",
+      "adc_bit": 7,
+      "t3_pwm": [{"channel": 3, "route_code": 3}],
+      "t4_pwm": [{"channel": 0, "route_code": 2}],
+      "wake_on_change": true
+    },
+    "3": {
+      "kind": "gpio",
+      "name": "PA6",
+      "port": "A",
+      "bit": 6,
+      "adc_channel": 13,
+      "adc_register": "ADPCON1",
+      "adc_bit": 6,
+      "t3_pwm": [{"channel": 2, "route_code": 3}],
+      "wake_on_change": true
+    },
+    "4": {
+      "kind": "gpio",
+      "name": "PA5",
+      "port": "A",
+      "bit": 5,
+      "adc_channel": 11,
+      "adc_register": "ADPCON1",
+      "adc_bit": 3,
+      "t3_pwm": [{"channel": 1, "route_code": 3}],
+      "wake_on_change": true
+    },
+    "5": {
+      "kind": "gpio",
+      "name": "PA4",
+      "port": "A",
+      "bit": 4,
+      "adc_channel": 10,
+      "adc_register": "ADPCON1",
+      "adc_bit": 2,
+      "t3_pwm": [
+        {"channel": 0, "route_code": 3},
+        {"channel": 4, "route_code": 3}
+      ],
+      "wake_on_change": true
+    },
+    "6": {
+      "kind": "gpio",
+      "name": "PC5",
+      "port": "C",
+      "bit": 5,
+      "adc_channel": 9,
+      "adc_register": "ADPCON1",
+      "adc_bit": 1,
+      "t3_pwm": [{"channel": 4, "route_code": 2}],
+      "wake_on_change": false
+    },
+    "7": {
+      "kind": "gpio",
+      "name": "PC4",
+      "port": "C",
+      "bit": 4,
+      "adc_channel": 8,
+      "adc_register": "ADPCON1",
+      "adc_bit": 0,
+      "t3_pwm": [
+        {"channel": 0, "route_code": 0},
+        {"channel": 3, "route_code": 2}
+      ],
+      "wake_on_change": false
+    },
+    "8": {
+      "kind": "gpio",
+      "name": "PC3",
+      "port": "C",
+      "bit": 3,
+      "adc_channel": 7,
+      "adc_register": "ADPCON",
+      "adc_bit": 7,
+      "t3_pwm": [{"channel": 2, "route_code": 2}],
+      "t4_pwm": [{"channel": 0, "route_code": 0}],
+      "wake_on_change": false
+    },
+    "9": {
+      "kind": "gpio",
+      "name": "PC2",
+      "port": "C",
+      "bit": 2,
+      "adc_channel": 6,
+      "adc_register": "ADPCON",
+      "adc_bit": 6,
+      "t3_pwm": [{"channel": 1, "route_code": 2}],
+      "wake_on_change": false
+    },
+    "10": {
+      "kind": "gpio",
+      "name": "PC1",
+      "port": "C",
+      "bit": 1,
+      "adc_channel": 5,
+      "adc_register": "ADPCON",
+      "adc_bit": 5,
+      "t3_pwm": [{"channel": 0, "route_code": 2}],
+      "wake_on_change": false
+    },
+    "11": {
+      "kind": "gpio",
+      "name": "PC0",
+      "port": "C",
+      "bit": 0,
+      "adc_channel": 4,
+      "adc_register": "ADPCON",
+      "adc_bit": 4,
+      "t3_pwm": [{"channel": 4, "route_code": 1}],
+      "wake_on_change": false
+    },
+    "12": {
+      "kind": "gpio",
+      "name": "PA3",
+      "port": "A",
+      "bit": 3,
+      "adc_channel": 3,
+      "adc_register": "ADPCON",
+      "adc_bit": 3,
+      "t3_pwm": [{"channel": 3, "route_code": 1}],
+      "wake_on_change": true
+    },
+    "13": {
+      "kind": "gpio",
+      "name": "PA2",
+      "port": "A",
+      "bit": 2,
+      "adc_channel": 2,
+      "adc_register": "ADPCON",
+      "adc_bit": 2,
+      "t3_pwm": [{"channel": 2, "route_code": 1}],
+      "t4_pwm": [{"channel": 0, "route_code": 1}],
+      "wake_on_change": true
+    },
+    "14": {
+      "kind": "gpio",
+      "name": "PA1",
+      "port": "A",
+      "bit": 1,
+      "adc_channel": 1,
+      "adc_register": "ADPCON",
+      "adc_bit": 1,
+      "t3_pwm": [{"channel": 1, "route_code": 1}],
+      "wake_on_change": true
+    },
+    "15": {
+      "kind": "gpio",
+      "name": "PA0",
+      "port": "A",
+      "bit": 0,
+      "adc_channel": 0,
+      "adc_register": "ADPCON",
+      "adc_bit": 0,
+      "t3_pwm": [{"channel": 0, "route_code": 1}],
+      "wake_on_change": true
+    },
+    "16": {"kind": "power", "name": "GND"}
+  }
+}

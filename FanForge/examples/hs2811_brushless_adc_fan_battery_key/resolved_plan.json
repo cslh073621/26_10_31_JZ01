@@ -1,0 +1,475 @@
+{
+  "ad_key": {
+    "adc_clock": "fcpu",
+    "adc_reference": "vdd",
+    "average_samples": 8,
+    "discard_samples": 2,
+    "double_click_ms": 350,
+    "enabled": true,
+    "keys": [],
+    "threshold_profile": "none"
+  },
+  "adc": {
+    "average_samples": 8,
+    "channel_scan_cycle_us": 30000,
+    "channels": [
+      {
+        "adm_value": 156,
+        "adpcon_mask": 0,
+        "adpcon_register": null,
+        "adr_value": 64,
+        "channel": 12,
+        "gpio": null,
+        "physical_pin": null,
+        "ready_flag_names": [
+          "adc_bat_ready_flag"
+        ],
+        "request_roles": [
+          "battery.voltage.ADC_BAT"
+        ],
+        "reset_semantics": "system_reset",
+        "result_mode": "average",
+        "result_name": "ADC_BAT_VALUE",
+        "result_update_ms": 480,
+        "scan_order": 10,
+        "secondary_average_samples": 16,
+        "source_kind": "internal_vdd_div4",
+        "source_name": "AIN12_VDD_DIV4",
+        "vrefh_value": 0
+      },
+      {
+        "adm_value": 149,
+        "adpcon_mask": 32,
+        "adpcon_register": "ADPCON",
+        "adr_value": 64,
+        "channel": 5,
+        "gpio": "PC1",
+        "physical_pin": 10,
+        "ready_flag_names": [
+          "ad_fan_ready_flag"
+        ],
+        "request_roles": [
+          "fan_voltage_protection.fixed_duty.AD_FAN"
+        ],
+        "reset_semantics": "system_reset",
+        "result_mode": "average",
+        "result_name": "AD_FAN_VALUE",
+        "result_update_ms": 30,
+        "scan_order": 20,
+        "secondary_average_samples": 1,
+        "source_kind": "external_pin",
+        "source_name": "PC1",
+        "vrefh_value": 0
+      },
+      {
+        "adm_value": 157,
+        "adpcon_mask": 64,
+        "adpcon_register": "ADPCON1",
+        "adr_value": 64,
+        "channel": 13,
+        "gpio": "PA6",
+        "physical_pin": 3,
+        "ready_flag_names": [
+          "ad_key_ready_flag"
+        ],
+        "request_roles": [
+          "input.ad_key.AD_KEY"
+        ],
+        "reset_semantics": "system_reset",
+        "result_mode": "average",
+        "result_name": "AD_KEY_VALUE",
+        "result_update_ms": 30,
+        "scan_order": 30,
+        "secondary_average_samples": 1,
+        "source_kind": "external_pin",
+        "source_name": "PA6",
+        "vrefh_value": 3
+      }
+    ],
+    "conversion_wait_limit": 50,
+    "discard_samples": 2,
+    "high_rate_enabled": false,
+    "high_rate_group_count": 0,
+    "high_rate_group_size": 0,
+    "high_rate_samples_per_channel": 0,
+    "high_rate_valid_samples": 0,
+    "maximum_first_stage_accumulation": 32760,
+    "role_results": {
+      "battery.voltage.ADC_BAT": "ADC_BAT_VALUE",
+      "fan_voltage_protection.fixed_duty.AD_FAN": "AD_FAN_VALUE",
+      "input.ad_key.AD_KEY": "AD_KEY_VALUE"
+    },
+    "sample_period_us": 1000,
+    "scan_cycle_ms": 30
+  },
+  "atomizer": {
+    "allow_while_charging": true,
+    "dependency": "fan_required",
+    "duty_percent": 10,
+    "enabled": false,
+    "pwm_frequency_hz": 108000
+  },
+  "charging": {
+    "enabled": false,
+    "kind": "none"
+  },
+  "classic_product": {
+    "charge_blink_target": "last_digit",
+    "charge_max_gear": 0,
+    "charging_kind": "none",
+    "cooling_enabled": false,
+    "display_hardware": "none",
+    "display_policy": "none",
+    "enabled": false,
+    "gear_mode": "none",
+    "gear_steps": [],
+    "input_kind": "none",
+    "long_adjust": false,
+    "low_blink_target": "last_digit",
+    "maximum_gear": 0,
+    "minimum_gear": 0,
+    "sleep_enabled": false
+  },
+  "cooling": {
+    "allow_while_charging": false,
+    "control_mode": "toggle_while_fan_on",
+    "enabled": false,
+    "presence_detection": false
+  },
+  "digital_key": {
+    "double_click_ms": 350,
+    "enabled": false,
+    "keys": []
+  },
+  "display": {
+    "behavior_profile": "none",
+    "charging_idle_page": "battery",
+    "connections": [],
+    "drive_mode": "none",
+    "enabled": false,
+    "gear_event_ms": 0,
+    "normal_battery_preview_ms": 0,
+    "normal_idle_page": "gear",
+    "pin_count": 0,
+    "profile": "none"
+  },
+  "encoder": {
+    "accelerated_step": 5,
+    "acceleration_events": 3,
+    "acceleration_window_ms": 500,
+    "clockwise_increases": true,
+    "enabled": false,
+    "filter_us": 1000,
+    "normal_step": 1,
+    "pull": "up"
+  },
+  "fan_voltage_protection": {
+    "adc_reference": "2v",
+    "adc_threshold": 2978,
+    "confirmations": 13,
+    "divider_high_ohm": 100000,
+    "divider_low_ohm": 10000,
+    "enabled": true,
+    "voltage_mv": 16000
+  },
+  "generator_version": "0.31.2",
+  "gpio_registers": {
+    "ADPCON": 32,
+    "ADPCON1": 64,
+    "PADCON": 255,
+    "PAHCON": 255,
+    "PCDCON": 255,
+    "PCHCON": 255,
+    "PORTA": 0,
+    "PORTC": 0,
+    "TRISA": 64,
+    "TRISC": 2,
+    "runtime_change_mask_a": 0,
+    "sleep": {
+      "PADCON": 255,
+      "PAHCON": 255,
+      "PCDCON": 255,
+      "PCHCON": 255,
+      "PORTA": 0,
+      "PORTC": 0,
+      "TRISA": 0,
+      "TRISC": 0,
+      "WUACON": 0
+    },
+    "zero_battery_sleep": {
+      "PADCON": 255,
+      "PAHCON": 255,
+      "PCDCON": 255,
+      "PCHCON": 255,
+      "PORTA": 0,
+      "PORTC": 0,
+      "TRISA": 0,
+      "TRISC": 0,
+      "WUACON": 0,
+      "enabled": false
+    }
+  },
+  "light": {
+    "enabled": false,
+    "mode_profile": "fan_sync",
+    "presence_detection": false
+  },
+  "mcu": {
+    "fcpu_hz": 8000000,
+    "model": "HS16P2811",
+    "oscillator_hz": 16000000,
+    "package": "SOP16",
+    "system_divider": 2
+  },
+  "project": "HS2811_BRUSHLESS_ADC_FAN_BATTERY_KEY",
+  "pwm": {
+    "actual_frequency_hz": 250000.0,
+    "alternate": null,
+    "auxiliary": [],
+    "channel": 3,
+    "clock_source": "fosc",
+    "complete_7_3_cycles_per_adc_update": null,
+    "duty_base_count": null,
+    "duty_gear_divisor": null,
+    "error_percent": 0.0,
+    "gpio": "PA7",
+    "motor_kind": "brushless_fixed_duty",
+    "period_register": 63,
+    "prescaler": 1,
+    "role": "PWM_FAN",
+    "route_register": "PWMSEL",
+    "route_value": 192,
+    "source_hz": 16000000,
+    "target_frequency_hz": 250000,
+    "timer": "T3",
+    "voltage_error_window": null,
+    "voltage_measurement_multiplier": null,
+    "voltage_pwm_max_count": null,
+    "voltage_pwm_min_count": null,
+    "voltage_target_base": null,
+    "voltage_target_calibration_offset_mv": null,
+    "voltage_target_max": null,
+    "voltage_target_max_mv": null,
+    "voltage_target_min_mv": null,
+    "voltage_target_mode": null,
+    "voltage_target_step": null,
+    "voltage_target_step_mv": null
+  },
+  "resolved_pins": {
+    "AD_FAN": "PC1",
+    "AD_KEY": "PA6",
+    "FAN_ON": "PC4",
+    "PWM_FAN": "PA7"
+  },
+  "resource_requests": {
+    "adc": [
+      {
+        "average_samples": 8,
+        "clock": "fcpu",
+        "discard_samples": 2,
+        "owner": "fan_voltage_protection.fixed_duty",
+        "physical_pin": 10,
+        "ready_flag_name": "ad_fan_ready_flag",
+        "reference": "2v",
+        "result_mode": "average",
+        "result_name": "AD_FAN_VALUE",
+        "role": "AD_FAN",
+        "secondary_average_samples": 1,
+        "source_kind": "external_pin"
+      },
+      {
+        "average_samples": 8,
+        "clock": "fcpu",
+        "discard_samples": 2,
+        "owner": "battery.voltage",
+        "physical_pin": null,
+        "ready_flag_name": "adc_bat_ready_flag",
+        "reference": "2v",
+        "result_mode": "average",
+        "result_name": "ADC_BAT_VALUE",
+        "role": "ADC_BAT",
+        "secondary_average_samples": 16,
+        "source_kind": "internal_vdd_div4"
+      },
+      {
+        "average_samples": 8,
+        "clock": "fcpu",
+        "discard_samples": 2,
+        "owner": "input.ad_key",
+        "physical_pin": 3,
+        "ready_flag_name": "ad_key_ready_flag",
+        "reference": "vdd",
+        "result_mode": "average",
+        "result_name": "AD_KEY_VALUE",
+        "role": "AD_KEY",
+        "secondary_average_samples": 1,
+        "source_kind": "external_pin"
+      }
+    ],
+    "gpio": [
+      {
+        "initial_level": 0,
+        "mode": "output",
+        "owner": "motor.brushless_fixed_duty",
+        "physical_pin": 7,
+        "pull": "none",
+        "role": "FAN_ON",
+        "runtime_change": false,
+        "sleep_level": 0,
+        "sleep_mode": "output",
+        "sleep_pull": "none",
+        "wake": false,
+        "zero_battery_sleep_level": null,
+        "zero_battery_sleep_mode": null,
+        "zero_battery_sleep_pull": null,
+        "zero_battery_wake": null
+      }
+    ],
+    "pwm": [
+      {
+        "owner": "motor.brushless_fixed_duty",
+        "physical_pin": 2,
+        "role": "PWM_FAN",
+        "target_frequency_hz": 250000
+      }
+    ],
+    "time": [
+      {
+        "owner": "core.scheduler",
+        "period_ms": 1,
+        "phase": "system",
+        "reset_semantics": "continuous",
+        "role": "adc_1ms_tick"
+      },
+      {
+        "owner": "core.scheduler",
+        "period_ms": 10,
+        "phase": "system",
+        "reset_semantics": "continuous",
+        "role": "main_10ms_tick"
+      },
+      {
+        "owner": "core.scheduler",
+        "period_ms": 100,
+        "phase": "system",
+        "reset_semantics": "continuous",
+        "role": "sleep_100ms_tick"
+      },
+      {
+        "owner": "motor.brushless_fixed_duty",
+        "period_ms": 10,
+        "phase": "system",
+        "reset_semantics": "continuous",
+        "role": "fan_control_tick"
+      }
+    ]
+  },
+  "scope": {
+    "complete_classic_profile": false,
+    "implemented": [
+      "strict JSON configuration",
+      "HS16P2811 SOP16 pin capability resolution",
+      "GPIO/T1/T3PWM/T4PWM planning",
+      "multi-channel ADC aggregation and mature grouped scan",
+      "module-driven layered time-resource planning",
+      "pin and capability conflict rejection",
+      "fixed-duty brushless startup/shutdown skeleton",
+      "AD_FAN u16 accumulation overflow check"
+    ],
+    "not_implemented": [
+      "product input mapping",
+      "battery and charging business logic",
+      "display hardware and behavior modules",
+      "production sleep/wake policy",
+      "brushed and compatibility-detection variants"
+    ],
+    "production_ready": false
+  },
+  "slide_resistor": {
+    "accumulation_samples": 8,
+    "adc_clock": "fcpu",
+    "adc_reference": "vdd",
+    "confirmation_count": 3,
+    "deadband_gears": 3,
+    "discard_samples": 2,
+    "enabled": false,
+    "high_gear_adc_sum": 1638,
+    "low_gear_adc_sum": 31129,
+    "low_gear_at_high_adc": true,
+    "supply_active_level": "high"
+  },
+  "slide_switch": {
+    "active_level": "low",
+    "enabled": false,
+    "pull": "up",
+    "zero_battery_disable_pull_wake": true
+  },
+  "time_resources": {
+    "base_period_ms": 1,
+    "role_counters": {
+      "core.scheduler.adc_1ms_tick": null,
+      "core.scheduler.main_10ms_tick": "time_10ms_cnt",
+      "core.scheduler.sleep_100ms_tick": "time_100ms_cnt",
+      "motor.brushless_fixed_duty.fan_control_tick": "time_10ms_cnt"
+    },
+    "role_flags": {
+      "core.scheduler.adc_1ms_tick": "time_1ms_flag",
+      "core.scheduler.main_10ms_tick": "time_10ms_flag",
+      "core.scheduler.sleep_100ms_tick": "time_100ms_flag",
+      "motor.brushless_fixed_duty.fan_control_tick": "time_10ms_flag"
+    },
+    "signals": [
+      {
+        "counter_name": null,
+        "flag_name": "time_1ms_flag",
+        "internal": false,
+        "parent_period_ms": null,
+        "period_ms": 1,
+        "phase": "system",
+        "request_roles": [
+          "core.scheduler.adc_1ms_tick"
+        ],
+        "reset_semantics": "continuous",
+        "ticks_per_period": 1
+      },
+      {
+        "counter_name": "time_10ms_cnt",
+        "flag_name": "time_10ms_flag",
+        "internal": false,
+        "parent_period_ms": 1,
+        "period_ms": 10,
+        "phase": "system",
+        "request_roles": [
+          "core.scheduler.main_10ms_tick",
+          "motor.brushless_fixed_duty.fan_control_tick"
+        ],
+        "reset_semantics": "continuous",
+        "ticks_per_period": 10
+      },
+      {
+        "counter_name": "time_100ms_cnt",
+        "flag_name": "time_100ms_flag",
+        "internal": false,
+        "parent_period_ms": 10,
+        "period_ms": 100,
+        "phase": "system",
+        "request_roles": [
+          "core.scheduler.sleep_100ms_tick"
+        ],
+        "reset_semantics": "continuous",
+        "ticks_per_period": 10
+      }
+    ]
+  },
+  "timer1": {
+    "actual_us": 1000.0,
+    "count": 8000,
+    "prescaler": 1,
+    "reload_value": 57536,
+    "source_hz": 8000000,
+    "subticks_per_ms": 1,
+    "t1con": 1,
+    "target_us": 1000,
+    "timer_hz": 8000000
+  }
+}

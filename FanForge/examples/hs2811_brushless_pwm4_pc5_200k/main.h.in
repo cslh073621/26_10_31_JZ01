@@ -1,0 +1,6 @@
+#ifndef HS2811_BRUSHLESS_PWM4_PC5_200K_MAIN_H
+#define HS2811_BRUSHLESS_PWM4_PC5_200K_MAIN_H
+
+#include "hs16p2811.h"
+
+#endif
