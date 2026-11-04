@@ -120,14 +120,26 @@ for (let q=0;q<=100;q++) for(const on of [0,1]) for(const inserted of [0,1]) for
         }
         assert.equal(c.Data[3],lampMask(lower),'full returns to steady lower intervals');
     } else {
+        const lowBlink=!inserted && on && q>0 && q<=20;
         const expected=(on || inserted) && q>0 ? lampMask(Math.ceil(q/20)) : 0;
         for(let frame=0;frame<7;frame++){
-            assert.equal(c.Data[3],expected,'noncharging bars / 100% always steady');
+            assert.equal(c.Data[3],lowBlink ? (frame%2 ? 16 : 0) : expected,'low battery blink / other bars steady');
             if(!on) assert.deepEqual(Array.from(c.Data.slice(0,3)),[0,0,0]);
             patterns++;advanceFlow(c);
         }
     }
 }
+// Low-battery transitions: charging flow, unplugging, threshold and stopping.
+c=fresh();Object.assign(c,{charge_num:20,fan_mode:100});c.show_mode_deal();
+for(const mask of [0,16,0,16]){assert.equal(c.Data[3],mask);advanceFlow(c);}
+c.charge_num=21;c.show_mode_deal();assert.equal(c.Data[3],24);
+c.charge_num=1;c.show_mode_deal();advanceFlow(c);assert.equal(c.Data[3],16);
+c.insert_flag=1;c.show_mode_deal();
+for(const mask of [16,24,28,30,31,0]){assert.equal(c.Data[3],mask);advanceFlow(c);}
+c.insert_flag=0;c.show_mode_deal();assert.equal(c.Data[3]&15,0);
+c.fan_mode=0;c.show_mode_deal();assert.equal(c.Data[3],0);assert.equal(c.charge_led_flow,0);
+c.low_cnt=3;c.show_mode_deal();assert.equal(c.Data[3],16,'off-state low indication retained');
+c.low_cnt=0;c.charge_num=0;c.fan_mode=1;c.show_mode_deal();assert.equal(c.Data[3],0);
 // User examples, range transitions, disconnect/reconnect and 100% without STDBY.
 c=fresh();c.insert_flag=1;c.charge_num=5;c.show_mode_deal();
 for(const mask of [0,16,24,28,30,31,0]){assert.equal(c.Data[3],mask);advanceFlow(c);}

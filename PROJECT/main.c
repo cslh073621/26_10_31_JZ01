@@ -515,6 +515,10 @@ void mode_change_show(void)
             if(charge_led_flow == 0x1F) { charge_led_flow = charge_led_base; }
             else { charge_led_flow = (charge_led_flow >> 1) | 0x10; }
         }
+        if(!insert_flag && fan_mode && charge_num && charge_num <= 20)
+        {
+            charge_led_flow ^= 0x10;
+        }
         if(low_cnt) { low_cnt--; }
     }
 }
@@ -588,6 +592,12 @@ void show_mode_deal(void)
             charge_led_base = d3;
             charge_led_flow = d3;
         }
+        d3 = charge_led_flow;
+    }
+    else if(!insert_flag && fan_mode && charge_num && charge_num <= 20)
+    {
+        charge_led_base = 0;
+        charge_led_flow &= 0x10;
         d3 = charge_led_flow;
     }
     else

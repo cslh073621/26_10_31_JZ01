@@ -142,3 +142,11 @@
 - 回放更新：从实际C函数体调用mode_change_show/show_mode_deal，遍历0..100电量、开关机、插入/满充标志及完整流水循环4472帧；额外核验5%/21%例子、20→21/40→41等区间变化、拔插充电、100%无STDBY仍常亮。既有200组数字/图标、32灯掩码、100档T4、按键/睡眠/保护回归均通过。
 - 原生构建0E0W：ROM 2003/2048 words（剩45），RAM 69/128 bytes；HEX SHA256=01a67f4d6aa676f3d793131137b69a110560479d6e9a8e0b268f3e15adf2a4bb。verify.py和verify_ui.cjs通过，软件回放未代替实板流水速度/光学效果确认。
 - C源码1353→1367行，二进制写入，无CRCRLF；用户未跟踪ASM及PCB资料未动。Commit：见包含本记录的提交。
+
+
+## 2026-11-04：运行未充电时最低电量格持续闪烁
+- 用户要求：电机运行且未充电，电量进入最后一格时持续闪烁作低电提示；按既有区间定义为1%–20%，对应S5灯。
+- 最小逻辑修改：mode_change_show沿用500ms标志翻转charge_led_flow的0x10位；show_mode_deal仅在未充电、fan_mode非零且charge_num为1–20时输出该位。复用已有状态，不增RAM变量，不改GPIO/定时器/扫描/PWM/电量计算及追赶逻辑。
+- 充电流水、100%全亮、21%以上常规电量条、关机与原low_cnt提示保持；补充1/20/21%边界、充电切换、停机及原全量流水回放。
+- 验证数据见本次build_result.json及build_report.txt；硬件可见闪烁效果仍需板测。Commit：见包含本记录的提交。
+- 本次实测构建：0E0W，ROM 2033/2048 words，RAM 69/128 bytes；verify.py及verify_ui.cjs通过，4472帧电量回放含新增最低格闪烁预期。HEX SHA256=2db07f508b98ef001a01185fd80e1d4c56497a13fd77d35ecc3b5a35d51e7066。
