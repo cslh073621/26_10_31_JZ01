@@ -7,7 +7,7 @@ const path = require('node:path');
 const source = fs.readFileSync(path.join(__dirname, 'PROJECT/main.c'), 'ascii').replace(/\r\n/g, '\n');
 const clean = source.replace(/\/\*[\s\S]*?\*\//g, '');
 const signatures = ['void KEY_CHECK(void)', 'void Key_Clear(void)', 'void KEY_deal(void)',
-    'void mode_change(void)', 'void show_mode_deal(void)', 'void smg_close(void)',
+    'void mode_change_show(void)', 'void mode_change(void)', 'void show_mode_deal(void)', 'void smg_close(void)',
     'void smg_188_scan(void)', 'void pwm_init(void)', 'void file_sleep_mode(void)', 'u8 Get_Fin_Val(u16 temp_val)', 'void AD_fan_deal(void)'];
 const macros = new Map([...clean.matchAll(/^#define\s+(\w+)\s+(.+)$/gm)].map(m => [m[1], m[2].trim()]));
 let constants = '';
@@ -105,18 +105,39 @@ tick(c, 4); click(c, 3); tick(c, 200, 1); assert.equal(c.fan_mode, 0, 'up/down n
 c = fresh(); c.fan_mode = 1; c.CHRG = 0; c.mode_change();
 click(c, 2); click(c, 2); assert.equal(c.COOL_EN, 0, 'retain baseline charging cooling interlock');
 let patterns = 0;
-for (let q = 0; q <= 100; q++) for (const on of [0,1]) for (const inserted of [0,1])
-for (const full of [0,1]) for (const phase of [0,1]) {
-    c = fresh(); Object.assign(c, {charge_num:q, fan_mode:on, insert_flag:inserted, charge_max_flag:full, time_flash_flag:phase});
+function lampMask(count){return count ? (31 << (5-count)) & 31 : 0;}
+function advanceFlow(c){c.time_500ms_flag=1;c.mode_change_show();c.show_mode_deal();}
+for (let q=0;q<=100;q++) for(const on of [0,1]) for(const inserted of [0,1]) for(const full of [0,1]) {
+    c=fresh();Object.assign(c,{charge_num:q,fan_mode:on,insert_flag:inserted,charge_max_flag:full});
     c.show_mode_deal();
-    const level = q === 0 ? 0 : Math.ceil(q / 20);
-    let expected = (on || inserted) && level ? (31 << (5 - level)) & 31 : 0;
-    if (inserted && phase && level && !(full && q === 100)) expected &= ~(1 << (5 - level));
-    assert.equal(c.Data[3], expected, `q=${q} on=${on} inserted=${inserted} full=${full} phase=${phase}`);
-    if (!on) assert.deepEqual(Array.from(c.Data.slice(0,3)), [0,0,0], 'off charging blanks 188');
-    else assert.equal(c.Data[0] & 4, 4, 'percent always marks gear');
-    patterns++;
+    if(inserted && q<100){
+        const lower=q===0?0:Math.floor((q-1)/20);
+        const remaining=5-lower;
+        for(let phase=0;phase<=remaining;phase++){
+            assert.equal(c.Data[3],lampMask(lower+phase),`flow q=${q} phase=${phase} full=${full}`);
+            if(!on) assert.deepEqual(Array.from(c.Data.slice(0,3)),[0,0,0]);
+            patterns++;advanceFlow(c);
+        }
+        assert.equal(c.Data[3],lampMask(lower),'full returns to steady lower intervals');
+    } else {
+        const expected=(on || inserted) && q>0 ? lampMask(Math.ceil(q/20)) : 0;
+        for(let frame=0;frame<7;frame++){
+            assert.equal(c.Data[3],expected,'noncharging bars / 100% always steady');
+            if(!on) assert.deepEqual(Array.from(c.Data.slice(0,3)),[0,0,0]);
+            patterns++;advanceFlow(c);
+        }
+    }
 }
+// User examples, range transitions, disconnect/reconnect and 100% without STDBY.
+c=fresh();c.insert_flag=1;c.charge_num=5;c.show_mode_deal();
+for(const mask of [0,16,24,28,30,31,0]){assert.equal(c.Data[3],mask);advanceFlow(c);}
+c.charge_num=21;c.show_mode_deal();assert.equal(c.Data[3],16);
+for(const mask of [16,24,28,30,31,16]){assert.equal(c.Data[3],mask);advanceFlow(c);}
+c.charge_num=41;c.show_mode_deal();assert.equal(c.Data[3],24);
+c.insert_flag=0;c.show_mode_deal();assert.equal(c.Data[3],0);assert.equal(c.charge_led_flow,0);
+c.insert_flag=1;c.charge_num=21;c.show_mode_deal();assert.equal(c.Data[3],16);
+c.charge_num=100;c.charge_max_flag=0;c.show_mode_deal();
+for(let i=0;i<8;i++){assert.equal(c.Data[3],31);advanceFlow(c);}
 const digits = [0x3F,0x06,0x5B,0x4F,0x66,0x6D,0x7D,0x07,0x7F,0x6F];
 for (let gear = 1; gear <= 100; gear++) for (const cool of [0,1]) {
     c = fresh(); c.fan_mode = gear; c.COOL_EN = cool; c.show_mode_deal();
@@ -213,5 +234,5 @@ c.T4C0=0x82;assert.equal(maySleep(c),false);c.T4C0=0;
 assert.equal(maySleep(c),true);
 console.log('PASS: simplified actual sleep predicate; power held blocks; +/- events/click bookkeeping ignored; operating/charging/output gates retained.');
 console.log('PASS: motor T4 25kHz nominal period, all 100 linear duties, enable sequence, stop/fault/sleep command removal.');
-console.log(`PASS: actual C-body logic replay; power long/double/bounce; +/- repeat and bounds; ${patterns} battery patterns; 200 gear/icon states; six-slot GPIO isolation; mature start/stop and protection.`);
+console.log(`PASS: actual C-body logic replay; power long/double/bounce; +/- repeat and bounds; ${patterns} battery flow/static frames; 200 gear/icon states; six-slot GPIO isolation; mature start/stop and protection.`);
 console.log('Assumptions: 10ms driver calls and C integer division; does not model ADC acquisition, PICC execution time, LED current, or real board light behavior.');

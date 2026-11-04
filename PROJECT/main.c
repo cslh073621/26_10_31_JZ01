@@ -114,7 +114,6 @@ bit insert_flag;
 bit charge_on_flag;
 bit charge_max_flag;
 bit low_power_flag;
-bit time_flash_flag;
 bit adc_bat_ready_flag;
 bit ad_fan_ready_flag;
 bit ad_key_ready_flag;
@@ -148,6 +147,8 @@ u8 Data[4];
 u8 key2_click_cnt;
 u8 key2_click_time;
 u8 charge_num;
+u8 charge_led_base;
+u8 charge_led_flow;
 u8 low_cnt;
 u8 wake_guard_cnt;
 u8 key1_delay;
@@ -275,6 +276,8 @@ void ADC_Init(void)
     PWM_DATA_NOW = 0;
     t1_subtick_cnt = 0;
     battery_time_type = 0xFF;
+    charge_led_base = 0;
+    charge_led_flow = 0;
     key2_click_cnt = 0;
     key2_click_time = 0;
 }
@@ -507,7 +510,11 @@ void mode_change_show(void)
     if(time_500ms_flag)
     {
         time_500ms_flag = 0;
-        time_flash_flag = !time_flash_flag;
+        if(insert_flag && charge_num < 100)
+        {
+            if(charge_led_flow == 0x1F) { charge_led_flow = charge_led_base; }
+            else { charge_led_flow = (charge_led_flow >> 1) | 0x10; }
+        }
         if(low_cnt) { low_cnt--; }
     }
 }
@@ -572,15 +579,21 @@ void show_mode_deal(void)
         if(charge_num > 40) { d3 |= 0x04; }
         if(charge_num > 60) { d3 |= 0x02; }
         if(charge_num > 80) { d3 |= 0x01; }
-        if(insert_flag && !(charge_max_flag && charge_num >= 100)
-           && time_flash_flag)
+    }
+    if(insert_flag && charge_num < 100)
+    {
+        d3 &= d3 << 1;
+        if(charge_led_base != d3)
         {
-            if(charge_num > 80) { d3 &= 0xFE; }
-            else if(charge_num > 60) { d3 &= 0xFD; }
-            else if(charge_num > 40) { d3 &= 0xFB; }
-            else if(charge_num > 20) { d3 &= 0xF7; }
-            else { d3 = 0; }
+            charge_led_base = d3;
+            charge_led_flow = d3;
         }
+        d3 = charge_led_flow;
+    }
+    else
+    {
+        charge_led_base = 0;
+        charge_led_flow = 0;
     }
     GIE = 0;
     Data[0] = d0;
@@ -1206,6 +1219,8 @@ void file_sleep_mode(void)
     PWM_DATA_NOW = 0;
     t1_subtick_cnt = 0;
     battery_time_type = 0xFF;
+    charge_led_base = 0;
+    charge_led_flow = 0;
     key2_click_cnt = 0;
     key2_click_time = 0;
     PORTA = 0x00;
@@ -1248,7 +1263,6 @@ void main(void)
     low_cnt = 0;
     wake_guard_cnt = 0;
     fan_error_flag = 0;
-    time_flash_flag = 0;
     COOL_EN = 0;
     YOUWU_COOL = 0;
     KEY1 = 1;

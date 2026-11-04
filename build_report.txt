@@ -1,12 +1,12 @@
 C Compiler v3.5
-PICC Path:C:\Users\zb006\AppData\Local\Temp\jz01_build_bayxbmxg\picc
+PICC Path:C:\Users\zb006\AppData\Local\Temp\jz01_build_ytrtw3vy\picc
 HI-TECH C Compiler for PIC10/12/16 MCUs (PRO Mode)  V9.83
 Copyright (C) 2011 Microchip Technology Inc.
 Serial number: HCPICP-12345 (PRO)
 
 Memory Summary:
-    Program space        used   7CFh (  1999) of   800h words   ( 97.6%)
-    Data space           used    43h (    67) of    80h bytes   ( 52.3%)
+    Program space        used   7D3h (  2003) of   800h words   ( 97.8%)
+    Data space           used    45h (    69) of    80h bytes   ( 53.9%)
     EEPROM space         None available
     Configuration bits   used     0h (     0) of     1h word    (  0.0%)
     ID Location space    used     0h (     0) of     4h bytes   (  0.0%)
