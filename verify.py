@@ -65,11 +65,10 @@ for key, resistance in [(1, 20000), (2, 0), (3, 6800)]:
 for key in (1, 2, 3):
     assert f"if(KEY{key} && !key{key}_down_flag)" in body("void KEY_CHECK(void)")
     assert f"key{key}_short_flag = 0;" in body("void Key_Clear(void)")
-    assert f"!key{key}_down_flag" in body("void main(void)")
 key_actions = body("void KEY_deal(void)")
 assert "key2_long_flag" in key_actions and "key2_click_cnt" in key_actions
 assert constant("FAN_MODE_MAX") == 100
-assert "!key2_click_cnt && !key2_click_time" in body("void main(void)")
+assert "&& KEY2 && !wake_guard_cnt" in body("void main(void)")
 assert "Key_Clear();" in key_actions
 assert "smg_close();" in body("void smg_188_scan(void)")
 assert "case 6:" in body("void smg_188_scan(void)")

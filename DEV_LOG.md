@@ -110,3 +110,12 @@
 - 新鲜原生构建0E0W：ROM 2021/2048 words（比2030少9，剩27），RAM 67/128 bytes。HEX SHA256=e1e94af8170b312aa48fe54b87df5addb486562ad4c8967d544519727a87a68d。verify.py与verify_ui.cjs全部通过，包括固定9V/7+3、100档T4、按键、1616灯图样、200显示状态及启停保护。
 - 构建前发现用户修改的生成产物PROJECT/JZ01.ccs，已先备份到C:/Users/zb006/AppData/Local/Temp/jz01_case6_prebuild_h0wwxyl7/JZ01.ccs，再产出与本次源码匹配的CCS/HEX；用户未跟踪PROJECT/JZ01.hs.asm及资料/保持不动、不纳入提交。
 - 仍未板测光学串亮、亮度或真实PWM/扫描时序。Commit：见包含本记录的提交。
+
+
+## 2026-11-04：按用户要求简化休眠按键门槛
+- 用户明确指出多键down/short/long及双击计数的休眠检查无必要，只需针对长按开关键处理，避免无意义开销；本项目按此最新指令执行，覆盖此前通用待处理事件窗口门禁。
+- 核对实际映射：0Ω开关键在当前成熟副本中为KEY2，KEY1是20k减键、KEY3是6.8k加键。为最小修改不重排编号，保留实际KEY2释放条件。
+- main休眠谓词：删除KEY1/KEY3原始输入及所有key1/2/3_down/short/long_flag门槛，删除key2_click_cnt/key2_click_time门槛；按键部分仅剩KEY2，配合原wake_guard_cnt、运行/充电及输出关闭条件。未改定时器、GPIO、唤醒源、长按/双击驱动或电机启停逻辑。
+- verify_ui.cjs直接提取当前main的实际休眠谓词回放：关机加减输入按住、各短长按标志置位、双击计数非零均不阻止休眠；实际开关键按住仍阻止；运行、充电、低电提示、唤醒等待及T3/T4/使能未关仍阻止。其余按键/显示/100档T4/保护回归通过。
+- 新鲜原生构建0E0W：ROM 1999/2048 words，比2021少22，剩49；RAM 67/128。HEX SHA256=abba529dc9849130adbd01caad485b3ce08be1c30cea1372d30d771d7b5b3b52。verify.py与verify_ui.cjs全部通过。
+- C源码1358→1353行，二进制写入，无CRCRLF；用户未跟踪ASM和资料保持原样。无物理板测，运行回放不证明实际睡眠电流或按键波形。Commit：见包含本记录的提交。

@@ -1343,12 +1343,7 @@ void main(void)
         {
             time_100ms_flag = 0;
             if(!low_cnt && !fan_mode && !insert_flag
-               && KEY1 && KEY2 && KEY3
-               && !key1_down_flag && !key2_down_flag && !key3_down_flag
-               && !key1_short_flag && !key2_short_flag && !key3_short_flag
-               && !key1_long_flag && !key2_long_flag && !key3_long_flag
-               && !key2_click_cnt && !key2_click_time
-               && !wake_guard_cnt
+               && KEY2 && !wake_guard_cnt
                && !T3PWM3EN && !T3REN && !FAN_ON && !T4REN)
             {
                 file_sleep_mode();

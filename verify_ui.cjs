@@ -189,6 +189,22 @@ c.AD_FAN_VALUE=1862;
 for(let i=0;i<13;i++){c.ad_fan_ready_flag=1;c.AD_fan_deal();}
 assert.equal(c.T4C0,0);assert.equal(c.MOTOR_PWM,0);
 c=fresh();c.T4C0=0x82;c.MOTOR_PWM=1;c.file_sleep_mode();assert.equal(c.T4C0,0);assert.equal(c.MOTOR_PWM,0);
+// Use the actual main-loop sleep predicate: only the physical power key matters.
+const sleepExpression=source.match(/if\((!low_cnt && !fan_mode && !insert_flag[\s\S]*?)\)\s*\{\s*file_sleep_mode\(\);/)[1];
+function maySleep(context){return !!vm.runInContext('('+sleepExpression+')',context);}
+c=fresh();c.KEY1=0;c.KEY3=0;c.key1_down_flag=1;c.key3_down_flag=1;
+c.key1_short_flag=c.key2_short_flag=c.key3_short_flag=1;
+c.key1_long_flag=c.key2_long_flag=c.key3_long_flag=1;
+c.key2_click_cnt=1;c.key2_click_time=10;
+assert.equal(maySleep(c),true,'off-state +/- events and click bookkeeping do not block sleep');
+c.KEY2=0;assert.equal(maySleep(c),false,'held power key blocks sleep');c.KEY2=1;
+for(const name of ['fan_mode','insert_flag','low_cnt','wake_guard_cnt','T3PWM3EN','T3REN']){
+ c[name]=1;assert.equal(maySleep(c),false,name+' retains its sleep gate');c[name]=0;
+}
+c.FAN_ON=1;assert.equal(maySleep(c),false);c.FAN_ON=0;
+c.T4C0=0x82;assert.equal(maySleep(c),false);c.T4C0=0;
+assert.equal(maySleep(c),true);
+console.log('PASS: simplified actual sleep predicate; power held blocks; +/- events/click bookkeeping ignored; operating/charging/output gates retained.');
 console.log('PASS: motor T4 25kHz nominal period, all 100 linear duties, enable sequence, stop/fault/sleep command removal.');
 console.log(`PASS: actual C-body logic replay; power long/double/bounce; +/- repeat and bounds; ${patterns} battery patterns; 200 gear/icon states; six-slot GPIO isolation; mature start/stop and protection.`);
 console.log('Assumptions: 10ms driver calls and C integer division; does not model ADC acquisition, PICC execution time, LED current, or real board light behavior.');
