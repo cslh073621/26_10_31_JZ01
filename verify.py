@@ -29,7 +29,7 @@ expected = round(9000 * 10000 * 4095 * 2 / (2000 * 110000))
 assert constant("AD_FAN_TARGET_9V") == expected == 3350
 reconstructed_mv = expected * 2000 * 11 / (4095 * 2)
 assert abs(reconstructed_mv - 9000) < 2
-assert constant("AD_FAN_TOO_HIGH") == round(10000 * 4095 / 22000)
+assert constant("AD_FAN_TOO_HIGH") == round(16000 * 4095 / 22000) == 2978
 # Exhaust all coarse/fine combinations, checking the actual ISR comparison.
 isr = body("void interrupt myIsr(void)")
 assert "if(PWM_DR > PWM_CNT)" in isr

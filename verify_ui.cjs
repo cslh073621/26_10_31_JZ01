@@ -167,8 +167,15 @@ c.AD_fan_deal(); assert.equal(c.T3PWM3EN,1);
 c.fan_mode=0; c.AD_fan_deal(); assert.equal(c.T3PWM3EN,0); assert.equal(c.FAN_ON,1);
 c.AD_fan_deal(); assert.equal(c.FAN_ON,0);
 c.fan_mode=1; c.AD_fan_deal(); c.AD_fan_deal();
-for (let i=0;i<13;i++) {c.AD_FAN_VALUE=1862;c.ad_fan_ready_flag=1;c.AD_fan_deal();}
+for (let i=0;i<13;i++) {c.AD_FAN_VALUE=2979;c.ad_fan_ready_flag=1;c.AD_fan_deal();}
 assert.equal(c.fan_error_flag,1);assert.equal(c.fan_mode,0);assert.equal(c.T3PWM3EN,0);
+// Restored template limit: >10V and 15V samples are not overvoltage faults.
+for(const raw of [1862,2792,2978]) {
+    c=fresh();c.fan_mode=1;c.FAN_ON=1;c.T3PWM3EN=1;c.T3REN=1;
+    for(let i=0;i<20;i++){c.AD_FAN_VALUE=raw;c.ad_fan_ready_flag=1;c.AD_fan_deal();}
+    assert.equal(c.fan_error_flag,0,'no protection trip below/equal template limit');
+    assert.equal(c.too_big_cnt,0);
+}
 // Independent motor PWM: 640 nominal ticks, all gears, stopped/fault/sleep.
 c = fresh(); assert.equal(c.T4C0,0); assert.equal(c.T4C1,0x17);
 assert.equal((c.T4PH << 8) | c.T4PL,639); assert.equal(c.PWMSEL1 & 12,0);
@@ -185,7 +192,7 @@ for (let gear=1; gear<=100; gear++) {
 }
 c=fresh();c.fan_mode=1;c.AD_fan_deal();assert.equal(c.T4C0,0);
 c.AD_fan_deal();assert.equal(c.T4C0,0);c.AD_fan_deal();assert.equal(c.T4C0,0x82);
-c.AD_FAN_VALUE=1862;
+c.AD_FAN_VALUE=2979;
 for(let i=0;i<13;i++){c.ad_fan_ready_flag=1;c.AD_fan_deal();}
 assert.equal(c.T4C0,0);assert.equal(c.MOTOR_PWM,0);
 c=fresh();c.T4C0=0x82;c.MOTOR_PWM=1;c.file_sleep_mode();assert.equal(c.T4C0,0);assert.equal(c.MOTOR_PWM,0);

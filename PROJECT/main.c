@@ -49,7 +49,7 @@
 #define AD_FAN_ERROR_WINDOW      180
 #define AD_FAN_PWM_MIN_COUNT     1
 #define AD_FAN_PWM_MAX_COUNT     43
-#define AD_FAN_TOO_HIGH    1861 /* 10V initial limit; board validation pending. */
+#define AD_FAN_TOO_HIGH    2978 /* Restore FanForge baseline 16V protection. */
 /* Consecutive valid overvoltage means; normal resets count. Min 2; F824 baseline 13. */
 #define AD_FAN_CONFIRM_COUNT  13
 #define FAN_MODE_MIN          1
