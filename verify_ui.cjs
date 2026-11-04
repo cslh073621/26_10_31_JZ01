@@ -147,6 +147,20 @@ for (let iteration = 0; iteration < 12; iteration++) {
         if (pins[5] === 0) assert(pins.slice(0,5).every(x=>x!==0), 'never overlap a low 188 row with active S6');
     }
 }
+// Every five-lamp mask must use the same active-high/default-output convention.
+for (let mask=0;mask<32;mask++) {
+    c=fresh();c.PORTC=0x38;c.Data=[0,0,0,mask];
+    for(let slot=1;slot<=6;slot++) c.smg_188_scan();
+    const pins=levels(c.trace.at(-1));
+    assert.deepEqual(pins.slice(0,5),Array.from({length:5},(_,i)=>mask&(1<<i)?1:-1));
+    assert.equal(pins[5],0);
+    c.trace.length=0;c.smg_188_scan();
+    for(const state of c.trace){
+        assert.equal(state.PORTC&0x38,0x38);
+        const v=levels(state);
+        if(v[5]===0) assert(v.slice(0,5).every(x=>x!==0),'S6 must be blanked before the next 188 low row');
+    }
+}
 // Mature 10ms-call start/stop path and valid-mean overvoltage shutdown.
 c = fresh(); c.fan_mode = 1; c.AD_fan_deal(); assert.equal(c.FAN_ON,1); assert.equal(c.T3PWM3EN,0);
 c.AD_fan_deal(); assert.equal(c.T3PWM3EN,1);

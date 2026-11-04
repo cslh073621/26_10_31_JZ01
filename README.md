@@ -30,7 +30,7 @@ python verify.py
 node verify_ui.cjs
 ```
 
-最新原生HSIDE cc1.exe + PICC 9.83构建：0错误、0警告，ROM 2030/2048 words、RAM 67/128 bytes。
+最新原生HSIDE cc1.exe + PICC 9.83构建：0错误、0警告，ROM 2021/2048 words、RAM 67/128 bytes。
 产物：PROJECT/JZ01.hs.hex、PROJECT/JZ01.ccs；详情见build_report.txt和build_result.json。
-verify_ui.cjs从实际C函数体提取逻辑执行回放，覆盖长按/双击、调档边界、1616组电量灯状态、200组档位图标状态、跨帧六槽输出隔离、100档T4占空比及成熟启停/过压/睡眠路径。它按10ms调用和C整数除法模拟，不代表PICC指令时序、ADC采集、LED电流或实板亮度验证。
+verify_ui.cjs从实际C函数体提取逻辑执行回放，覆盖长按/双击、调档边界、1616组电量灯状态、200组档位图标状态、跨帧六槽输出隔离及全部32种电量灯掩码、100档T4占空比及成熟启停/过压/睡眠路径。它按10ms调用和C整数除法模拟，不代表PICC指令时序、ADC采集、LED电流或实板亮度验证。
 尚未做HSIDE GUI重建或物理板测；9V误差/纹波、实际扫描/PWM节拍、反向微亮/串亮、S6多灯总电流、按键采样手感及电池曲线均需板测。恒压下仅凭输出电压不能保证检出所有电机缺失。三AD支路同时接通的组合电平尚未定义。

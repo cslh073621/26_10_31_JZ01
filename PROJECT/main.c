@@ -771,11 +771,8 @@ void smg_188_scan(void)
     static u8 cnt_display;
     smg_close();
     cnt_display++;
-    if(cnt_display < 6)
-    {
-        TRISA &= 0xF0;
-        TRISC &= 0xFE;
-    }
+    TRISA &= 0xF0;
+    TRISC &= 0xFE;
     switch(cnt_display)
     {
         case 1:
@@ -812,11 +809,11 @@ void smg_188_scan(void)
             IO_LED_5 = 0;
             break;
         case 6:
-            if(Data[3] & 0x01) { IO_LED_1 = 1; IO_OUT_LED_1; }
-            if(Data[3] & 0x02) { IO_LED_2 = 1; IO_OUT_LED_2; }
-            if(Data[3] & 0x04) { IO_LED_3 = 1; IO_OUT_LED_3; }
-            if(Data[3] & 0x08) { IO_LED_4 = 1; IO_OUT_LED_4; }
-            if(Data[3] & 0x10) { IO_LED_5 = 1; IO_OUT_LED_5; }
+            if(!(Data[3] & 0x01)) { IO_IN_LED_1; }
+            if(!(Data[3] & 0x02)) { IO_IN_LED_2; }
+            if(!(Data[3] & 0x04)) { IO_IN_LED_3; }
+            if(!(Data[3] & 0x08)) { IO_IN_LED_4; }
+            if(!(Data[3] & 0x10)) { IO_IN_LED_5; }
             IO_LED_6 = 0;
             IO_OUT_LED_6;
             cnt_display = 0;
