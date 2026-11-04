@@ -8,7 +8,7 @@ const source = fs.readFileSync(path.join(__dirname, 'PROJECT/main.c'), 'ascii').
 const clean = source.replace(/\/\*[\s\S]*?\*\//g, '');
 const signatures = ['void KEY_CHECK(void)', 'void Key_Clear(void)', 'void KEY_deal(void)',
     'void mode_change(void)', 'void show_mode_deal(void)', 'void smg_close(void)',
-    'void smg_188_scan(void)', 'u8 Get_Fin_Val(u16 temp_val)', 'void AD_fan_deal(void)'];
+    'void smg_188_scan(void)', 'void pwm_init(void)', 'void file_sleep_mode(void)', 'u8 Get_Fin_Val(u16 temp_val)', 'void AD_fan_deal(void)'];
 const macros = new Map([...clean.matchAll(/^#define\s+(\w+)\s+(.+)$/gm)].map(m => [m[1], m[2].trim()]));
 let constants = '';
 for (const [name, value] of macros) {
@@ -32,6 +32,7 @@ for (const signature of signatures) {
     let body = clean.slice(first, end + 1);
     body = body.replace(/static u8 (\w+);/g, (_, name) => { statics.add(name); return ''; });
     body = body.replace(/\b(?:u8|u16)\s+/g, 'var ');
+    body = body.replace(/\((?:u8|u16)\)/g, '');
     body = body.replace(/app_smg\[temp_val \/ 10\]/g, 'app_smg[Math.floor(temp_val / 10)]');
     for (const [name, value] of macros) {
         if (name.startsWith('IO_')) body = body.replace(new RegExp('\\b' + name + '\\b', 'g'), value);
@@ -43,7 +44,7 @@ for (const signature of signatures) {
 globals += [...statics].map(name => `\nvar ${name} = 0;`).join('');
 function fresh() {
     const ctx = {Math};
-    const registers = {PORTA: 0, PORTC: 0, TRISA: 0x7F, TRISC: 0x07};
+    const registers = {PORTA: 0, PORTC: 0, TRISA: 0x7F, TRISC: 0x07, T4C0:0, T4C1:0, T4PH:0, T4PL:0, T4DH:0, T4DL:0};
     ctx.trace = [];
     for (const [reg, initial] of Object.entries(registers)) {
         Object.defineProperty(ctx, reg, {get() {return registers[reg];}, set(value) {
@@ -61,9 +62,14 @@ function fresh() {
     vm.createContext(ctx);
     vm.runInContext(constants + globals + code, ctx);
     // GPIO aliases used in production C must remain register-backed.
-    for (const [name, reg] of [['COOL_EN','PC5'],['FAN_ON','PC4'],['CHRG','PA5'],['STDBY','PA4']]) {
+    for (const [name, reg] of [['COOL_EN','PC5'],['FAN_ON','PC4'],['MOTOR_PWM','PC3'],['CHRG','PA5'],['STDBY','PA4']]) {
         Object.defineProperty(ctx, name, {get() {return ctx[reg];}, set(v) {ctx[reg] = v;}});
     }
+    Object.defineProperty(ctx, 'T4REN', {get() {return ctx.T4C0 >> 7 & 1;}});
+    Object.defineProperty(ctx, 'T4PWMEN', {get() {return ctx.T4C0 >> 1 & 1;}});
+    ctx.Init_System = () => {};
+    ctx.asm = instruction => {if (instruction === 'sleep') {assert.equal(ctx.T4C0,0); assert.equal(ctx.MOTOR_PWM,0);}};
+    ctx.pwm_init();
     ctx.charge_num = 80; ctx.YOUWU_COOL = 1;
     ctx.KEY1 = ctx.KEY2 = ctx.KEY3 = 1;
     ctx.CHRG = ctx.STDBY = 1;
@@ -149,5 +155,26 @@ c.AD_fan_deal(); assert.equal(c.FAN_ON,0);
 c.fan_mode=1; c.AD_fan_deal(); c.AD_fan_deal();
 for (let i=0;i<13;i++) {c.AD_FAN_VALUE=1862;c.ad_fan_ready_flag=1;c.AD_fan_deal();}
 assert.equal(c.fan_error_flag,1);assert.equal(c.fan_mode,0);assert.equal(c.T3PWM3EN,0);
+// Independent motor PWM: 640 nominal ticks, all gears, stopped/fault/sleep.
+c = fresh(); assert.equal(c.T4C0,0); assert.equal(c.T4C1,0x17);
+assert.equal((c.T4PH << 8) | c.T4PL,639); assert.equal(c.PWMSEL1 & 12,0);
+let previous = -1;
+for (let gear=1; gear<=100; gear++) {
+    c = fresh(); c.fan_mode=gear; c.FAN_ON=1; c.T3PWM3EN=1; c.T3REN=1;
+    c.AD_fan_deal();
+    const duty=(c.T4DH<<8)|c.T4DL;
+    const expected=224+Math.floor((400*(gear-1)+49)/99);
+    assert.equal(duty,expected,'linear motor command gear '+gear);
+    assert(duty>previous); previous=duty;
+    assert.equal(c.T4C0,0x82);assert.equal(c.T3PL,63);assert.equal(c.T3C1,0x17);
+    c.fan_mode=0;c.AD_fan_deal();assert.equal(c.T4C0,0);assert.equal(c.MOTOR_PWM,0);
+}
+c=fresh();c.fan_mode=1;c.AD_fan_deal();assert.equal(c.T4C0,0);
+c.AD_fan_deal();assert.equal(c.T4C0,0);c.AD_fan_deal();assert.equal(c.T4C0,0x82);
+c.AD_FAN_VALUE=1862;
+for(let i=0;i<13;i++){c.ad_fan_ready_flag=1;c.AD_fan_deal();}
+assert.equal(c.T4C0,0);assert.equal(c.MOTOR_PWM,0);
+c=fresh();c.T4C0=0x82;c.MOTOR_PWM=1;c.file_sleep_mode();assert.equal(c.T4C0,0);assert.equal(c.MOTOR_PWM,0);
+console.log('PASS: motor T4 25kHz nominal period, all 100 linear duties, enable sequence, stop/fault/sleep command removal.');
 console.log(`PASS: actual C-body logic replay; power long/double/bounce; +/- repeat and bounds; ${patterns} battery patterns; 200 gear/icon states; six-slot GPIO isolation; mature start/stop and protection.`);
 console.log('Assumptions: 10ms driver calls and C integer division; does not model ADC acquisition, PICC execution time, LED current, or real board light behavior.');

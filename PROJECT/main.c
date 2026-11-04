@@ -3,7 +3,7 @@
  * Complete reviewed HS2811 classic fan profile.
  * Based on the copied FanForge F824 fixed-voltage 7+3 firmware.
  * Standard 188 gear display and S6-common-cathode battery LEDs.
- * Pin8 motor speed communication remains pending.
+ * Pin8 independent T4PWM: 25kHz target, 35%..97.5% for gears 1..100.
  */
 #pragma warning disable 752
 #pragma warning disable 373
@@ -299,6 +299,12 @@ void pwm_init(void)
     T3PH = 0x00;
     PWMSEL = 0xC0;
     PWMSEL1 = 0x00;
+    T4C0 = 0x00;
+    T4C1 = 0x17;
+    T4PH = 0x02;
+    T4PL = 0x7F;
+    T4DH = 0;
+    T4DL = 0;
     T3D3L = 0;
     T3D3H = 0;
     T3PWM3EN = 0;
@@ -384,6 +390,8 @@ u8 ADC_Sample(void)
                     COOL_EN = 0;
                     PWM_DR = 0;
                     PWM_DATA_NOW = 0;
+                    T4C0 = 0;
+                    MOTOR_PWM = 0;
                     T3PWM3EN = 0;
                     T3REN = 0;
                     T3D3L = 0;
@@ -844,6 +852,8 @@ void AD_fan_deal(void)
     u16 temp_pbp_val;
     if(!fan_mode || fan_error_flag)
     {
+        T4C0 = 0;
+        MOTOR_PWM = 0;
         too_big_cnt = 0;
         adc_timeout_cnt = 0;
         ad_fan_ready_flag = 0;
@@ -880,6 +890,16 @@ void AD_fan_deal(void)
         T3REN = 1;
         return;
     }
+    /* round(640 * (35% + (fan_mode-1) * 62.5% / 99)), no division. */
+    temp_pbp_val = (u16)fan_mode << 2;
+    temp_pbp_val += 220;
+    if(fan_mode >= 14) { temp_pbp_val++; }
+    if(fan_mode >= 39) { temp_pbp_val++; }
+    if(fan_mode >= 63) { temp_pbp_val++; }
+    if(fan_mode >= 88) { temp_pbp_val++; }
+    T4DH = temp_pbp_val >> 8;
+    T4DL = temp_pbp_val;
+    T4C0 = 0x82;
     if(!ad_fan_ready_flag)
     {
         return;
@@ -895,6 +915,8 @@ void AD_fan_deal(void)
         {
             fan_error_flag = 1;
             fan_mode = 0;
+            T4C0 = 0;
+            MOTOR_PWM = 0;
             PWM_DR = 0;
             PWM_DATA_NOW = 0;
             T3PWM3EN = 0;
@@ -1134,6 +1156,7 @@ void detect_optional_features(void)
 
 void file_sleep_mode(void)
 {
+    T4C0 = 0;
     T3PWM3EN = 0;
     T3D3L = 0;
     T3D3H = 0;
@@ -1329,7 +1352,7 @@ void main(void)
                && !key1_long_flag && !key2_long_flag && !key3_long_flag
                && !key2_click_cnt && !key2_click_time
                && !wake_guard_cnt
-               && !T3PWM3EN && !T3REN && !FAN_ON)
+               && !T3PWM3EN && !T3REN && !FAN_ON && !T4REN)
             {
                 file_sleep_mode();
             }

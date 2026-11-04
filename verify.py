@@ -78,6 +78,12 @@ assert "TRISA |= 0x0F;" in body("void smg_close(void)")
 assert "TRISC |= 0x05;" in body("void smg_close(void)")
 assert "#define MOTOR_PWM    PC3" in text
 assert not re.search(r"MOTOR_PWM\s*=\s*1", text)
+assert "T4C1 = 0x17;" in body("void pwm_init(void)")
+assert "T4PH = 0x02;" in body("void pwm_init(void)")
+assert "T4PL = 0x7F;" in body("void pwm_init(void)")
+assert "T4C0 = 0;" in adc and "MOTOR_PWM = 0;" in adc
+assert "T4C0 = 0;" in body("void file_sleep_mode(void)")
+assert "!T4REN" in body("void main(void)")
 assert text.count("T1TH = 0xFE;") == text.count("T1TL = 0x70;") == 2
 config = ET.fromstring((ROOT / "PROJECT/JZ01.hsprj2").read_bytes().decode("utf-8-sig"))
 assert config.findtext("chip") == "HS16P2811"
@@ -89,6 +95,6 @@ assert hashlib.sha256((ROOT / "PROJECT/JZ01.hs.hex").read_bytes()).hexdigest() =
 log = (ROOT / "build_report.txt").read_bytes().decode("utf-8")
 assert not re.search(r"^(?:error|warnning|warning):", log, re.M | re.I)
 print("PASS: fixed 9V target; 344 coarse/fine combinations; ADC bounds/fault path;")
-print("three key ranges with power/up/down actions; six-slot display; communication placeholder;")
+print("three key ranges with power/up/down actions; six-slot display; independent motor PWM;")
 print("4T native project; source/HEX hashes; zero reported compiler errors/warnings.")
 print("Source checks and arithmetic checks only; no GUI rebuild or physical-board validation.")
