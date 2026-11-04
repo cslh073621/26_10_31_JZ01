@@ -1236,7 +1236,7 @@ void file_sleep_mode(void)
     PORTA = 0x00;
     PORTC = 0x00;
     TRISA = 0x7F;
-    TRISC = 0x07;
+    TRISC = 0x0F;
     PAHCON = 0xCF;
     PADCON = 0xFF;
     PCHCON = 0xFF;

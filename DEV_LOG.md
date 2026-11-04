@@ -150,3 +150,11 @@
 - 充电流水、100%全亮、21%以上常规电量条、关机与原low_cnt提示保持；补充1/20/21%边界、充电切换、停机及原全量流水回放。
 - 验证数据见本次build_result.json及build_report.txt；硬件可见闪烁效果仍需板测。Commit：见包含本记录的提交。
 - 本次实测构建：0E0W，ROM 2033/2048 words，RAM 69/128 bytes；verify.py及verify_ui.cjs通过，4472帧电量回放含新增最低格闪烁预期。HEX SHA256=2db07f508b98ef001a01185fd80e1d4c56497a13fd77d35ecc3b5a35d51e7066。
+
+
+## 2026-11-04：确认8脚休眠浮空输入
+- 用户要求8脚待机浮空；已展示当前/提议对比并获用户“确定”批准。
+- 仅修改file_sleep_mode内TRISC=0x07为0x0F，使PC3/物理8脚休眠时为输入。T4C0保持关闭，PCHCON/PCDCON均0xFF保持上下拉关闭；GPIO_Init仍TRISC=0x07，唤醒正常恢复输出低。运行PWM、引脚复用与启停逻辑均未改。
+- 沿用现有实际C函数回放，在sleep指令处检查TRISC及上下拉寄存器；C源码行数不变，标准CRLF无CRCRLF。外部电路决定浮空引脚实际电压，板测待用户验证。
+- Commit：见包含本记录的提交。
+- 原生编译0E0W，ROM 2033/2048、RAM 69/128；verify.py、verify_ui.cjs通过，包含睡眠瞬间PC3输入/上下拉关闭检查。HEX SHA256=01cc341772967da72bef4e375dea1630b13d6f21ae2b599ff0cfbb1dab678e41。
