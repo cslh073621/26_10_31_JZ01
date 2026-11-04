@@ -2,7 +2,8 @@
  * JZ01 - HS16P2811, user-confirmed 16MHz / 4T.
  * Complete reviewed HS2811 classic fan profile.
  * Based on the copied FanForge F824 fixed-voltage 7+3 firmware.
- * Motor communication and S1-S6 segment mapping are pending.
+ * Standard 188 gear display and S6-common-cathode battery LEDs.
+ * Pin8 motor speed communication remains pending.
  */
 #pragma warning disable 752
 #pragma warning disable 373
@@ -37,6 +38,8 @@
 #define IO_IN_LED_4     TRISA |= 0x08
 #define IO_OUT_LED_5    TRISC &= 0xFE
 #define IO_IN_LED_5     TRISC |= 0x01
+#define IO_OUT_LED_6    TRISC &= 0xFB
+#define IO_IN_LED_6     TRISC |= 0x04
 
 /* Fixed source section: product parameters. */
 #define FAN_PWM_TARGET_HZ 250000UL
@@ -50,8 +53,8 @@
 /* Consecutive valid overvoltage means; normal resets count. Min 2; F824 baseline 13. */
 #define AD_FAN_CONFIRM_COUNT  13
 #define FAN_MODE_MIN          1
-#define FAN_MODE_MAX          199
-#define CHARGE_MAX_GEAR       199
+#define FAN_MODE_MAX          100
+#define CHARGE_MAX_GEAR       100
 
 #define AD_BAT_ZERO           15000
 #define AD_BAT_LOW            18000
@@ -73,8 +76,8 @@
 #define AD_BAT_MODE_100       680
 #define AD_BAT_MODE_COOL      571
 /* VDD-reference ADC: 0R=0, 6.8k=1658, 20k=2730, released=4095.
- * KEY1: 20k input. KEY2: 0R button. All product actions are pending.
- * KEY3: 6.8k slide input, action pending. Combined contacts need board data. */
+ * KEY1: 20k down. KEY2: 0R power/cooling. KEY3: 6.8k up.
+ * All contacts are momentary; combination voltages need board data. */
 #define AD_KEY1_MIN           2530
 #define AD_KEY1_MAX           2930
 #define AD_KEY2_MAX           100
@@ -85,7 +88,6 @@ bit time_1ms_flag;
 bit time_10ms_flag;
 bit time_100ms_flag;
 bit time_500ms_flag;
-bit page_3s_3s_flag;
 bit low_discharge_5s_flag;
 bit discharge_20s_flag;
 bit charge_full_25s_flag;
@@ -112,7 +114,6 @@ bit insert_flag;
 bit charge_on_flag;
 bit charge_max_flag;
 bit low_power_flag;
-bit show_mode;
 bit time_flash_flag;
 bit adc_bat_ready_flag;
 bit ad_fan_ready_flag;
@@ -123,7 +124,6 @@ u8 delay_cnt;
 u8 time_10ms_cnt;
 u8 time_100ms_cnt;
 u8 time_500ms_cnt;
-u8 page_3s_3s_cnt;
 u8 low_discharge_5s_cnt;
 u8 discharge_20s_cnt;
 u8 charge_full_25s_cnt;
@@ -144,10 +144,11 @@ u8 PWM_CNT;
 u8 PWM_DATA_NOW;
 u8 t1_subtick_cnt;
 
-u8 Data[3];
+u8 Data[4];
+u8 key2_click_cnt;
+u8 key2_click_time;
 u8 charge_num;
 u8 low_cnt;
-u8 step_cnt;
 u8 wake_guard_cnt;
 u8 key1_delay;
 u8 key2_delay;
@@ -171,7 +172,6 @@ void mode_change(void);
 void show_mode_deal(void);
 void KEY_CHECK(void);
 void Key_Clear(void);
-void show_mode_change(void);
 void KEY_deal(void);
 void smg_close(void);
 void smg_188_scan(void);
@@ -275,6 +275,8 @@ void ADC_Init(void)
     PWM_DATA_NOW = 0;
     t1_subtick_cnt = 0;
     battery_time_type = 0xFF;
+    key2_click_cnt = 0;
+    key2_click_time = 0;
 }
 
 void timer1_init(void)
@@ -465,16 +467,10 @@ void time_flag_deal(void)
     {
         time_500ms_cnt = 0;
         time_500ms_flag = 1;
-        page_3s_3s_cnt++;
         low_discharge_5s_cnt++;
         discharge_20s_cnt++;
         charge_full_25s_cnt++;
         charge_active_90s_cnt++;
-    }
-    if(page_3s_3s_cnt > 5)
-    {
-        page_3s_3s_cnt = 0;
-        page_3s_3s_flag = 1;
     }
     if(low_discharge_5s_cnt > 9)
     {
@@ -504,26 +500,12 @@ void mode_change_show(void)
     {
         time_500ms_flag = 0;
         time_flash_flag = !time_flash_flag;
-        if(low_cnt)
-        {
-            low_cnt--;
-        }
-    }
-    if(page_3s_3s_flag)
-    {
-        page_3s_3s_flag = 0;
-        if(step_cnt)
-        {
-            step_cnt--;
-            show_mode = !show_mode;
-        }
+        if(low_cnt) { low_cnt--; }
     }
 }
 
 void mode_change(void)
 {
-    static u8 fan_old;
-    static u8 insert_old;
     charge_on_flag = 0;
     charge_max_flag = 0;
     insert_flag = 0;
@@ -540,38 +522,14 @@ void mode_change(void)
     if(insert_flag)
     {
         COOL_EN = 0;
-        if(fan_mode > CHARGE_MAX_GEAR)
-        {
-            fan_mode = CHARGE_MAX_GEAR;
-        }
+        if(fan_mode > CHARGE_MAX_GEAR) { fan_mode = CHARGE_MAX_GEAR; }
     }
     if(fan_error_flag || (!charge_num && !insert_flag))
     {
         fan_mode = 0;
         COOL_EN = 0;
     }
-    if(!YOUWU_COOL || !fan_mode)
-    {
-        COOL_EN = 0;
-    }
-    if(insert_flag != insert_old)
-    {
-        page_3s_3s_flag = 0;
-        page_3s_3s_cnt = 0;
-        step_cnt = 0;
-        show_mode = insert_flag ? 0 : (fan_mode ? 1 : 0);
-    }
-    else if(fan_mode && fan_mode != fan_old)
-    {
-        show_mode_change();
-    }
-    else if(!fan_mode && !insert_flag)
-    {
-        show_mode = 0;
-        step_cnt = 0;
-    }
-    fan_old = fan_mode;
-    insert_old = insert_flag;
+    if(!YOUWU_COOL || !fan_mode) { COOL_EN = 0; }
 }
 
 void show_mode_deal(void)
@@ -580,43 +538,47 @@ void show_mode_deal(void)
     u8 d0;
     u8 d1;
     u8 d2;
-    if(show_mode)
+    u8 d3;
+    d0 = 0;
+    d1 = 0;
+    d2 = 0;
+    d3 = 0;
+    if(fan_mode)
     {
         temp_val = fan_mode;
-        d0 = 0;
-    }
-    else
-    {
-        temp_val = charge_num;
         d0 = 0x04;
-    }
-    if(YOUWU_COOL && COOL_EN)
-    {
-        d0 |= 0x08;
-    }
-    if(temp_val > 99)
-    {
-        d0 |= 0x03;
-        temp_val -= 100;
-    }
-    d1 = app_smg[temp_val / 10];
-    d2 = app_smg[temp_val % 10];
-    if(!show_mode)
-    {
-        if(low_power_flag && !insert_flag && time_flash_flag)
+        if(YOUWU_COOL && COOL_EN) { d0 |= 0x08; }
+        if(temp_val > 99)
         {
-            d1 = 0;
-            d2 = 0;
+            d0 |= 0x03;
+            temp_val -= 100;
         }
-        if(insert_flag && charge_num < 100 && time_flash_flag)
+        if(fan_mode < 10) { d1 = 0; }
+        else { d1 = app_smg[temp_val / 10]; }
+        d2 = app_smg[temp_val % 10];
+    }
+    if((fan_mode || insert_flag || low_cnt) && charge_num)
+    {
+        d3 = 0x10;
+        if(charge_num > 20) { d3 |= 0x08; }
+        if(charge_num > 40) { d3 |= 0x04; }
+        if(charge_num > 60) { d3 |= 0x02; }
+        if(charge_num > 80) { d3 |= 0x01; }
+        if(insert_flag && !(charge_max_flag && charge_num >= 100)
+           && time_flash_flag)
         {
-            d2 = 0;
+            if(charge_num > 80) { d3 &= 0xFE; }
+            else if(charge_num > 60) { d3 &= 0xFD; }
+            else if(charge_num > 40) { d3 &= 0xFB; }
+            else if(charge_num > 20) { d3 &= 0xF7; }
+            else { d3 = 0; }
         }
     }
     GIE = 0;
     Data[0] = d0;
     Data[1] = d1;
     Data[2] = d2;
+    Data[3] = d3;
     GIE = 1;
 }
 
@@ -672,8 +634,7 @@ void KEY_CHECK(void)
         if(key2_delay < 250) { key2_delay++; }
         if(!KEY2)
         {
-            if((!key2_long_one_flag && key2_delay > 60)
-                || (key2_long_one_flag && key2_delay > 6))
+            if(!key2_long_one_flag && key2_delay > 60)
             {
                 key2_long_flag = 1;
                 key2_long_one_flag = 1;
@@ -733,32 +694,129 @@ void Key_Clear(void)
     key3_long_flag = 0;
 }
 
-void show_mode_change(void)
-{
-    show_mode = 1;
-    step_cnt = insert_flag ? 1 : 2;
-    page_3s_3s_flag = 0;
-    page_3s_3s_cnt = 0;
-}
-
 void KEY_deal(void)
 {
-    /* AD key driver is ready. Product actions will be filled in later. */
+    if(key2_click_cnt)
+    {
+        if(key2_click_time < 35) { key2_click_time++; }
+        else
+        {
+            key2_click_cnt = 0;
+            key2_click_time = 0;
+        }
+    }
+    if(key2_long_flag)
+    {
+        key2_click_cnt = 0;
+        key2_click_time = 0;
+        if(fan_mode)
+        {
+            fan_mode = 0;
+            COOL_EN = 0;
+        }
+        else if(charge_num || insert_flag)
+        {
+            fan_error_flag = 0;
+            fan_mode = FAN_MODE_MIN;
+        }
+        else { low_cnt = 8; }
+    }
+    else if(key2_short_flag && fan_mode)
+    {
+        if(key2_click_cnt)
+        {
+            key2_click_cnt = 0;
+            key2_click_time = 0;
+            if(YOUWU_COOL && !insert_flag) { COOL_EN = !COOL_EN; }
+        }
+        else
+        {
+            key2_click_cnt = 1;
+            key2_click_time = 0;
+        }
+    }
+    if(fan_mode)
+    {
+        if((key3_short_flag || key3_long_flag) && fan_mode < FAN_MODE_MAX)
+        {
+            fan_mode++;
+        }
+        if((key1_short_flag || key1_long_flag) && fan_mode > FAN_MODE_MIN)
+        {
+            fan_mode--;
+        }
+    }
     Key_Clear();
 }
 
 void smg_close(void)
 {
+    /* Blank all shared pins before changing output levels and directions. */
     TRISA |= 0x0F;
     TRISC |= 0x05;
-    PORTA &= 0xF0;
-    PORTC &= 0xFA;
+    PORTA |= 0x0F;
+    PORTC |= 0x01;
 }
 
 void smg_188_scan(void)
 {
-    /* S1-S6 mapping pending: no segment output until the wiring is supplied. */
+    static u8 cnt_display;
     smg_close();
+    cnt_display++;
+    if(cnt_display < 6)
+    {
+        TRISA &= 0xF0;
+        TRISC &= 0xFE;
+    }
+    switch(cnt_display)
+    {
+        case 1:
+            if(!(Data[2] & 0x02)) { IO_IN_LED_2; }
+            if(!(Data[2] & 0x08)) { IO_IN_LED_3; }
+            if(!(Data[2] & 0x20)) { IO_IN_LED_4; }
+            if(!(Data[2] & 0x40)) { IO_IN_LED_5; }
+            IO_LED_1 = 0;
+            break;
+        case 2:
+            if(!(Data[2] & 0x01)) { IO_IN_LED_1; }
+            if(!(Data[1] & 0x02)) { IO_IN_LED_3; }
+            if(!(Data[1] & 0x08)) { IO_IN_LED_4; }
+            if(!(Data[1] & 0x10)) { IO_IN_LED_5; }
+            IO_LED_2 = 0;
+            break;
+        case 3:
+            if(!(Data[2] & 0x04)) { IO_IN_LED_1; }
+            if(!(Data[1] & 0x01)) { IO_IN_LED_2; }
+            if(!(Data[1] & 0x04)) { IO_IN_LED_4; }
+            if(!(Data[1] & 0x20)) { IO_IN_LED_5; }
+            IO_LED_3 = 0;
+            break;
+        case 4:
+            if(!(Data[2] & 0x10)) { IO_IN_LED_1; }
+            if(!(Data[0] & 0x02)) { IO_IN_LED_2; }
+            if(!(Data[0] & 0x01)) { IO_IN_LED_3; }
+            if(!(Data[1] & 0x40)) { IO_IN_LED_5; }
+            IO_LED_4 = 0;
+            break;
+        case 5:
+            if(!(Data[0] & 0x04)) { IO_IN_LED_2; }
+            if(!(Data[0] & 0x08)) { IO_IN_LED_3; }
+            IO_LED_5 = 0;
+            break;
+        case 6:
+            if(Data[3] & 0x01) { IO_LED_1 = 1; IO_OUT_LED_1; }
+            if(Data[3] & 0x02) { IO_LED_2 = 1; IO_OUT_LED_2; }
+            if(Data[3] & 0x04) { IO_LED_3 = 1; IO_OUT_LED_3; }
+            if(Data[3] & 0x08) { IO_LED_4 = 1; IO_OUT_LED_4; }
+            if(Data[3] & 0x10) { IO_LED_5 = 1; IO_OUT_LED_5; }
+            IO_LED_6 = 0;
+            IO_OUT_LED_6;
+            cnt_display = 0;
+            break;
+        default:
+            cnt_display = 0;
+            break;
+    }
 }
 
 u8 Get_Fin_Val(u16 temp_val)
@@ -1104,12 +1162,10 @@ void file_sleep_mode(void)
     KEY1 = 1;
     KEY2 = 1;
     KEY3 = 1;
-    step_cnt = 0;
     Data[0] = 0;
     Data[1] = 0;
     Data[2] = 0;
-    page_3s_3s_flag = 0;
-    page_3s_3s_cnt = 0;
+    Data[3] = 0;
     ADCDATA_SUM = 0;
     ADCDATA_COUNT = 0;
     adc_high_rate_flag = 0;
@@ -1130,6 +1186,8 @@ void file_sleep_mode(void)
     PWM_DATA_NOW = 0;
     t1_subtick_cnt = 0;
     battery_time_type = 0xFF;
+    key2_click_cnt = 0;
+    key2_click_time = 0;
     PORTA = 0x00;
     PORTC = 0x00;
     TRISA = 0x7F;
@@ -1168,10 +1226,8 @@ void main(void)
     fan_mode = 0;
     charge_num = 0;
     low_cnt = 0;
-    step_cnt = 0;
     wake_guard_cnt = 0;
     fan_error_flag = 0;
-    show_mode = 0;
     time_flash_flag = 0;
     COOL_EN = 0;
     YOUWU_COOL = 0;
@@ -1182,6 +1238,7 @@ void main(void)
     Data[0] = 0xFF;
     Data[1] = 0xFF;
     Data[2] = 0xFF;
+    Data[3] = 0x1F;
     while(delay_cnt)
     {
         time_flag_deal();
@@ -1210,10 +1267,9 @@ void main(void)
     Data[0] = 0;
     Data[1] = 0;
     Data[2] = 0;
+    Data[3] = 0;
     fan_mode = 0;
     COOL_EN = 0;
-    show_mode = 0;
-    step_cnt = 0;
     wake_guard_cnt = 20;
     mode_change();
     show_mode_deal();
@@ -1271,6 +1327,7 @@ void main(void)
                && !key1_down_flag && !key2_down_flag && !key3_down_flag
                && !key1_short_flag && !key2_short_flag && !key3_short_flag
                && !key1_long_flag && !key2_long_flag && !key3_long_flag
+               && !key2_click_cnt && !key2_click_time
                && !wake_guard_cnt
                && !T3PWM3EN && !T3REN && !FAN_ON)
             {

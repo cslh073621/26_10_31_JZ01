@@ -67,10 +67,13 @@ for key in (1, 2, 3):
     assert f"key{key}_short_flag = 0;" in body("void Key_Clear(void)")
     assert f"!key{key}_down_flag" in body("void main(void)")
 key_actions = body("void KEY_deal(void)")
-assert not re.search(r"(?:fan_mode|COOL_EN)\s*=", key_actions)
+assert "key2_long_flag" in key_actions and "key2_click_cnt" in key_actions
+assert constant("FAN_MODE_MAX") == 100
+assert "!key2_click_cnt && !key2_click_time" in body("void main(void)")
 assert "Key_Clear();" in key_actions
 assert "smg_close();" in body("void smg_188_scan(void)")
-assert "switch" not in body("void smg_188_scan(void)")
+assert "case 6:" in body("void smg_188_scan(void)")
+assert "IO_OUT_LED_6;" in body("void smg_188_scan(void)")
 assert "TRISA |= 0x0F;" in body("void smg_close(void)")
 assert "TRISC |= 0x05;" in body("void smg_close(void)")
 assert "#define MOTOR_PWM    PC3" in text
@@ -86,6 +89,6 @@ assert hashlib.sha256((ROOT / "PROJECT/JZ01.hs.hex").read_bytes()).hexdigest() =
 log = (ROOT / "build_report.txt").read_bytes().decode("utf-8")
 assert not re.search(r"^(?:error|warnning|warning):", log, re.M | re.I)
 print("PASS: fixed 9V target; 344 coarse/fine combinations; ADC bounds/fault path;")
-print("three key ranges/drivers with empty actions; display/communication placeholders;")
+print("three key ranges with power/up/down actions; six-slot display; communication placeholder;")
 print("4T native project; source/HEX hashes; zero reported compiler errors/warnings.")
 print("Source checks and arithmetic checks only; no GUI rebuild or physical-board validation.")
