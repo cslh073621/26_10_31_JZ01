@@ -157,3 +157,11 @@ case6不再重复写S1-S5为1或逐个恢复正极输出。所有六槽先共用
 - 沿用现有实际C函数回放，在sleep指令处检查TRISC及上下拉寄存器；C源码行数不变，标准CRLF无CRCRLF。外部电路决定浮空引脚实际电压，板测待用户验证。
 - Commit：见包含本记录的提交。
 - 原生编译0E0W，ROM 2033/2048、RAM 69/128；verify.py、verify_ui.cjs通过，包含睡眠瞬间PC3输入/上下拉关闭检查。HEX SHA256=01cc341772967da72bef4e375dea1630b13d6f21ae2b599ff0cfbb1dab678e41。
+
+
+## 2026-11-05：8脚休眠上拉输入
+- 用户要求将8脚待机改为上拉输入；已提供寄存器对比，用户明确回复“实施”。
+- 仅修改file_sleep_mode内PCHCON=0xFF为0xF7，开启PC3/物理8脚内部上拉；TRISC=0x0F保持输入，PCDCON=0xFF保持下拉关闭，T4关闭。GPIO_Init仍为原输出低及上拉关闭配置，唤醒/运行PWM及其他引脚不变。
+- 回放在sleep指令处检查TRISC=0x0F、PCHCON=0xF7、PCDCON=0xFF；源码标准CRLF，行数不变，无CRCRLF。板上实际电平及待机电流待实测。
+- Commit：见包含本记录的提交。
+- 原生编译0E0W，ROM 2035/2048、RAM 69/128；verify.py及verify_ui.cjs通过，4472帧电量回放与原按键/PWM/扫描/保护回归均通过。HEX SHA256=c2c73b90d1201d7ade2844fad2aa7912090697948dadfe19bc4621ccec00f21c。

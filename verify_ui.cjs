@@ -68,7 +68,7 @@ function fresh() {
     Object.defineProperty(ctx, 'T4REN', {get() {return ctx.T4C0 >> 7 & 1;}});
     Object.defineProperty(ctx, 'T4PWMEN', {get() {return ctx.T4C0 >> 1 & 1;}});
     ctx.Init_System = () => {};
-    ctx.asm = instruction => {if (instruction === 'sleep') {assert.equal(ctx.T4C0,0); assert.equal(ctx.MOTOR_PWM,0); assert.equal(ctx.TRISC,0x0F); assert.equal(ctx.PCHCON,0xFF); assert.equal(ctx.PCDCON,0xFF);}};
+    ctx.asm = instruction => {if (instruction === 'sleep') {assert.equal(ctx.T4C0,0); assert.equal(ctx.MOTOR_PWM,0); assert.equal(ctx.TRISC,0x0F); assert.equal(ctx.PCHCON,0xF7); assert.equal(ctx.PCDCON,0xFF);}};
     ctx.pwm_init();
     ctx.charge_num = 80; ctx.YOUWU_COOL = 1;
     ctx.KEY1 = ctx.KEY2 = ctx.KEY3 = 1;

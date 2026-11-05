@@ -1239,7 +1239,7 @@ void file_sleep_mode(void)
     TRISC = 0x0F;
     PAHCON = 0xCF;
     PADCON = 0xFF;
-    PCHCON = 0xFF;
+    PCHCON = 0xF7;
     PCDCON = 0xFF;
     ADM = 0;
     T1IE = 0;
