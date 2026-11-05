@@ -166,3 +166,12 @@
 - 回放在sleep指令处检查TRISC=0x0F、PCHCON=0xF7、PCDCON=0xFF；源码标准CRLF，行数不变，无CRCRLF。板上实际电平及待机电流待实测。
 - Commit：见包含本记录的提交。
 - 原生编译0E0W，ROM 2035/2048、RAM 69/128；verify.py及verify_ui.cjs通过，4472帧电量回放与原按键/PWM/扫描/保护回归均通过。HEX SHA256=c2c73b90d1201d7ade2844fad2aa7912090697948dadfe19bc4621ccec00f21c。
+
+
+## 2026-11-05：数码管共用六脚休眠输出低试验
+- 用户要求数码管全部待机输出低以观察效果；已列出S1–S6方向寄存器对比，用户回复“批准”。
+- 仅修改file_sleep_mode：TRISA由0x7F改0x70，TRISC由0x0F改0x0A；既有PORTA/PORTC清零后，PA0–PA3、PC0、PC2即S1–S6（物理15/14/13/12/11/9脚）全部输出低。
+- PC3/8脚维持上拉输入PCHCON=0xF7，PCDCON=0xFF下拉关闭；CHRG/STDBY与AD按键输入、反馈输入及其余输出不变。运行扫描/唤醒GPIO_Init不改。回滚仅恢复休眠TRISA=0x7F、TRISC=0x0F。
+- 沿用实际C函数回放，在sleep指令处检查六脚输出方向及低电平锁存、8脚上拉配置；C源码行数不变、标准CRLF无CRCRLF。板上待机显示效果和电流待用户观察。
+- Commit：见包含本记录的提交。
+- 原生编译0E0W，ROM 2035/2048、RAM 69/128；verify.py与verify_ui.cjs全量通过，含休眠六脚输出低及8脚上拉输入检查。HEX SHA256=d4875e8f0a82b74dc6f99d437a5f23ce1c96c1b1c8f54608bc03642622fb4a4f。

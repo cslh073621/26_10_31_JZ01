@@ -1235,8 +1235,8 @@ void file_sleep_mode(void)
     key2_click_time = 0;
     PORTA = 0x00;
     PORTC = 0x00;
-    TRISA = 0x7F;
-    TRISC = 0x0F;
+    TRISA = 0x70;
+    TRISC = 0x0A;
     PAHCON = 0xCF;
     PADCON = 0xFF;
     PCHCON = 0xF7;
